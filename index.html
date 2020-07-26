@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-微信小程序的学习之事件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%8B%E4%BB%B6/" class="article-date">
+  <time datetime="2020-07-22T03:45:16.000Z" itemprop="datePublished">2020-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%8B%E4%BB%B6/">微信小程序的学习之事件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="什么是事件"><a href="#什么是事件" class="headerlink" title="什么是事件"></a>什么是事件</h2><ul>
+<li>事件是视图层到逻辑层的通讯方式。</li>
+<li>事件可以将用户的行为反馈到逻辑层进行处理。</li>
+<li>事件可以绑定在组件上，当达到触发事件，就会执行逻辑层中对应的事件处理函数。</li>
+<li>事件对象可以携带额外信息，如 id, dataset, touches。</li>
+</ul>
+<h3 id="事件分类"><a href="#事件分类" class="headerlink" title="事件分类"></a>事件分类</h3><p>事件分为冒泡事件和非冒泡事件：</p>
+<ol>
+<li>冒泡事件：当一个组件上的事件被触发后，该事件会向父节点传递。</li>
+<li>非冒泡事件：当一个组件上的事件被触发后，该事件不会向父节点传递。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">触发条件</th>
+<th align="left">最低版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">touchstart</td>
+<td align="left">手指触摸动作开始</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">touchmove</td>
+<td align="left">手指触摸后移动</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">touchcancel</td>
+<td align="left">手指触摸动作被打断，如来电提醒，弹窗</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">touchend</td>
+<td align="left">手指触摸动作结束</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">tap</td>
+<td align="left">手指触摸后马上离开</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">longpress</td>
+<td align="left">手指触摸后，超过350ms再离开，如果指定了事件回调函数并触发了这个事件，tap事件将不被触发</td>
+<td align="left"><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html" target="_blank" rel="noopener">1.5.0</a></td>
+</tr>
+<tr>
+<td align="left">longtap</td>
+<td align="left">手指触摸后，超过350ms再离开（推荐使用longpress事件代替）</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">transitionend</td>
+<td align="left">会在 WXSS transition 或 wx.createAnimation 动画结束后触发</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">animationstart</td>
+<td align="left">会在一个 WXSS animation 动画开始时触发</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">animationiteration</td>
+<td align="left">会在一个 WXSS animation 一次迭代结束时触发</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">animationend</td>
+<td align="left">会在一个 WXSS animation 动画完成时触发</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">touchforcechange</td>
+<td align="left">在支持 3D Touch 的 iPhone 设备，重按时会触发</td>
+<td align="left"><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html" target="_blank" rel="noopener">1.9.90</a></td>
+</tr>
+</tbody></table>
+<h3 id="绑定并阻止事件冒泡"><a href="#绑定并阻止事件冒泡" class="headerlink" title="绑定并阻止事件冒泡"></a>绑定并阻止事件冒泡</h3><p>除 <code>bind</code> 外，也可以用 <code>catch</code> 来绑定事件。与 <code>bind</code> 不同， <code>catch</code> 会阻止事件向上冒泡。</p>
+<p>例如在下边这个例子中，点击 inner view 会先后调用<code>handleTap3</code>和<code>handleTap2</code>(因为tap事件会冒泡到 middle view，而 middle view 阻止了 tap 事件冒泡，不再向父节点传递)，点击 middle view 会触发<code>handleTap2</code>，点击 outer view 会触发<code>handleTap1</code>。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"outer"</span> <span class="attr">bindtap</span>=<span class="string">"handleTap1"</span>&gt;</span></span><br><span class="line">  outer view</span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"middle"</span> <span class="attr">catchtap</span>=<span class="string">"handleTap2"</span>&gt;</span></span><br><span class="line">    middle view</span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"inner"</span> <span class="attr">bindtap</span>=<span class="string">"handleTap3"</span>&gt;</span></span><br><span class="line">      inner view</span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="互斥事件绑定"><a href="#互斥事件绑定" class="headerlink" title="互斥事件绑定"></a>互斥事件绑定</h3><p>自基础库版本 <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html" target="_blank" rel="noopener">2.8.2</a> 起，除 <code>bind</code> 和 <code>catch</code> 外，还可以使用 <code>mut-bind</code> 来绑定事件。一个 <code>mut-bind</code> 触发后，如果事件冒泡到其他节点上，其他节点上的 <code>mut-bind</code> 绑定函数不会被触发，但 <code>bind</code> 绑定函数和 <code>catch</code> 绑定函数依旧会被触发。</p>
+<p>换而言之，所有 <code>mut-bind</code> 是“互斥”的，只会有其中一个绑定函数被触发。同时，它完全不影响 <code>bind</code> 和 <code>catch</code> 的绑定效果。</p>
+<p>例如在下边这个例子中，点击 inner view 会先后调用 <code>handleTap3</code> 和 <code>handleTap2</code> ，点击 middle view 会调用 <code>handleTap2</code> 和 <code>handleTap1</code> 。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"outer"</span> <span class="attr">mut-bind:tap</span>=<span class="string">"handleTap1"</span>&gt;</span></span><br><span class="line">  outer view</span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"middle"</span> <span class="attr">bindtap</span>=<span class="string">"handleTap2"</span>&gt;</span></span><br><span class="line">    middle view</span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"inner"</span> <span class="attr">mut-bind:tap</span>=<span class="string">"handleTap3"</span>&gt;</span></span><br><span class="line">      inner view</span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="事件的捕获阶段"><a href="#事件的捕获阶段" class="headerlink" title="事件的捕获阶段"></a>事件的捕获阶段</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%8B%E4%BB%B6/" data-id="ckd2g8z1z00085gud8uz288sh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-微信小程序学习一" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0%E4%B8%80/" class="article-date">
+  <time datetime="2020-07-21T22:31:52.000Z" itemprop="datePublished">2020-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0%E4%B8%80/">微信小程序学习一</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="微信小程序配置"><a href="#微信小程序配置" class="headerlink" title="微信小程序配置"></a>微信小程序配置</h1><h3 id="app-json中的全局配置"><a href="#app-json中的全局配置" class="headerlink" title="app.json中的全局配置"></a>app.json中的全局配置</h3><p><strong>entryPagePath</strong>：指定小程序的默认启动路径（首页），如果不填，将默认为 <code>pages</code> 列表的第一项。不支持带页面路径参数。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"entryPagePath": "pages/index/index"  //设置默认启动页，默认为pages配置的第一页</span><br></pre></td></tr></table></figure>
+
+<p><strong>pages：</strong>用于指定小程序由哪些页面组成，每一项都对应一个页面的 路径（含文件名） 信息。文件名不需要写文件后缀，框架会自动去寻找对应位置的 <code>.json</code>, <code>.js</code>, <code>.wxml</code>, <code>.wxss</code> 四个文件进行处理。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">"pages": [</span><br><span class="line">    "pages/index/index", </span><br><span class="line">    <span class="string">"pages/logs/logs"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p><strong>window：</strong>用于设置小程序的状态栏、导航条、标题、窗口背景色。</p>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">描述</th>
+<th align="left">最低版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">enablePullDownRefresh</td>
+<td align="left">boolean</td>
+<td align="left">false</td>
+<td align="left">是否开启全局的下拉刷新。详情：<a href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onpulldownrefresh" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onpulldownrefresh</a></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<p><strong>tabBar：</strong>如果小程序是一个多 tab 应用（客户端窗口的底部或顶部有 tab 栏可以切换页面），可以通过 tabBar 配置项指定 tab 栏的表现，以及 tab 切换时显示的对应页面。</p>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">类型</th>
+<th align="left">必填</th>
+<th align="left">默认值</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">color</td>
+<td align="left">HexColor</td>
+<td align="left">是</td>
+<td align="left"></td>
+<td align="left">tab 上的文字默认颜色，仅支持十六进制颜色</td>
+</tr>
+<tr>
+<td align="left">selectedColor</td>
+<td align="left">HexColor</td>
+<td align="left">是</td>
+<td align="left"></td>
+<td align="left">tab 上的文字选中时的颜色，仅支持十六进制颜色</td>
+</tr>
+<tr>
+<td align="left">backgroundColor</td>
+<td align="left">HexColor</td>
+<td align="left">是</td>
+<td align="left"></td>
+<td align="left">tab 的背景色，仅支持十六进制颜色</td>
+</tr>
+<tr>
+<td align="left">borderStyle</td>
+<td align="left">string</td>
+<td align="left">否</td>
+<td align="left">black</td>
+<td align="left">tabbar 上边框的颜色， 仅支持 <code>black</code> / <code>white</code></td>
+</tr>
+<tr>
+<td align="left">list</td>
+<td align="left">Array</td>
+<td align="left">是</td>
+<td align="left"></td>
+<td align="left">tab 的列表，详见 <code>list</code> 属性说明，最少 2 个、最多 5 个 tab</td>
+</tr>
+<tr>
+<td align="left">position</td>
+<td align="left">string</td>
+<td align="left">否</td>
+<td align="left">bottom</td>
+<td align="left">tabBar 的位置，仅支持 <code>bottom</code> / <code>top</code></td>
+</tr>
+<tr>
+<td align="left">custom</td>
+<td align="left">boolean</td>
+<td align="left">否</td>
+<td align="left">false</td>
+<td align="left">自定义 tabBar，见<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/ability/custom-tabbar.html" target="_blank" rel="noopener">详情</a></td>
+</tr>
+</tbody></table>
+<p><strong>networkTimeout</strong>：各类网络请求的超时时间，单位均为毫秒。</p>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">类型</th>
+<th align="left">必填</th>
+<th align="left">默认值</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">request</td>
+<td align="left">number</td>
+<td align="left">否</td>
+<td align="left">60000</td>
+<td align="left"><a href="https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html" target="_blank" rel="noopener">wx.request</a> 的超时时间，单位：毫秒。</td>
+</tr>
+<tr>
+<td align="left">connectSocket</td>
+<td align="left">number</td>
+<td align="left">否</td>
+<td align="left">60000</td>
+<td align="left"><a href="https://developers.weixin.qq.com/miniprogram/dev/api/network/websocket/wx.connectSocket.html" target="_blank" rel="noopener">wx.connectSocket</a> 的超时时间，单位：毫秒。</td>
+</tr>
+<tr>
+<td align="left">uploadFile</td>
+<td align="left">number</td>
+<td align="left">否</td>
+<td align="left">60000</td>
+<td align="left"><a href="https://developers.weixin.qq.com/miniprogram/dev/api/network/upload/wx.uploadFile.html" target="_blank" rel="noopener">wx.uploadFile</a> 的超时时间，单位：毫秒。</td>
+</tr>
+<tr>
+<td align="left">downloadFile</td>
+<td align="left">number</td>
+<td align="left">否</td>
+<td align="left">60000</td>
+<td align="left"><a href="https://developers.weixin.qq.com/miniprogram/dev/api/network/download/wx.downloadFile.html" target="_blank" rel="noopener">wx.downloadFile</a> 的超时时间，单位：毫秒。</td>
+</tr>
+</tbody></table>
+<h3 id="页面配置："><a href="#页面配置：" class="headerlink" title="页面配置："></a>页面配置：</h3><p>每一个小程序页面也可以使用 <code>.json</code> 文件来对本页面的窗口表现进行配置。页面中配置项在当前页面会覆盖 <code>app.json</code> 的 <code>window</code> 中相同的配置项。</p>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">描述</th>
+<th align="left">最低版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">disableScroll</td>
+<td align="left">boolean</td>
+<td align="left">false</td>
+<td align="left">设置为 <code>true</code> 则页面整体不能上下滚动。 只在页面配置中有效，无法在 <code>app.json</code> 中设置</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">enablePullDownRefresh</td>
+<td align="left">boolean</td>
+<td align="left">false</td>
+<td align="left">是否开启当前页面下拉刷新。 详见 <a href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onpulldownrefresh" target="_blank" rel="noopener">Page.onPullDownRefresh</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">navigationBarBackgroundColor</td>
+<td align="left">HexColor</td>
+<td align="left">#000000</td>
+<td align="left">导航栏背景颜色，如 <code>#000000</code></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">navigationBarTextStyle</td>
+<td align="left">string</td>
+<td align="left">white</td>
+<td align="left">导航栏标题颜色，仅支持 <code>black</code> / <code>white</code></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">navigationBarTitleText</td>
+<td align="left">string</td>
+<td align="left"></td>
+<td align="left">导航栏标题文字内容</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">navigationStyle</td>
+<td align="left">string</td>
+<td align="left">default</td>
+<td align="left">导航栏样式，仅支持以下值： <code>default</code> 默认样式 <code>custom</code> 自定义导航栏，只保留右上角胶囊按钮</td>
+<td align="left">微信客户端 7.0.0</td>
+</tr>
+<tr>
+<td align="left">backgroundColor</td>
+<td align="left">HexColor</td>
+<td align="left">#ffffff</td>
+<td align="left">窗口的背景色</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">backgroundTextStyle</td>
+<td align="left">string</td>
+<td align="left">dark</td>
+<td align="left">下拉 loading 的样式，仅支持 <code>dark</code> / <code>light</code></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0%E4%B8%80/" data-id="ckd2g8z1y00075gudfc2b7svh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-sequelize框架的使用二" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/19/sequelize%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BA%8C/" class="article-date">
+  <time datetime="2020-07-19T01:29:39.000Z" itemprop="datePublished">2020-07-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/19/sequelize%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BA%8C/">sequelize框架的使用二</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Sequelize进行多表关联"><a href="#Sequelize进行多表关联" class="headerlink" title="Sequelize进行多表关联"></a>Sequelize进行多表关联</h2><h4 id="一对一-One-To-One-关联"><a href="#一对一-One-To-One-关联" class="headerlink" title="一对一(One-To-One)关联"></a>一对一(One-To-One)关联</h4><p><strong>belongsTo:</strong></p>
+<p>Source.belongsTo(Target)</p>
+<p>BelongsTo关联表示一对一关系的<strong>外键</strong>存在于源模型。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Player.belongsTo(Team); &#x2F;&#x2F; 会为Player添加一个teamId(就是team的主键，名称和team的主键名称有关，默认使用驼峰命名，如team的主键为uuid时，添加的外键就是teamUuid,) 属性以保持与Team 主键的关系</span><br></pre></td></tr></table></figure>
+
+<p>默认的外键是’Model’+’primaryKey(外表主键)’，可以修改model的别名或直接修改外键名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User.belongsTo(UserRole, &#123;as: &#39;role&#39;&#125;); &#x2F;&#x2F; 会为 user添加 roleId 属性而不是 userRoleId，该方法只是改变默认的model的名称</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User.belongsTo(Company, &#123;foreignKey: &#39;fk_company&#39;&#125;); &#x2F;&#x2F; 为User 添加fk_company 外键,默认的外键就不会是这个model+primary(驼峰命名)</span><br></pre></td></tr></table></figure>
+
+<h3 id="HasOne-拥有一个"><a href="#HasOne-拥有一个" class="headerlink" title="HasOne - 拥有一个"></a><strong>HasOne - 拥有一个</strong></h3><p>HasOne关联表示一对一关系的外键存在于<code>目标模型</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Project.hasOne(User)</span><br><span class="line"></span><br><span class="line">&#x2F;*</span><br><span class="line">  在这个示例中，hasOne会添加一个projectId 属性到User模型中</span><br><span class="line">  另外，Project.prototype 中会增加根据传入的第一个定义参数生成的访问器方法 getUser 和 setUser 置。</span><br><span class="line">  如果启用了underscore 设置，添加的属性会是 project_id 而不是 projectId.</span><br><span class="line"></span><br><span class="line">  外键会存在于users 表中</span><br><span class="line"></span><br><span class="line">  你同样可以自定义外键，如：你想使用一个已存在数据库:</span><br></pre></td></tr></table></figure>
+
+<h4 id="一对多-One-To-Many-关联"><a href="#一对多-One-To-Many-关联" class="headerlink" title="一对多(One-To-Many)关联"></a>一对多(One-To-Many)关联</h4><p>One-To-Many关联是指一个<code>源模型</code>连接多个<code>目标模型</code>。反之目标模型都会有一个明确的源。</p>
+<h4 id="多对多-Belongs-To-Many-关联"><a href="#多对多-Belongs-To-Many-关联" class="headerlink" title="多对多(Belongs-To-Many)关联"></a>多对多(Belongs-To-Many)关联</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/19/sequelize%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BA%8C/" data-id="ckd2g8z1x00065gudgzthcxrm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mysql数据库的事务" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/18/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BA%8B%E5%8A%A1/" class="article-date">
+  <time datetime="2020-07-18T01:44:25.000Z" itemprop="datePublished">2020-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/18/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BA%8B%E5%8A%A1/">mysql数据库的事务</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Mysql数据的事务"><a href="#Mysql数据的事务" class="headerlink" title="Mysql数据的事务"></a>Mysql数据的事务</h1><h3 id="事务定义："><a href="#事务定义：" class="headerlink" title="事务定义："></a>事务定义：</h3><p>事务：一个最小的不可再分的工作单元；通常一个事务对应一个完整的业务。一个完整的业务需要批量的DML(insert、update、delete)语句共同联合完成。事务只和DML语句有关，或者说DML语句才有事务。这个和业务逻辑有关，业务逻辑不同，DML语句的个数不同。</p>
+<h3 id="事务的四个特性（ACID）："><a href="#事务的四个特性（ACID）：" class="headerlink" title="事务的四个特性（ACID）："></a>事务的四个特性（ACID）：</h3><p>1.原子性(A)： 事务是最小单位，不可再分。</p>
+<p>2.一致性(C)： 事务要求所有的DML语句操作的时候，必须保证同时成功或者同时失败。</p>
+<p>3.隔离性(I)：  事务A和事务B之间具有隔离性。</p>
+<p>4.持久性(D)：是事务的保证，事务终结的标志(内存的数据持久到硬盘文件中)。</p>
+<h3 id="相关术语-："><a href="#相关术语-：" class="headerlink" title="相关术语 ："></a>相关术语 ：</h3><ul>
+<li>开启事务：Start Transaction</li>
+<li>事务结束：End Transaction</li>
+<li>提交事务：Commit Transaction</li>
+<li>回滚事务：Rollback Transaction</li>
+</ul>
+<h3 id="隔离性："><a href="#隔离性：" class="headerlink" title="隔离性："></a>隔离性：</h3><h4 id="隔离的四个级别："><a href="#隔离的四个级别：" class="headerlink" title="隔离的四个级别："></a>隔离的四个级别：</h4><ul>
+<li>读未提交：read uncommitted</li>
+<li>读已提交：read committed</li>
+<li>可重复读：repeatable read（Mysql默认级别）</li>
+<li>串行化：serializable</li>
+</ul>
+<h4 id="查看数据库隔离级别（Mysql5-7之后）："><a href="#查看数据库隔离级别（Mysql5-7之后）：" class="headerlink" title="查看数据库隔离级别（Mysql5.7之后）："></a>查看数据库隔离级别（Mysql5.7之后）：</h4><p><code>show variables like &#39;transaction_isolation&#39;;或者select @@transaction_isolation;</code></p>
+<h4 id="1-read-uncommitted"><a href="#1-read-uncommitted" class="headerlink" title="1.read uncommitted"></a>1.read uncommitted</h4><p>- 事务A和事务B，事务A未提交的数据，事物B可以读取到 - 这里读取到的数据叫做“脏数据” - 这种隔离级别最低，这种级别一般是在理论上存在，数据库隔离级别一般都高于该级别</p>
+<h4 id="2-read-committed"><a href="#2-read-committed" class="headerlink" title="2.read committed"></a>2.read committed</h4><p>- 事务A和事务B，事务A提交的数据，事务B才能读取到 - 这种隔离级别高于读未提交 - 换句话说，对方事务提交之后的数据，我当前事务才能读取到 - 这种级别可以避免“脏数据” - 这种隔离级别会导致“不可重复读取” 。</p>
+<h4 id="3-repeatable-read"><a href="#3-repeatable-read" class="headerlink" title="3.repeatable read"></a>3.repeatable read</h4><ul>
+<li>事务A和事务B，事务A提交之后的数据，事务B读取不到</li>
+<li>事务B是可重复读取数据</li>
+<li>这种隔离级别高于读已提交</li>
+<li>换句话说，对方提交之后的数据，我还是读取不到</li>
+<li>这种隔离级别可以避免“不可重复读取”，达到可重复读取</li>
+<li>比如1点和2点读到数据是同一个</li>
+<li>MySQL默认级别</li>
+<li>虽然可以达到可重复读取，但是会导致“幻像读”</li>
+</ul>
+<h4 id="4-serializable"><a href="#4-serializable" class="headerlink" title="4.serializable"></a>4.serializable</h4><p>- 事务A和事务B，事务A在操作数据库时，事务B只能排队等待 - 这种隔离级别很少使用，吞吐量太低，用户体验差 - 这种级别可以避免“幻像读”，每一次读取的都是数据库中真实存在数据，事务A与事务B串行，而不并发。</p>
+<h3 id="设置隔离级别"><a href="#设置隔离级别" class="headerlink" title="设置隔离级别"></a>设置隔离级别</h3><p>READ UNCOMMITTED<br>    –   READ COMMITTED<br>    –   REPEATABLE READ<br>    –   SERIALIZABLE<br>    <code>•   例如： SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;</code></p>
+<h3 id="设置隔离作用范围"><a href="#设置隔离作用范围" class="headerlink" title="设置隔离作用范围"></a>设置隔离作用范围</h3><p>事务隔离级别的作用范围分为两种：<br>–   全局级：对所有的会话有效<br>–   会话级：只对当前的会话有效<br>•   例如，设置会话级隔离级别为READ COMMITTED ：<br><code>mysql&gt; SET TRANSACTION ISOLATION LEVEL READ COMMITTED；</code><br>或：<br><code>mysql&gt; SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED；</code><br>•   设置全局级隔离级别为READ COMMITTED ：<br><code>mysql&gt; SET GLOBAL TRANSACTION ISOLATION LEVEL READ COMMITTED；</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/18/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BA%8B%E5%8A%A1/" data-id="ckd2g8z1t00035gud56396xrp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mysql的数据类型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/17/mysql%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="article-date">
+  <time datetime="2020-07-17T05:34:43.000Z" itemprop="datePublished">2020-07-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/17/mysql%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">mysql的数据类型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Mysql的主要数据类型"><a href="#Mysql的主要数据类型" class="headerlink" title="Mysql的主要数据类型"></a>Mysql的主要数据类型</h1><h3 id="数字类型："><a href="#数字类型：" class="headerlink" title="数字类型："></a>数字类型：</h3><p>主要的数字数据类型：TINYINT,    SMALLINT,   INT  , BIGINT,   FLOAT , DOUBLE , DECIMA(M,N);</p>
+<p>TINYINT:     占一个字节，带符号时范围为：-128<del>127，无符号时为0</del>255.</p>
+<p>SMALLINT: 占两个字节，带符号时范围为：-2的15次方<del>2的15次方-1（-32768</del>32767），无符号时为0<del>2的16次方-1（0</del>65535）</p>
+<p>INT :         占四个字节，带符号范围为-2的63次方<del>2的63次方-1（-21.47亿</del>21.47亿），无符号为（0~42.94亿）</p>
+<p>BIGINT:      占八个字节带符号范围为：（-922.3万万亿<del>-922.3万万亿），无符号为（0</del>1844.6万万亿）</p>
+<p>FLOAT（M，N）:        占用四个字节，M表示显示长度，N表示小数位长度。当输入小数位长度大于N时，会进行四舍五入保留N位小数。</p>
+<p>DOUBLE（M，N）:         占用八个字节，精度更大的小数和float使用方法类似。</p>
+<p>DECIMA(M,N):    和float类似只是比float精度更高。</p>
+<ul>
+<li><strong>定义无符号的数字，在类型后面空格 接 unsigned</strong></li>
+</ul>
+<h3 id="文本类型："><a href="#文本类型：" class="headerlink" title="文本类型："></a>文本类型：</h3><p>主要的字符串类型数据：char , varchar,   text </p>
+<p>CHAR(n): 固定长度字符串 ，最大255。</p>
+<p>VARCHAR（n）: 可变长度字符串，最大长度65535，varhar的最大长度是65535，但是有1-2个字节是用来记录数据大小的，所以有效的字节是65533。。</p>
+<p>TEXT:   大文本，不支持全文搜索，不支持默认值。</p>
+<p>编码不同，varchar(L)里的最大值L是不同的。<br>utf8中，一个字符占3个字节，所以L = 65533/3 = 21844，道理来说uft编码下L最大为21844<br>gbk编码中一个字符占2个字节，所以L = 65533 / 2 = 32766，道理来说gbk编码下L最大为32766</p>
+<p><strong>在Mysql中，汉字和字母都是一个字节,varchar(2)只能存两个字母或汉字理论最大值按上诉，21844或32766</strong></p>
+<p><strong>总结</strong>：</p>
+<ol>
+<li><strong>如果数据长度都一样，就用char，比如身份证号、手机号</strong></li>
+<li><strong>如果数据长度不一样，就用varchar，比如名字、地址，但要保证不越界</strong></li>
+<li><strong>定长的磁盘空间比较浪费，但查询收索效率高</strong></li>
+<li><strong>变长的磁盘空间比较节省，但查询收索效率低</strong>,</li>
+</ol>
+<h3 id="时间日期类型"><a href="#时间日期类型" class="headerlink" title="时间日期类型"></a>时间日期类型</h3><p>主要的类型：DATE,  DATETIME,  TIMESTAMP</p>
+<p>DATE:    时间日期格式 ‘yyyy-mm-dd HH:ii:ss’ 表示范围从1000到9999，占用八字节</p>
+<p>DATETIME:  日期 ‘yyyy-mm-dd’，占用三字节</p>
+<p>TIMESTAMP:  时间戳，从1970年开始的 yyyy-mm-dd HH:ii:ss格式和datetime完全一致，占用四字节</p>
+<h3 id="enum和set"><a href="#enum和set" class="headerlink" title="enum和set"></a><strong>enum和set</strong></h3><p>enum：枚举，单选类型<br>语法：<br>enum(‘选项1’, ‘选项2’, ‘选项3’…)</p>
+<p>set：集合，多选类型<br>语法：<br>set(‘选项1’, ‘选项2’, ‘选项3’…)<br>例：建一个兴趣爱好调查表votes，比如（游泳、跳舞、弹吉他、滑雪、冲浪）中选择（可以多选），（男、女）【单选】<br><code>create table votes(</code></p>
+<p><code>name varchar(20),</code></p>
+<p><code>hobby set(&#39;游泳&#39;,&#39;跳舞&#39;,&#39;弹吉他&#39;,&#39;滑雪&#39;,&#39;冲浪&#39;),</code>    </p>
+<p><code>gender enum(&#39;男&#39;,&#39;女&#39;)</code></p>
+<p><code>);</code></p>
+<p> <code>insert into votes values(&#39;calm&#39;,&#39;跳舞,滑雪,游泳&#39;,&#39;女&#39;);`
+ `insert into votes values(&#39;lilei&#39;,&#39;冲浪,弹吉他&#39;,1);`
+ `insert into votes values(&#39;jane&#39;,&#39;冲浪,跳舞,弹吉他&#39;,&#39;2&#39;);`
+ `insert into votes values(&#39;helon&#39;,&#39;滑雪&#39;,&#39;男&#39;);</code></p>
+<p>enum默认是从1开始</p>
+<p>如果我们想要查询所有喜欢跳舞的人，就需要使用集合查询使用find_ in_ set函数<br>语法：<br>find_in_set(sub,str_list) ：如果 sub 在 str_list 中，则返回下标；如果不在，返回0； str_list 用逗号分隔的字符串。例：查询所有喜欢跳舞的人</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from votes where find_in_set(&#39;跳舞&#39;,hobby);</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/17/mysql%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" data-id="ckd2g8z1u00045gudgpkq7657" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mysql基本的使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/17/mysql%E5%9F%BA%E6%9C%AC%E7%9A%84%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time datetime="2020-07-17T00:39:01.000Z" itemprop="datePublished">2020-07-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/17/mysql%E5%9F%BA%E6%9C%AC%E7%9A%84%E4%BD%BF%E7%94%A8/">mysql的使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Mysql的基本使用"><a href="#Mysql的基本使用" class="headerlink" title="Mysql的基本使用"></a>Mysql的基本使用</h1><p>1.登录mysql数据库（通过cmd方法）：</p>
+<p>windows系统下，进入mysql文件目录下的bin目录，文件栏输入cmd，回车，打开cmd面板.</p>
+<p><code>mysql -u root -p  //该语句通过root账号登录，可以改变账号，输入后，提示输入密码</code></p>
+<p>2.查看数据库</p>
+<p><code>show databases;  //查看数据库中有那些数据库</code></p>
+<p>3.切换（进入）数据库</p>
+<p><code>use databaseName; //use后面的是数据库名称</code></p>
+<p>4.查看包含数据库表</p>
+<p><code>show tables;   //查看数据库中所有表</code>   </p>
+<p>5.查看表的结构</p>
+<p>​    1.<code>desc tableName;     //查看数据库表的结构描述</code> </p>
+<p>​    2.<code>show create table tableName;   //查看生成表的ddl语句,可以看出表的结构，以及引擎等信息</code></p>
+<p>6.创建数据库</p>
+<p><code>create database databaseName;   //创建名为databaseName的数据库</code></p>
+<p>7.创建数据库表（先进入所在的数据库）</p>
+<p><code>create table tableName(</code></p>
+<p><code>id  int(20) primary key auto_increament,</code></p>
+<p><code>password varchar(255) not null,</code></p>
+<p><code>updatetime datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,</code></p>
+<p><code>primary key(id,class_id)   //设置多字段主键</code></p>
+<p><code>foreign key(id) references class(id)   设置外键//</code></p>
+<p><code>)</code></p>
+<p>​    设置字段限制</p>
+<p>​    primary key   //设置为主键</p>
+<p>​    foreign key   //设置外键</p>
+<p>​    auto_increament  //设置为自增</p>
+<p>​    not null  //不能为空</p>
+<p>​    default  ”value“  //设置字段默认值</p>
+<p>​    unique   //设置字段值唯一</p>
+<p>​    DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  //设置值默认为当前时间</p>
+<p>​    comment  ”字段描述“  //在字段约束后添加字段描述</p>
+<h3 id="增加语句"><a href="#增加语句" class="headerlink" title="增加语句"></a>增加语句</h3><p>​       <code>insert into  user(id,password,nickname) values(10000,&#39;123456&#39;,&#39;码呀&#39;);</code></p>
+<ul>
+<li>如果表后面没有字段就需要将所有字段的值都放在value中*</li>
+<li>可以同时插入多条数据，在一条数据后面加’,’逗号，在加括号包含数据可以一条语句插入多条数据。</li>
+</ul>
+<h3 id="查询语句"><a href="#查询语句" class="headerlink" title="查询语句"></a>查询语句</h3><h4 id="全部查询："><a href="#全部查询：" class="headerlink" title="全部查询："></a>全部查询：</h4><p>​       <code>select * from user;</code></p>
+<h4 id="投影查询："><a href="#投影查询：" class="headerlink" title="投影查询："></a>投影查询：</h4><p>​        <code>select id , password from user;    //查询id,和password字段</code></p>
+<p>​             设置字段别名 </p>
+<p>​              <code>select id , password PASSWORD from user;   //在查询字段后面空格然后接别名</code></p>
+<p>​              <code>select id , password as PASSWORD from user;   //在查询字段后面as然后接别名</code></p>
+<h4 id="条件查询："><a href="#条件查询：" class="headerlink" title="条件查询："></a>条件查询：</h4><p>​          <code>select password,email from user where id = 123456;   //查询id=123456的数据password,email     字段</code> </p>
+<h4 id="排序查询："><a href="#排序查询：" class="headerlink" title="排序查询："></a>排序查询：</h4><p>​           <code>select * from score order by score DESC；</code> </p>
+<p>​             DESC为升序，ASC为降序</p>
+<p>​            有where 条件的order by语句跟在where语句后面</p>
+<p>​             <code>select * from score order where class = 1 by score ASC；</code></p>
+<h4 id="分页查询："><a href="#分页查询：" class="headerlink" title="分页查询："></a>分页查询：</h4><p>​            <code>select mathscore from score where class = 1 order by DESC limit 10 offset 0;    //从分页查询</code></p>
+<p>​             offset = (pagenum - 1)*pagesize</p>
+<p>​             <code>OFFSET</code>超过了查询的最大数量并不会报错，而是得到一个空的结果集</p>
+<p>​              <code>OFFSET</code>是可选的，如果只写<code>LIMIT 15</code>，那么相当于<code>LIMIT 15 OFFSET 0</code>。</p>
+<p>​              在MySQL中，<code>LIMIT 15 OFFSET 30</code>还可以简写成<code>LIMIT 30, 15</code>。</p>
+<p>​              使用<code>LIMIT  OFFSET</code>分页时，随着<code>N</code>越来越大，查询效率也会越来越低。</p>
+<h4 id="聚合查询："><a href="#聚合查询：" class="headerlink" title="聚合查询："></a>聚合查询：</h4><p>​             <code>SELECT COUNT(*) boys FROM students WHERE gender = &#39;M&#39;;</code>  </p>
+<table>
+<thead>
+<tr>
+<th>SUM</th>
+<th>计算某一列的合计值，该列必须为数值类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AVG</td>
+<td>计算某一列的平均值，该列必须为数值类型</td>
+</tr>
+<tr>
+<td>MAX</td>
+<td>计算某一列的最大值</td>
+</tr>
+<tr>
+<td>MIN</td>
+<td>计算某一列的最小值</td>
+</tr>
+<tr>
+<td>COUNT</td>
+<td>计算列的行数</td>
+</tr>
+</tbody></table>
+<p>​        <code>MAX()</code>和<code>MIN()</code>函数并不限于数值类型。如果是字符类型，<code>MAX()</code>和<code>MIN()</code>会返回排序最后和排序最前的字符。</p>
+<p>​         如果聚合查询的<code>WHERE</code>条件没有匹配到任何行，<code>COUNT()</code>会返回0，而<code>SUM()</code>、<code>AVG()</code>、<code>MAX()</code>和<code>MIN()</code>会返回<code>NULL</code>。</p>
+<p>​         聚合查询的字段列中，只能放入分组的列，也可以使用多个列进行分组，查询出的结果按符合两个要求来分组。</p>
+<h4 id="多表查询："><a href="#多表查询：" class="headerlink" title="多表查询："></a>多表查询：</h4><pre><code>SELECT
+s.id sid,
+s.name,
+s.gender,
+s.score,
+c.id cid,
+c.name cname
+FROM students s, classes c
+WHERE s.gender = &apos;M&apos; AND c.id = 1;</code></pre><p>​                  多表查询又称笛卡尔查询，使用笛卡尔查询时要非常小心，由于结果集是目标表的行数乘积，对两个各   自有100行记录的表进行笛卡尔查询将返回1万条记录，对两个各自有1万行记录的表进行笛卡尔查询将返回1亿条记录。</p>
+<h4 id="连接查询："><a href="#连接查询：" class="headerlink" title="连接查询："></a>连接查询：</h4><p>​            INNER JOIN只返回同时存在于两张表的行数据。</p>
+<p>​            RIGHT OUTER JOIN返回右表都存在的行。如果某一行仅在右表存在，那么结果集就会以<code>NULL</code>填充剩下的字段。</p>
+<p>​            LEFT OUTER JOIN则返回左表都存在的行。</p>
+<p>​            FULL OUTER JOIN，它会把两张表的所有记录全部选择出来，并且，自动把对方不存在的列填充为NULL。</p>
+<p>​            JOIN查询仍然可以使用<code>WHERE</code>条件和<code>ORDER BY</code>排序。</p>
+<pre><code>SELECT s.id, s.name, s.class_id, c.name class_name, s.gender, s.score
+FROM students s
+LEFT OUTER JOIN classes c
+ON s.class_id = c.id;</code></pre><h3 id="修改语句："><a href="#修改语句：" class="headerlink" title="修改语句："></a>修改语句：</h3><p>​            <code>UPDATE &lt;表名&gt; SET 字段1=值1, 字段2=值2, ... WHERE ...;</code></p>
+<p>​             如果<code>WHERE</code>条件没有匹配到任何记录，<code>UPDATE</code>语句不会报错，也不会有任何记录被更新。</p>
+<p>​             要特别小心的是，<code>UPDATE</code>语句可以没有<code>WHERE</code>条件，例如：</p>
+<p>​             <code>UPDATE students SET score=60;</code></p>
+<p>​              这时，整个表的所有记录都会被更新。所以，在执行<code>UPDATE</code>语句时要非常小心，最好先用<code>SELECT</code>语句来 测试<code>WHERE</code>条件是否筛选出了期望的记录集，然后再用<code>UPDATE</code>更新。</p>
+<h3 id="删除语句："><a href="#删除语句：" class="headerlink" title="删除语句："></a>删除语句：</h3><p>​               <code>DELETE FROM &lt;表名&gt; WHERE ...;</code></p>
+<p>​               如果<code>WHERE</code>条件没有匹配到任何记录，<code>DELETE</code>语句不会报错，也不会有任何记录被删除。</p>
+<p>​                要特别小心的是，和<code>UPDATE</code>类似，不带<code>WHERE</code>条件的<code>DELETE</code>语句会删除整个表的数据。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/17/mysql%E5%9F%BA%E6%9C%AC%E7%9A%84%E4%BD%BF%E7%94%A8/" data-id="ckd2g8z1t00025gud0kjw0ew8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-sequelize框架的使用一" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/16/sequelize%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%80/" class="article-date">
+  <time datetime="2020-07-16T13:01:24.000Z" itemprop="datePublished">2020-07-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/16/sequelize%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%80/">sequelize框架的使用一</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="sequelize框架的使用"><a href="#sequelize框架的使用" class="headerlink" title="sequelize框架的使用"></a>sequelize框架的使用</h1><h3 id="下载sequelize与对应的数据库模块"><a href="#下载sequelize与对应的数据库模块" class="headerlink" title="下载sequelize与对应的数据库模块"></a>下载sequelize与对应的数据库模块</h3><p><code>npm install sequelize --save</code></p>
+<p><code>npm install mysql2 --save</code></p>
+<p><code>npm install moment --save  //时间管理模块</code></p>
+<h3 id="配置连接数据库："><a href="#配置连接数据库：" class="headerlink" title="配置连接数据库："></a>配置连接数据库：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">const Sequelize &#x3D; require(&#39;sequelize&#39;);&#x2F;&#x2F;导入模块</span><br><span class="line">const sequelize &#x3D; new Sequelize(&#39;database&#39;, &#39;dbuser&#39;, &#39;dbpassword&#39;, &#123;</span><br><span class="line">    host: &#39;localhost&#39;,  &#x2F;&#x2F;配置数据库地址</span><br><span class="line">    dialect: &#39;mysql&#39;,   &#x2F;&#x2F;设置连接的为mysql数据库</span><br><span class="line">    timezone: &quot;+08:00&quot;,  &#x2F;&#x2F;设置时区为东八区（北京时间）</span><br><span class="line">    pool: &#123;</span><br><span class="line">        &#x2F;&#x2F;创建连接池</span><br><span class="line">        max: 5,</span><br><span class="line">        min: 0,</span><br><span class="line">        acquire: 30000, &#x2F;&#x2F;建立连接的最长时间</span><br><span class="line">        idle: 10000   &#x2F;&#x2F;空闲连接最长时间</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;测试连接数据库</span><br><span class="line">sequelize.authenticate()</span><br><span class="line">    .then(() &#x3D;&gt; &#123;</span><br><span class="line">        console.log(&#39;数据库连接成功！&#39;);</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(err &#x3D;&gt; &#123;</span><br><span class="line">        console.error(&#39;连接数据库失败，原因:&#39;, err);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="定义模型："><a href="#定义模型：" class="headerlink" title="定义模型："></a>定义模型：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">const Info &#x3D; sequelize.define(&#39;info&#39;,&#123;</span><br><span class="line">    username:&#123;</span><br><span class="line">        type:Sequelize.STRING,</span><br><span class="line">        allowNull: false</span><br><span class="line">    &#125;,</span><br><span class="line">    password:&#123;</span><br><span class="line">        type: Sequelize.STRING</span><br><span class="line">    &#125;,</span><br><span class="line">    &#x2F;&#x2F;设置默认的createAt时间，并转化格式</span><br><span class="line">    createdAt:&#123;</span><br><span class="line">        type: Sequelize.DATE,</span><br><span class="line">        allowNull: false,</span><br><span class="line">        defaultValue: Sequelize.NOW,</span><br><span class="line">        get()&#123;</span><br><span class="line">        &#x2F;&#x2F;数据库中为东八区，但是读取出来格式不是想要的，而且变成标准时间，比北京时间早8小时，对数据进行处理，得到北京时间和想要的格式</span><br><span class="line">            return moment(this.getDataValue(&#39;createdAt&#39;)).format(&#39;YYYY-MM-DD HH:mm:ss&#39;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#x2F;&#x2F;设置默认的updatedAt时间，并转化格式</span><br><span class="line">    updatedAt:&#123;</span><br><span class="line">        type: Sequelize.DATE,</span><br><span class="line">        allowNull: false,</span><br><span class="line">        defaultValue: Sequelize.NOW,</span><br><span class="line">        get()&#123;</span><br><span class="line">            return moment(this.getDataValue(&#39;updatedAt&#39;)).format(&#39;YYYY-MM-DD HH:mm:ss&#39;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,&#123;</span><br><span class="line">    &#x2F;&#x2F; 为 false MySQL创建的表名称会是复数 infos</span><br><span class="line">    &#x2F;&#x2F; 如果指定的表名称本就是复数形式则不变</span><br><span class="line">    freezeTableName: true,</span><br><span class="line">    &#x2F;&#x2F;是否需要添加createdAt,updatedAt字段，默认是添加的</span><br><span class="line">    timestamps: true,</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F;get()对多个属性进行加工，</span><br><span class="line">    getterMethods   : &#123;</span><br><span class="line">    fullName       : function()  &#123; return this.firstname + &#39; &#39; + this.lastname </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">    &#x2F;&#x2F;set()对多个属性进行加工，</span><br><span class="line">  setterMethods   : &#123;</span><br><span class="line">    fullName       : function(value) &#123;</span><br><span class="line">        var names &#x3D; value.split(&#39; &#39;);</span><br><span class="line"></span><br><span class="line">        this.setDataValue(&#39;firstname&#39;, names.slice(0, -1).join(&#39; &#39;));</span><br><span class="line">        this.setDataValue(&#39;lastname&#39;, names.slice(-1).join(&#39; &#39;));</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>定义：</p>
+<p>sequelize默认给数据库添加id,createdAt,updatedAt三个字段，id为从1递增的数值，createdAt,updatedAt为datetime数据类型。</p>
+<p><strong>timestamps</strong>：boolean,当为true时，数据库中会默认设置,createdAt，updatedAt,两个字段，这两个字段为mysql的datetime类型，分别为创建的时间和上次该条数据修改的时间。</p>
+<p><strong>freezeTableName</strong>: boolean,默认为false,定义时找的就是复数的表名，当为true时，默认mysql的数据库名称就是为define后接的数据库表名.</p>
+<p><strong>字段的约束：</strong></p>
+<p>如果只有一个约束条件，则可以以键值对的形式定义如，password:Sequelize.STRING.</p>
+<p>如果字段有多个约束条件，则需要约束多个条件则需要使用对象的形式，使用对象的形式时，键的取值有：</p>
+<p><strong>type: datatypes</strong>,约束字段的数据类型，具体类型如下面列出的数据。</p>
+<p><strong>allowNull:boolean</strong>，该字段是否允许为空。</p>
+<p><strong>defaultValue:anytype</strong>，该字段的值得类型。</p>
+<p><strong>primaryKey:boolean,</strong>   该字段是否为主键。</p>
+<p><strong>autoIncrement:  boolean,</strong>该字段值是否为自增。</p>
+<p><strong>unique:boolean</strong>,   该字段是否为唯一。</p>
+<p><strong>validate:</strong> {key:value},对数据类型进行检查。</p>
+<p>​        validate中的设置：</p>
+<p>​         isArray: true,   //传入的必须是数组，</p>
+<p>​        { isDate: true, //设置为日期</p>
+<p>​         isAfter: “2011-11-05”,</p>
+<p>​         isBefore: “2011-11-30”</p>
+<p>​         }</p>
+<p>​         len: [2,10], //字符串长度为2~10</p>
+<p><strong>get(){}</strong>:    this.getDataValue(‘key’)方法可以获取指定字段的值，函数必须返回一个数据，可以对数据处理后，返回数据</p>
+<p><strong>set(value){ this.setDataValue(‘key’,value.toUpperCase())}</strong>: 首先获得要改变的值，再根据setDataValue方法赋值给某个字段（一般为自己),后接方法，方法可以在外部定义，但是方法必须返回加工后的值，change(value).</p>
+<h3 id="datatypes"><a href="#datatypes" class="headerlink" title="datatypes:"></a><strong>datatypes</strong>:</h3><p>Mysql                              sequelize</p>
+<p>VARCHAR(255)               STRING</p>
+<p>VARCHAR(1234)             STRING(1234)</p>
+<p>TEXT                                TEXT</p>
+<p>INT                                   INTEGER</p>
+<p>BIGINT                             BIGINT</p>
+<p>FLOAT                               FLOAT</p>
+<p>FLOAT(10,2)                     FLOAT(10,2)</p>
+<p>DOUBLE                           DOUBLE</p>
+<p>DOUBLE(10,2)                  DOUBLE(10,2)</p>
+<p>DATETIME                         DATE</p>
+<p>DATE                                  DATEONLY</p>
+<p>DATETIME                         NOW(当前时间)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/16/sequelize%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%80/" data-id="ckd2g8z1w00055gud9tjz78wh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-express中cookie和token的使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/12/express%E4%B8%ADcookie%E5%92%8Ctoken%E7%9A%84%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time datetime="2020-07-12T07:58:02.000Z" itemprop="datePublished">2020-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/12/express%E4%B8%ADcookie%E5%92%8Ctoken%E7%9A%84%E4%BD%BF%E7%94%A8/">express中cookie和token的使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="cookie的使用"><a href="#cookie的使用" class="headerlink" title="cookie的使用"></a>cookie的使用</h1><p>1.下载cookie-parser模块</p>
+<p><code>npm install cookie-parser -S</code></p>
+<p>2.在app.js文件中导入，并使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const cookieParser &#x3D; require(&#39;cookie-parser&#39;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(cookieParser(&#39;secrect&#39;));  &#x2F;&#x2F;参数可不传，传参为cookie加密时作为密钥使用</span><br></pre></td></tr></table></figure>
+
+<p>3.设置cookie</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.cookie(&quot;user&quot;,&quot;zxlzxlzxl&quot;, &#123;maxAge: 60000000 , httpOnly: false,signed:true&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>第一个参数为：cookie的名字，第二个为：cookie未加密的值，第三个为对象：配置cookie的相关配置</p>
+<p>注意区别：</p>
+<p>当使用加密cookie时，即<code>signed:true</code>时，配合app.js文件中的密钥，加密后，在获取cookie时，需要使用如下方式：<code>req.signedCookies.cookieName</code>,使用<code>req.cookies.cookieName</code>时只能获取到未加密的cookie值，使用<code>req.signedCookies.cookieName</code>方法获得的值，已经是解密后的值，就是明文。</p>
+<ol>
+<li>domain：cookie在什么域名下有效，类型为String,。默认为网站域名,如：.baidu.com</li>
+<li>expires: cookie过期时间，类型为Date。如果没有设置或者设置为0，那么该cookie只在这个这个session有效，即关闭浏览器后，这个cookie会被浏览器删除。</li>
+<li>httpOnly: 只能被web server访问,在前端不能操作cookie,只能在发送请求时http携带cookie，类型Boolean。</li>
+<li>maxAge: 实现expires的功能，设置cookie过期的时间，类型为String，指明从现在开始，多少秒以后，cookie到期,单位为秒。maxAge的优先级比expires要高，所以设置maxAge会</li>
+<li>path: cookie在什么路径下有效，默认为’/‘，类型为String，设置后其子路径请求也会发送cookie</li>
+<li>secure：只能被HTTPS使用，类型Boolean，默认为false</li>
+<li>signed:使用签名，类型Boolean，默认为false。express会使用req.secret来完成签名，需要cookie-parser配合使用。</li>
+</ol>
+<h1 id="Token的使用"><a href="#Token的使用" class="headerlink" title="Token的使用"></a>Token的使用</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/12/express%E4%B8%ADcookie%E5%92%8Ctoken%E7%9A%84%E4%BD%BF%E7%94%A8/" data-id="ckd2g8z1i00005gudf0okgif7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vuex的模块化使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/17/vuex%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time datetime="2020-06-17T00:48:41.000Z" itemprop="datePublished">2020-06-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/17/vuex%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96%E4%BD%BF%E7%94%A8/">vuex的模块化使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h1><h4 id="vuex的作用："><a href="#vuex的作用：" class="headerlink" title="vuex的作用："></a>vuex的作用：</h4><p>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。通俗来讲就是管理多个组件的共享数据，如果多个组件共享数据使用事件总线会很麻烦，这种数据共享方式比较麻烦，所以有了一个统一管理共享数据的工具。</p>
+<h4 id="vuex的使用："><a href="#vuex的使用：" class="headerlink" title="vuex的使用："></a>vuex的使用：</h4><p>1.下载vuex插件：<code>npm install vuex --save</code></p>
+<p>2.在项目src目录下新建store文件夹，并且在下面新建一个index.js文件，如果其他文件导入该store文件，该文件文件下只有这个index文件，则默认会找到这个index文件。</p>
+<p>3.index文件导入所需文件</p>
+<p><code>import Vue from &#39;vue&#39;</code></p>
+<p><code>import Vuex from &#39;vuex&#39;</code></p>
+<p><code>Vue.use(Vuex);</code></p>
+<p>4.编写vuex管理数据</p>
+<p>`export default new Vuex.Store({</p>
+<p>  state:{ //此处存放需要管理的数据</p>
+<p>​      token:”sdfsfsdfsdf”</p>
+<p>  },</p>
+<p>  mutations:{//此处存放更改数据的方法</p>
+<p>   changeToken:(state,value)=&gt;{//方法需要传递两个参数，一个是仓库中的state，另一个是需要改变值</p>
+<p>​         state.token = value</p>
+<p>​     }</p>
+<p>  },</p>
+<p>  getters:{</p>
+<p>​       getToken:(state)=&gt;{   //getters用来取值，其效果和vue中的computed计算属性一样，可以用来包装数据和过滤数据</p>
+<p>​                 return state.token+”token令牌”</p>
+<p>​       }</p>
+<p>  },</p>
+<p>  actions:{   //此处存放异步执行改变mutation中的方法</p>
+<p>​    changeTokenasyn: ({commit},value)=&gt;{</p>
+<p>​        return commit(‘changeToken’,value)</p>
+<p>​      }//或者</p>
+<p>​     changeTokenasyn: (context,value)=&gt;{</p>
+<p>​         return context.commit(‘changeToken’,value)</p>
+<p>}</p>
+<p>  }</p>
+<p>})`</p>
+<p>5.在main.js中引入store</p>
+<p><code>import store from &#39;../store&#39;</code></p>
+<p>在new Vue中添加store即可</p>
+<p>6.在页面中使用vuex中的函数</p>
+<p>1.触发getters的函数: this.$store.getters.gettersfunction(value1,value2)//可以传递参数</p>
+<p>2.触发mutations的函数：this.$store.commit(‘vuexmutationsfunctionName’,value)  / /value一般为一个参数或者将参数存放为对象</p>
+<p>3.触发actions的函数：this.$store.dispatch(‘vuexactionsfunctionName’,value)  //value和mutations一样</p>
+<p>语法糖：</p>
+<p><code>import { mapState, mapGetters, mapMutations,mapActions } from &#39;vuex&#39;</code></p>
+<p>computed:{</p>
+<p>​         1、…mapState([‘name’,’age’,’gender’])    //字符串中的的属性都是state中的属性，这样就可以在页面中直接用花括号使用，就是一个计算属性了。</p>
+<p>​         2、…mapState({</p>
+<p>​           name:(state)=&gt;state.name ,</p>
+<p>​           storeName: (state)=&gt;state.name,  //当与数据仓库或者其他计算属性名字冲突时，可以使用该方法</p>
+<p>​           // 传入字符串 ‘count’ 等同于 <code>state =&gt; state.name</code>     </p>
+<p>​            storeName: ‘name’,</p>
+<p>​            }),</p>
+<p>​          3、computed:mapState({如同2的写法})</p>
+<p>​           1、…mapGetters({get:’getName’})</p>
+<p>​           2、…mapGetters([‘getname’,’getAge’])</p>
+<p>​           mutations和actions都可以使用如下方式：</p>
+<p>​           …mapMutations([‘changeName’,’changeAge’])</p>
+<p>​            …mapActions([‘changeNameAsync’,’changeAgeAsync’])</p>
+<p>}</p>
+<h1 id="模块化开发，降低耦合"><a href="#模块化开发，降低耦合" class="headerlink" title="模块化开发，降低耦合"></a>模块化开发，降低耦合</h1><p>在store文件夹下只留一个index文件用于整合其他模块，然后新建文件夹，并且为每个模块新建一个js文件，这个文件就是这个模块的vuex.</p>
+<p>js模块文件结构：</p>
+<p>const state = {}</p>
+<p>const getters = {}</p>
+<p>const mutations = {}</p>
+<p>const actions = {}</p>
+<p>export default {</p>
+<p>state,</p>
+<p>getters,</p>
+<p>mutations,</p>
+<p>actions</p>
+<p>}</p>
+<p>再在store下的index文件中引入该文件，并且在index文件中的</p>
+<p><code>new Vuex.Store({</code></p>
+<p>此处也可以添加state,getters,mutations,actions，模块化中，其中只有state的数据时分开的，其他的都是全局的在this.$store.getters||commit()||dispatch(),或者语法糖方法都可以访问到，而state数据分为rooState,模块state,在模块下可以state只能访问本模块下的state，也可以通过rootState进行根和兄弟之间的state的数据访问rootState.count //访问state的count，rootState.modulesA.name//访问兄弟的state</p>
+<p>modules:{</p>
+<p>person        //在此添加进入引入的模块</p>
+<p>}</p>
+<p><code>})</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/17/vuex%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96%E4%BD%BF%E7%94%A8/" data-id="ckc1xj0ha0000tkud8dr2c4bb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-父子组件之间的传值" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/13/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BC%A0%E5%80%BC/" class="article-date">
+  <time datetime="2020-06-13T12:51:15.000Z" itemprop="datePublished">2020-06-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/13/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BC%A0%E5%80%BC/">父子组件之间的传值</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="父组件传值给子组件"><a href="#父组件传值给子组件" class="headerlink" title="父组件传值给子组件"></a>父组件传值给子组件</h1><h3 id="技术：属性绑定-数据拦截。"><a href="#技术：属性绑定-数据拦截。" class="headerlink" title="技术：属性绑定+数据拦截。"></a>技术：属性绑定+数据拦截。</h3><h3 id="特点：数据具有响应式。"><a href="#特点：数据具有响应式。" class="headerlink" title="特点：数据具有响应式。"></a>特点：数据具有响应式。</h3><h3 id="使用："><a href="#使用：" class="headerlink" title="使用："></a>使用：</h3><p>1.给子组件标签上使用 <code>v-bind:attr=&quot;data&quot;</code>对子组件进行属性绑定，属性名称需为<strong>非标签属性</strong>，绑定之后正常情况下，是会在子组件的<strong>$attrs</strong>中可以看到该属性，并且在子组件的<strong>根标签</strong>上也可以看到到该属性。这就是属性绑定，因为使用的时v-bind的方法绑定，所以数据发生变动值都会传递下去，所以是具有响应式的。</p>
+<p>2.在属性绑定后，子组件中根标签可以看到传递过来的属性，虽然可以在子组件中通过this.$attrs.attr来获取某个属性值，但是这样太过于麻烦，所以出现了props属性，在该属性下可以配置拦截的数据，如果拦截过的数据，就不会出现在子组件的根标签上，并且也不会出现在子组件的$attrs中，而出现在子组件实例的props属性中。</p>
+<p>3.props的使用：</p>
+<ol>
+<li><p>props取值为数组时，如<code>props:[&quot;name&quot;,&quot;age&quot;]</code>则会拦截子组件标签上传递的属性，拦截后这两个数据，name,和age就相当于数据仓库中的实例，可以在页面中使用花括号，计算属性等方法，所以该方法能从父组件传值到子组件。</p>
+</li>
+<li><p>当props取值为对象时：如</p>
+<p>props:{</p>
+<p>​    name:{</p>
+<p>​                type:String,     //需要传递的值的类型，否则报错，但是还是会将传递的值显示在页面</p>
+<p>​                default:”默认值”，  //未传入值，或取值未undefined取默认值</p>
+<p>​                required:boolean,//是否必须传值</p>
+<p>​                 validator:function   //判断是否符合要求，如邮箱验证类似，如果符合则return true,</p>
+<p>​               }</p>
+<p>}</p>
+<p>type:取值为数据类型如Number,String,Boolean,Object,Array等，不符合直接报错</p>
+<p>deafult:取值，更具类型来取默认值，其生效时只有在父数据仓库中将该值定义未undefined或没有绑定该属          性时，才会使用该默认值。</p>
+<p>required:当取值为true时，default大部分时候都没有用，除非传值的为undefined。</p>
+<p>validator: 取值为函数，当符合条件时返回true，不符合时则会报错，在这不能检测数据类型，return为false时为报错，但是页面还是会显示父组件传递的值，或默认值。</p>
+<p>取值为对象时仅对于开发人员有用，所以一般开发都是使用对象取值。</p>
+</li>
+</ol>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips:"></a>Tips:</h2><p>在子组件上绑定的样式会往子组件根节点上传，不要数据拦截，标签属性不会被拦截。</p>
+<h1 id="子组件数据传递给父组件"><a href="#子组件数据传递给父组件" class="headerlink" title="子组件数据传递给父组件"></a>子组件数据传递给父组件</h1><h3 id="技术：事件绑定-事件触发。"><a href="#技术：事件绑定-事件触发。" class="headerlink" title="技术：事件绑定+事件触发。"></a>技术：事件绑定+事件触发。</h3><h3 id="特点：数据不具有响应式。"><a href="#特点：数据不具有响应式。" class="headerlink" title="特点：数据不具有响应式。"></a>特点：数据不具有响应式。</h3><h3 id="使用：-1"><a href="#使用：-1" class="headerlink" title="使用："></a>使用：</h3><p>1.在子组件中标签中添加事件，事件名需要自定义，并且不能使用驼峰命名，并且函数后面不能加括号，加括号表示函数不会传递参数，后面触发事件就不能传递参数了。同一个事件可以绑定多个函数，可以用数组方法绑定多个函数，触发事件后，都会执行。</p>
+<p>2.在绑定事件后，子组件在生命周期的beforeCreate之前就会将该事件添加进去vue实例的私有属性_events中，__events中含有所有的自定义事件，而且每个事件对应一个数组，每个数组都只含有一个函数，这个函数就包含了触发事件的所有函数。</p>
+<p>3.触发事件可以通过触发_events中的函数去触发事件，但是，_events属于私有属性，不太好，所以就有了$emit函数，使用$emit(“事件名”，参数)，如果事件名的是子组件的事件名，那么这个方法可以触发事件。</p>
+<p>4.在父组件中定义触发的事件函数，函数中由子组件中的参数变成函数的实参，所以可以拿到子组件中传来的值，将该值取出赋值给父组件的数据仓库属性，这样就拿到了子组件传来的值。</p>
+<p>5.该方法只能通事件的触发来实现值的传递，所以不是响应式。如果要响应式也可以通过改造，通过监控属性watch，监控传递的属性，如果有改变则触发$emit，并把参数传递出去，就实现了响应的功能效果。</p>
+<h2 id="Tips-1"><a href="#Tips-1" class="headerlink" title="Tips:"></a>Tips:</h2><p>1.用于数据传递的子组件事件绑定，不要使用标签定义的已知事件，使用自定义事件，事件名不要使用驼峰方式。</p>
+<p>2.项目开发中，存在需要将父组件的方法绑定到子组件根标签上，事件需要加.native修饰符，则在子组件根标签上还能看到事件，否则都会在_events中。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/13/%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BC%A0%E5%80%BC/" data-id="ckbe9h2r40000r4udbd3h198c" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%8B%E4%BB%B6/">微信小程序的学习之事件</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0%E4%B8%80/">微信小程序学习一</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/19/sequelize%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BA%8C/">sequelize框架的使用二</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/18/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BA%8B%E5%8A%A1/">mysql数据库的事务</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/mysql%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">mysql的数据类型</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

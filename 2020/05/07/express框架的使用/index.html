@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>&#39;eexpress框架的使用&#39; | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="express应用生成器的使用1.npm install express -g  &#x2F;&#x2F;全局下载express 2.npm express-generator -g  &#x2F;&#x2F;全局安装express应用生成器 3.express --version &#x2F;&#x2F;查看是否安装成功； 4.express 项目名 或者 express -e 项目名  &#x2F;&#x2F;安装成功的话，使用第一条命令会生成express模板框架，默认">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&#39;eexpress框架的使用&#39;">
+<meta property="og:url" content="http://yoursite.com/2020/05/07/express%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="express应用生成器的使用1.npm install express -g  &#x2F;&#x2F;全局下载express 2.npm express-generator -g  &#x2F;&#x2F;全局安装express应用生成器 3.express --version &#x2F;&#x2F;查看是否安装成功； 4.express 项目名 或者 express -e 项目名  &#x2F;&#x2F;安装成功的话，使用第一条命令会生成express模板框架，默认">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-06T22:53:36.000Z">
+<meta property="article:modified_time" content="2020-05-14T13:41:23.509Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-express框架的使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/07/express%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time datetime="2020-05-06T22:53:36.000Z" itemprop="datePublished">2020-05-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      &#39;eexpress框架的使用&#39;
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="express应用生成器的使用"><a href="#express应用生成器的使用" class="headerlink" title="express应用生成器的使用"></a>express应用生成器的使用</h2><p>1.<code>npm install express -g</code>  //全局下载express</p>
+<p>2.<code>npm express-generator -g</code>  //全局安装express应用生成器</p>
+<p>3.<code>express --version</code> //查看是否安装成功；</p>
+<p>4.<code>express 项目名 或者 express -e 项目名</code>  //安装成功的话，使用第一条命令会生成express模板框架，默认使用ejs渲染引擎，框架还有其他引擎，-e 命令指定模板引擎</p>
+<p>5.<code>cd 项目名</code>   //进入项目</p>
+<p>6.<code>npm install</code> //下载所需要的依赖</p>
+<p>7.<code>npm start</code>   //启动服务器</p>
+<p>8.在浏览器地址栏中输入<code>http://127.0.0.1:3000</code>，服务器默认端口为3000</p>
+<h2 id="express的路由配置"><a href="#express的路由配置" class="headerlink" title="express的路由配置"></a>express的路由配置</h2><p>配置相关路由</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var express &#x3D; require(&#39;express&#39;);</span><br><span class="line">var router &#x3D; express.Router();</span><br><span class="line"></span><br><span class="line">router.get(&#39;&#x2F;&#39;, function(req, res, next) &#123;</span><br><span class="line">  res.render(&#39;index&#39;, &#123; title: &#39;Express&#39;&#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">module.exports &#x3D; router;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;默认的index.js文件，将路由模块导出</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var indexRouter &#x3D; require(&#39;.&#x2F;routes&#x2F;index&#39;);</span><br><span class="line">app.use(&#39;&#x2F;&#39;, indexRouter);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;app.js中的配置路由</span><br><span class="line">&#x2F;&#x2F;所有的匹配路由都必须先导入配置的路由router,如上图所示当匹配到‘&#x2F;’路由时，则进入上诉路由</span><br></pre></td></tr></table></figure>
+
+<h5 id="动态路由（但是一般不建议使用，会产生很多垃圾文件）"><a href="#动态路由（但是一般不建议使用，会产生很多垃圾文件）" class="headerlink" title="动态路由（但是一般不建议使用，会产生很多垃圾文件）"></a>动态路由（但是一般不建议使用，会产生很多垃圾文件）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">router.get(&#39;&#x2F;:add&#39;, function(req, res, next) &#123;</span><br><span class="line">console.log(req.params)</span><br><span class="line">  res.render(&#39;index&#39;, &#123; title: req.params.add&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&#x2F;&#x2F;使用req.params.add获取add的值</span><br><span class="line">其中:add为匹配路径后，还有值，则动态获取这个值</span><br><span class="line">比如：http:&#x2F;&#x2F;127.0.0.1:3000&#x2F;123，则req.params为&#123; add: &#39;123&#39; &#125;</span><br><span class="line"></span><br><span class="line">再如下</span><br><span class="line">router.get(&#39;&#x2F;:add&#x2F;:name&#39;, function(req, res, next) &#123;</span><br><span class="line">  console.log(req.params);</span><br><span class="line">  res.send(&quot;动态路由&quot;)</span><br><span class="line">&#125;);</span><br><span class="line">&#x2F;&#x2F;http:&#x2F;&#x2F;127.0.0.1:3000&#x2F;123&#x2F;456</span><br><span class="line">&#x2F;&#x2F;req.params为&#123; add: &#39;123&#39;, name: &#39;456&#39; &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Express获取get和post请求的参数"><a href="#Express获取get和post请求的参数" class="headerlink" title="Express获取get和post请求的参数"></a>Express获取get和post请求的参数</h2><h4 id="获取get请求的·参数："><a href="#获取get请求的·参数：" class="headerlink" title="获取get请求的·参数："></a>获取get请求的·参数：</h4><p>路由文件中使用<code>req.query</code>     //获取的是一个参数对象</p>
+<h4 id="获取post请求的参数："><a href="#获取post请求的参数：" class="headerlink" title="获取post请求的参数："></a>获取post请求的参数：</h4><p><code>npm install body-parser --save</code> //下载插件</p>
+<p>在app.js中引入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var bodyParser&#x3D;require(&quot;body-parser&quot;);</span><br><span class="line">app.use(bodyParser.json());</span><br><span class="line">app.use(bodyParser.urlencoded(&#123; extended: false &#125;));</span><br></pre></td></tr></table></figure>
+
+<p>路由文件中使用<code>req.body</code>获取参数对象</p>
+<h2 id="Express中cookie的使用"><a href="#Express中cookie的使用" class="headerlink" title="Express中cookie的使用"></a>Express中cookie的使用</h2><h4 id="1-设置cookie"><a href="#1-设置cookie" class="headerlink" title="1.设置cookie"></a>1.设置cookie</h4><p><code>res.cookie(name, value [, options]);</code></p>
+<p>express就会将其填入Response Header中的Set-Cookie，达到在浏览器中设置cookie的作用。</p>
+<p>name: 类型为String,</p>
+<p>value: 类型为String和Object，如果是Object会在cookie.serialize()之前自动调用JSON.stringify对其进行处理</p>
+<p>Option: 类型为对象，可使用的属性如下</p>
+<ol>
+<li>domain：cookie在什么域名下有效，类型为String,。默认为网站域名,如：.baidu.com</li>
+<li>expires: cookie过期时间，类型为Date。如果没有设置或者设置为0，那么该cookie只在这个这个session有效，即关闭浏览器后，这个cookie会被浏览器删除。</li>
+<li>httpOnly: 只能被web server访问,在前端不能操作cookie,只能在发送请求时http携带cookie，类型Boolean。</li>
+<li>maxAge: 实现expires的功能，设置cookie过期的时间，类型为String，指明从现在开始，多少秒以后，cookie到期,单位为秒。</li>
+<li>path: cookie在什么路径下有效，默认为’/‘，类型为String</li>
+<li>secure：只能被HTTPS使用，类型Boolean，默认为false</li>
+<li>signed:使用签名，类型Boolean，默认为false。express会使用req.secret来完成签名，需要cookie-parser配合使用。</li>
+</ol>
+<h4 id="2-cookie的删除"><a href="#2-cookie的删除" class="headerlink" title="2.cookie的删除"></a>2.cookie的删除</h4><p><code>res.clearCookie(name [, options]);    //可以用在退出登录</code></p>
+<h4 id="3-获取http传递的cookie"><a href="#3-获取http传递的cookie" class="headerlink" title="3.获取http传递的cookie"></a>3.获取http传递的cookie</h4><p>需要使用到cookie-parser模块</p>
+<p><code>npm install cookie-parser --save //下载cookie-parser</code></p>
+<p><code>const cookieParser=require(&quot;cookie-parser&quot;);</code></p>
+<p><code>app.use(cookieParser());</code></p>
+<p>获取cookie</p>
+<p><code>req.cookies.name;</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/07/express%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8/" data-id="ckd2g8z1r00015gud8rak9pmx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/05/15/mysql%E4%B8%AD%E7%9A%84%E6%97%B6%E9%97%B4%E5%87%BD%E6%95%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          mysql中的时间函数
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/04/03/promise%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">promise的学习一</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%8B%E4%BB%B6/">微信小程序的学习之事件</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0%E4%B8%80/">微信小程序学习一</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/19/sequelize%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BA%8C/">sequelize框架的使用二</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/18/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BA%8B%E5%8A%A1/">mysql数据库的事务</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/mysql%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">mysql的数据类型</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
