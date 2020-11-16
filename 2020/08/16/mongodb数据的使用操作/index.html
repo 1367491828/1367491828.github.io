@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>mongodb数据的使用操作 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="MongoDB数据库的学习和使用1.下载安装数据库。 2.连接数据库，使用cmd窗口（任何位置都行）,输入mongo命令即可连接数据库。   3.创建并使用数据库，show dbs;&#x2F;&#x2F;查看数据库   use databaseName;  &#x2F;&#x2F;切换数据库，但是现在还并没有创建该数据库，在插入了一条数据之后，再查看数据库时则创建了该数据库（只有插入了数据库集合才会创建，mysql数据库需要先创建数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mongodb数据的使用操作">
+<meta property="og:url" content="http://yoursite.com/2020/08/16/mongodb%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BD%BF%E7%94%A8%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="MongoDB数据库的学习和使用1.下载安装数据库。 2.连接数据库，使用cmd窗口（任何位置都行）,输入mongo命令即可连接数据库。   3.创建并使用数据库，show dbs;&#x2F;&#x2F;查看数据库   use databaseName;  &#x2F;&#x2F;切换数据库，但是现在还并没有创建该数据库，在插入了一条数据之后，再查看数据库时则创建了该数据库（只有插入了数据库集合才会创建，mysql数据库需要先创建数据">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/16/dEousH.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/16/dETb40.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/16/dEbxKS.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/17/dmfdnH.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/17/dmhuPP.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/17/dmh8bj.png">
+<meta property="og:image" content="c:%5CUsers%5C%E5%BC%A0%E6%96%B0%E9%BE%99%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200818204759752.png">
+<meta property="article:published_time" content="2020-08-16T08:45:04.000Z">
+<meta property="article:modified_time" content="2020-09-12T15:23:42.406Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/08/16/dEousH.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-mongodb数据的使用操作" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/16/mongodb%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BD%BF%E7%94%A8%E6%93%8D%E4%BD%9C/" class="article-date">
+  <time datetime="2020-08-16T08:45:04.000Z" itemprop="datePublished">2020-08-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mongodb数据的使用操作
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="MongoDB数据库的学习和使用"><a href="#MongoDB数据库的学习和使用" class="headerlink" title="MongoDB数据库的学习和使用"></a>MongoDB数据库的学习和使用</h2><p>1.下载安装数据库。</p>
+<p>2.连接数据库，使用cmd窗口（任何位置都行）,输入mongo命令即可连接数据库。</p>
+<img src="https://s1.ax1x.com/2020/08/16/dEousH.png" alt="dEousH.png" border="0" />
+
+<p>3.创建并使用数据库，<code>show dbs;</code>//查看数据库   <code>use databaseName;</code>  //切换数据库，但是现在还并没有创建该数据库，在插入了一条数据之后，再查看数据库时则创建了该数据库（只有插入了数据库集合才会创建，mysql数据库需要先创建数据库才能用use）。删除数据库，首先需要进入到该数据库，然后<code>db.dropDatabase();</code></p>
+<img src="https://s1.ax1x.com/2020/08/16/dETb40.png" alt="dETb40.png" border="0" />
+
+<p>3.插入数据，<code>db.collectionName.insert({ &quot;key&quot; : &quot;value&quot;  })</code>，显示当前数据里面的数据集合，<code>show collections;</code>,只有插入了数据的表才存在。查看数据<code>db.colleectionName.find();</code>删除数据库内的集合：<code>db.collectionName.drop()</code></p>
+<img src="https://s1.ax1x.com/2020/08/16/dEbxKS.png" alt="dEbxKS.png" border="0" />
+
+<p>4.修改数据</p>
+<p>db.user.update({“username”:”123456”},{ $set: { ‘password’ : ‘654332’ }}, {upsert: boolean,mulit: boolean})</p>
+<p>第一个花括号为修改的条件，第二个花括号是修改的数据，第三个可以省略，默认都是false，第一个upsert是控制，如果不存在update的记录，是否插入这个新的数据 ,true为插入，默认是false，不插入。第二个为multi是控制是否将多条符合条件的数据修改，默认是只修改第一条查询到符合条件的数据。true为修改查询到的所有数据。</p>
+<p>，如果是按顺序写的boolean，则不需要{},直接写true和false,如果要跳过一个不设置，则需要使用对象写法，且写出字段。{multi:true}</p>
+<img src="https://s1.ax1x.com/2020/08/17/dmfdnH.png" alt="dmfdnH.png" border="0" />
+
+<p>如图所示，当设置第一个upsert为true时，将会把没有符合条件的数据直接插入数据库</p>
+<img src="https://s1.ax1x.com/2020/08/17/dmhuPP.png" alt="dmhuPP.png" border="0" />
+
+<p>默认只修改第一条数据</p>
+<img src="https://s1.ax1x.com/2020/08/17/dmh8bj.png" alt="dmh8bj.png" border="0" />
+
+<p>修改了多条数据。</p>
+<p>save方法也会修改整条数据，通过传入的文档来替换已有文档。语法格式如下：</p>
+<ol>
+<li><p>db.collection.save(    </p>
+</li>
+<li><p>​    <document>, //文档数据</p>
+</li>
+<li><p>)  </p>
+</li>
+</ol>
+<p>5.删除数据 <strong>如果不传条件将会将所有数据删除：query:{}</strong></p>
+<ol>
+<li>db.collection.remove(     </li>
+<li>​    <query>,     </li>
+<li>​    {       </li>
+<li>​        justOne: <boolean>,</li>
+<li>​        writeConcern: <document> </li>
+<li>​    } </li>
+<li>)</li>
+</ol>
+<ul>
+<li><strong>query</strong> :（可选）删除的文档的条件。</li>
+<li><strong>justOne</strong> : （可选）如果设为 true 或 1，则只删除一个文档。</li>
+<li><strong>writeConcern</strong> :（可选）抛出异常的级别。</li>
+</ul>
+<p>6.分页查询</p>
+<p>db.collection.limit(pagesize).skip(pagesize*(pagenum - 1))</p>
+<p>7.排序</p>
+<p>在MongoDB中使用使用sort()方法对数据进行排序，sort()方法可以通过参数指定排序的字段，并使用 1 和 -1 来指定排序的方式，其中 1 为升序排列，而-1是用于降序排列。</p>
+<p><code>db.COLLECTION_NAME.find().sort({KEY:1})</code>  </p>
+<p>8.设置索引</p>
+<p>查看查询时间：</p>
+<p>db.collection.find({}).explain(“executionStats”)</p>
+<p>“executionTimeMillis” : 103,  //该字段就是查询所花的时间</p>
+<p>创建索引：db.collection.ensureIndex({‘colName’:1});  //给colName设置索引，1表示升序，-1表示降序</p>
+<p>可以为索引自取名：db.collection.ensureIndex({‘colName’:1},{‘name’:’colname_1’}); 索引名为colname_1</p>
+<p>查看索引：db.collection.getIndexes()</p>
+<p>删除索引：db.collection.dropIndex(‘colName’:1) 删除索引后，查询时间和为设置时差不多；</p>
+<p>复合索引：db.collection.dropIndex({‘username’:1,’age’: 1}) </p>
+<p>该索引被创建后，基于username和age的查询将会用到该索引，或者是基于username</p>
+<p>的查询也会用到该索引，但是只是基于age的查询将不会用到该复合索引。因此可以说，如果想用到复合索引，必须在查询条件中包含复合索引中的前N个索引列。然而如果查询条件中的键值顺序和复合索引中的创建顺序不一致的话， MongoDB 可以智能的帮助我们调整该顺序，以便使复合索引可以为查询所用。</p>
+<p>唯一索引：db.collection.dropIndex({‘username’:1}，{‘unique’:true})</p>
+<p>创建唯一索引的字段插入相同值会报错</p>
+<p>MongoDB数据创建管理权限</p>
+<p>1.先进入admin数据库（show users;查看数据库用户）</p>
+<p><img src="C:%5CUsers%5C%E5%BC%A0%E6%96%B0%E9%BE%99%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200818204759752.png" alt="image-20200818204759752"></p>
+<p>2.使用下面命令创建数据用户，成功会显示创建成功，并且有相关信息</p>
+<p><code>db.createUser({</code><br><code>... user:&#39;admin&#39;,</code><br><code>... pwd:&#39;123456&#39;,</code><br><code>... roles:[{role:&#39;root&#39;,db:&#39;admin&#39;}]</code><br><code>... });</code></p>
+<p>3.配置mongodb数据库中bin目录下的mongod.cfg文件（可以先备份）</p>
+<p>security:<br>     authorization: enabled</p>
+<p>4.windows+R,输入services.msc找到mongodb服务重新启动</p>
+<p>在进入数据库的时候输入</p>
+<p><code>mongo admin -u userName -p password;</code></p>
+<h3 id="在node中连接数据库"><a href="#在node中连接数据库" class="headerlink" title="在node中连接数据库"></a><strong>在node中连接数据库</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;引入mongodb模块</span><br><span class="line">const &#123; MongoClient &#125; &#x3D; require(&#39;mongodb&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;定义数据库地址mongodb:&#x2F;&#x2F;username:password@127.0.0.1:27017</span><br><span class="line">const url &#x3D; &#39;mongodb:&#x2F;&#x2F;admin:123456@127.0.0.1:27017&#39;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;指定数据库名称</span><br><span class="line">const dbName &#x3D; &#39;node&#39;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;实例化MongoClient，传入地址</span><br><span class="line">const client &#x3D; new MongoClient(url,&#123; useUnifiedTopology: true &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">client.connect((err)&#x3D;&gt;&#123;</span><br><span class="line">    if(err)&#123;</span><br><span class="line">        console.log(&quot;数据库连接失败！&quot;)</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&quot;数据库连接成功！&quot;);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;</span><br><span class="line">    let db &#x3D; client.db(dbName);</span><br><span class="line"></span><br><span class="line">    db.collection(&#39;user&#39;).find().toArray((err,data)&#x3D;&gt;&#123;</span><br><span class="line">        if(err)&#123;</span><br><span class="line">            console.log(err)</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        console.log(data)  &#x2F;&#x2F;打印相互数据</span><br><span class="line">        &#x2F;&#x2F;关闭数据库</span><br><span class="line">        client.close();  &#x2F;&#x2F;关闭数据库只能在这里关闭，因为是异步过程</span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>上述进行简单的查询操作。修改删除类似。</p>
+<h4 id="初步使用mongoose"><a href="#初步使用mongoose" class="headerlink" title="初步使用mongoose"></a>初步使用mongoose</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">const mongoose &#x3D; require(&#39;mongoose&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;建立连接</span><br><span class="line">mongoose.connect(&#39;mongodb:&#x2F;&#x2F;admin:123456@127.0.0.1:27017&#x2F;node?authSource&#x3D;admin&#39;,&#123; useNewUrlParser: true,useUnifiedTopology: true &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const UserSchema &#x3D; mongoose.Schema(&#123;</span><br><span class="line">    name: String,</span><br><span class="line">    age: Number,</span><br><span class="line">    password: String,</span><br><span class="line">    gender: String,</span><br><span class="line">    profession: String</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">const User &#x3D; mongoose.model(&#39;User&#39;,UserSchema,&#39;user&#39;);</span><br><span class="line">&#x2F;&#x2F;第三个参数指定数据库不添加复数，默认是找users表</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;查找数据</span><br><span class="line">&#x2F;&#x2F; User.find(&#123;&#125;,(err,docs)&#x3D;&gt;&#123;</span><br><span class="line">&#x2F;&#x2F;     if(err)&#123;</span><br><span class="line">&#x2F;&#x2F;         console.log(&#39;连接数据库出错！&#39;)</span><br><span class="line">&#x2F;&#x2F;         return;</span><br><span class="line">&#x2F;&#x2F;     &#125;</span><br><span class="line">&#x2F;&#x2F;     console.log(docs)</span><br><span class="line">&#x2F;&#x2F; &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;增加数据</span><br><span class="line">&#x2F;&#x2F; let u &#x3D; new User(&#123;</span><br><span class="line">&#x2F;&#x2F;     name:&#39;王友肾&#39;,</span><br><span class="line">&#x2F;&#x2F;     age: 22,</span><br><span class="line">&#x2F;&#x2F;     password:&#39;123456&#39;,</span><br><span class="line">&#x2F;&#x2F;     gender:&#39;male&#39;,</span><br><span class="line">&#x2F;&#x2F;     profession:&#39;经济管理&#39;</span><br><span class="line">&#x2F;&#x2F; &#125;)</span><br><span class="line">&#x2F;&#x2F; u.save((err,res)&#x3D;&gt;&#123;</span><br><span class="line">&#x2F;&#x2F;     if(err)&#123;</span><br><span class="line">&#x2F;&#x2F;         console.log(err)</span><br><span class="line">&#x2F;&#x2F;         return;</span><br><span class="line">&#x2F;&#x2F;     &#125;</span><br><span class="line">&#x2F;&#x2F;     console.log(res)</span><br><span class="line">&#x2F;&#x2F; &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;更新数据</span><br><span class="line">&#x2F;&#x2F; User.update(&#123;name:&#39;张新龙&#39;&#125;,&#123;gender:&#39;male&#39;&#125;,&#123;multi:true&#125;,function(err,res)&#123;</span><br><span class="line">&#x2F;&#x2F;     if(err)&#123;</span><br><span class="line">&#x2F;&#x2F;         console.log(err);</span><br><span class="line">&#x2F;&#x2F;         return;</span><br><span class="line">&#x2F;&#x2F;     &#125;</span><br><span class="line">&#x2F;&#x2F;     console.log(res)</span><br><span class="line">&#x2F;&#x2F; &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;删除数据</span><br><span class="line">User.deleteOne(&#123;name:&#39;刘亦菲&#39;&#125;,function(err,res)&#123;</span><br><span class="line">    if(err)&#123;</span><br><span class="line">        console.log(err);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置索引"><a href="#设置索引" class="headerlink" title="设置索引"></a>设置索引</h3><p>设置唯一索引：unique: true</p>
+<p>设置索引：index: true</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/16/mongodb%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BD%BF%E7%94%A8%E6%93%8D%E4%BD%9C/" data-id="ckhk0r2ab000cqwud7tln4w7b" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/08/26/vue-admin-tempalte-master%E7%9A%84%E7%94%9F%E4%BA%A7%E5%92%8C%E5%BC%80%E5%8F%91j%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          &#39;vue-admin-tempalte-master的生产和开发j环境配置&#39;
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/08/14/js%E9%94%99%E8%AF%AF%E7%90%86%E8%A7%A3%E9%9B%86%E5%90%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">js错误理解集合</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/04/react-%E4%B8%ADsetState%E7%9A%84%E4%BD%BF%E7%94%A8/">react 中setState的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/04/vue3%E7%9A%84%E4%BC%98%E5%8C%96/">vue3的优化</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/31/redux%E5%AD%A6%E4%B9%A0/">redux学习</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/28/typescript%E7%9A%84%E5%AD%A6%E4%B9%A0/">typescript的学习</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/26/ajax%E5%92%8Caxios-fetch%E7%9A%84%E5%AD%A6%E4%B9%A0/">ajax和axios,fetch的学习</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

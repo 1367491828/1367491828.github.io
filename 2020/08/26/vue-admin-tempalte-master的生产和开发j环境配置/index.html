@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>&#39;vue-admin-tempalte-master的生产和开发j环境配置&#39; | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="开发跨域在前后端分离开发，必定会产生跨域问题，这就需要使用代理跨域。开发时前后端不在同一台服务器上，所以需要配置代理跨域，才能完成数据对接。 在vue-admin-tempalte-master中包含.env.development和.env.production文件，这两个文件配置了开发和生产环境的baseURL. 配置开发跨域（一般时开发完成后进行接口对接）。 1.首先注释掉mock数据部分。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&#39;vue-admin-tempalte-master的生产和开发j环境配置&#39;">
+<meta property="og:url" content="http://yoursite.com/2020/08/26/vue-admin-tempalte-master%E7%9A%84%E7%94%9F%E4%BA%A7%E5%92%8C%E5%BC%80%E5%8F%91j%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="开发跨域在前后端分离开发，必定会产生跨域问题，这就需要使用代理跨域。开发时前后端不在同一台服务器上，所以需要配置代理跨域，才能完成数据对接。 在vue-admin-tempalte-master中包含.env.development和.env.production文件，这两个文件配置了开发和生产环境的baseURL. 配置开发跨域（一般时开发完成后进行接口对接）。 1.首先注释掉mock数据部分。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-26T09:38:31.000Z">
+<meta property="article:modified_time" content="2020-08-26T14:10:22.532Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-vue-admin-tempalte-master的生产和开发j环境配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/26/vue-admin-tempalte-master%E7%9A%84%E7%94%9F%E4%BA%A7%E5%92%8C%E5%BC%80%E5%8F%91j%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time datetime="2020-08-26T09:38:31.000Z" itemprop="datePublished">2020-08-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      &#39;vue-admin-tempalte-master的生产和开发j环境配置&#39;
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="开发跨域"><a href="#开发跨域" class="headerlink" title="开发跨域"></a>开发跨域</h3><p>在前后端分离开发，必定会产生跨域问题，这就需要使用代理跨域。开发时前后端不在同一台服务器上，所以需要配置代理跨域，才能完成数据对接。</p>
+<p>在vue-admin-tempalte-master中包含.env.development和.env.production文件，这两个文件配置了开发和生产环境的baseURL.</p>
+<p>配置开发跨域（一般时开发完成后进行接口对接）。</p>
+<p>1.首先注释掉mock数据部分。</p>
+<p>在vue.config.js中注释</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; before: require(&#39;.&#x2F;mock&#x2F;mock-server.js&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>修改代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">  port: port,</span><br><span class="line">  open: true,</span><br><span class="line">  overlay: &#123;</span><br><span class="line">    warnings: false,</span><br><span class="line">    errors: true</span><br><span class="line">  &#125;,</span><br><span class="line">  proxy:&#123;</span><br><span class="line">    &#39;&#x2F;api&#39;: &#123; &#x2F;&#x2F;拦截以&#x2F;api开头的请求（api封装的请求）</span><br><span class="line">      target: &#39;http:&#x2F;&#x2F;127.0.0.1:3000&#39;, &#x2F;&#x2F; 这个链接是要代理到的api地址</span><br><span class="line">      changeOrigin: true,  &#x2F;&#x2F;设置可以跨域</span><br><span class="line">      pathRewrite: &#123;</span><br><span class="line">        &#39;^&#x2F;api&#39;: &#39;&#39;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  &#x2F;&#x2F; before: require(&#39;.&#x2F;mock&#x2F;mock-server.js&#39;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>在main.js中注释掉下面内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; if (process.env.NODE_ENV &#x3D;&#x3D;&#x3D; &#39;production&#39;) &#123;</span><br><span class="line">&#x2F;&#x2F;   const &#123; mockXHR &#125; &#x3D; require(&#39;..&#x2F;mock&#39;)</span><br><span class="line">&#x2F;&#x2F;   mockXHR()</span><br><span class="line">&#x2F;&#x2F; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改.env.development中的地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VUE_APP_BASE_API &#x3D; &#39;http:&#x2F;&#x2F;127.0.0.1:3000&#39;</span><br></pre></td></tr></table></figure>
+
+<p>修改utils/request.js改成下面的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">baseURL: process.env.NODE_ENV !&#x3D;&#x3D; &#39;production&#39;?&#39;&#x2F;api&#39;:process.env.VUE_APP_BASE_API,</span><br><span class="line">&#x2F;&#x2F;如果是生产环境，则使用.env.production里面的url,如果不是则设置为代理拦截的前部，这里设置的baseURl会自动和封装的api接口进行拼接得到请求地址，因为如果是代理请求一般都是开发跨域，process.env.NODE_ENV可以获取到项目是什么环境下。</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/26/vue-admin-tempalte-master%E7%9A%84%E7%94%9F%E4%BA%A7%E5%92%8C%E5%BC%80%E5%8F%91j%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" data-id="ckhk0r2ar000pqwude3ov94l0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/08/28/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%8E%AF%E5%A2%83%E6%A6%82%E8%BF%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          &#39;浏览器环境概述&#39;
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/08/16/mongodb%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BD%BF%E7%94%A8%E6%93%8D%E4%BD%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">mongodb数据的使用操作</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/04/react-%E4%B8%ADsetState%E7%9A%84%E4%BD%BF%E7%94%A8/">react 中setState的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/04/vue3%E7%9A%84%E4%BC%98%E5%8C%96/">vue3的优化</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/31/redux%E5%AD%A6%E4%B9%A0/">redux学习</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/28/typescript%E7%9A%84%E5%AD%A6%E4%B9%A0/">typescript的学习</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/26/ajax%E5%92%8Caxios-fetch%E7%9A%84%E5%AD%A6%E4%B9%A0/">ajax和axios,fetch的学习</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

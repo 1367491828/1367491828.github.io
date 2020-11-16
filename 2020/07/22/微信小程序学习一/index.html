@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>微信小程序学习一 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="微信小程序配置app.json中的全局配置entryPagePath：指定小程序的默认启动路径（首页），如果不填，将默认为 pages 列表的第一项。不支持带页面路径参数。 1&quot;entryPagePath&quot;: &quot;pages&#x2F;index&#x2F;index&quot;  &#x2F;&#x2F;设置默认启动页，默认为pages配置的第一页  pages：用于指定小程序由哪些页面组成，每一项都对应一个页面的 路径（含文件名） 信息。文件名">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序学习一">
+<meta property="og:url" content="http://yoursite.com/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0%E4%B8%80/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="微信小程序配置app.json中的全局配置entryPagePath：指定小程序的默认启动路径（首页），如果不填，将默认为 pages 列表的第一项。不支持带页面路径参数。 1&quot;entryPagePath&quot;: &quot;pages&#x2F;index&#x2F;index&quot;  &#x2F;&#x2F;设置默认启动页，默认为pages配置的第一页  pages：用于指定小程序由哪些页面组成，每一项都对应一个页面的 路径（含文件名） 信息。文件名">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-21T22:31:52.000Z">
+<meta property="article:modified_time" content="2020-07-22T03:43:48.559Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-微信小程序学习一" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0%E4%B8%80/" class="article-date">
+  <time datetime="2020-07-21T22:31:52.000Z" itemprop="datePublished">2020-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      微信小程序学习一
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="微信小程序配置"><a href="#微信小程序配置" class="headerlink" title="微信小程序配置"></a>微信小程序配置</h1><h3 id="app-json中的全局配置"><a href="#app-json中的全局配置" class="headerlink" title="app.json中的全局配置"></a>app.json中的全局配置</h3><p><strong>entryPagePath</strong>：指定小程序的默认启动路径（首页），如果不填，将默认为 <code>pages</code> 列表的第一项。不支持带页面路径参数。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"entryPagePath": "pages/index/index"  //设置默认启动页，默认为pages配置的第一页</span><br></pre></td></tr></table></figure>
+
+<p><strong>pages：</strong>用于指定小程序由哪些页面组成，每一项都对应一个页面的 路径（含文件名） 信息。文件名不需要写文件后缀，框架会自动去寻找对应位置的 <code>.json</code>, <code>.js</code>, <code>.wxml</code>, <code>.wxss</code> 四个文件进行处理。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">"pages": [</span><br><span class="line">    "pages/index/index", </span><br><span class="line">    <span class="string">"pages/logs/logs"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p><strong>window：</strong>用于设置小程序的状态栏、导航条、标题、窗口背景色。</p>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">描述</th>
+<th align="left">最低版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">enablePullDownRefresh</td>
+<td align="left">boolean</td>
+<td align="left">false</td>
+<td align="left">是否开启全局的下拉刷新。详情：<a href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onpulldownrefresh" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onpulldownrefresh</a></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<p><strong>tabBar：</strong>如果小程序是一个多 tab 应用（客户端窗口的底部或顶部有 tab 栏可以切换页面），可以通过 tabBar 配置项指定 tab 栏的表现，以及 tab 切换时显示的对应页面。</p>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">类型</th>
+<th align="left">必填</th>
+<th align="left">默认值</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">color</td>
+<td align="left">HexColor</td>
+<td align="left">是</td>
+<td align="left"></td>
+<td align="left">tab 上的文字默认颜色，仅支持十六进制颜色</td>
+</tr>
+<tr>
+<td align="left">selectedColor</td>
+<td align="left">HexColor</td>
+<td align="left">是</td>
+<td align="left"></td>
+<td align="left">tab 上的文字选中时的颜色，仅支持十六进制颜色</td>
+</tr>
+<tr>
+<td align="left">backgroundColor</td>
+<td align="left">HexColor</td>
+<td align="left">是</td>
+<td align="left"></td>
+<td align="left">tab 的背景色，仅支持十六进制颜色</td>
+</tr>
+<tr>
+<td align="left">borderStyle</td>
+<td align="left">string</td>
+<td align="left">否</td>
+<td align="left">black</td>
+<td align="left">tabbar 上边框的颜色， 仅支持 <code>black</code> / <code>white</code></td>
+</tr>
+<tr>
+<td align="left">list</td>
+<td align="left">Array</td>
+<td align="left">是</td>
+<td align="left"></td>
+<td align="left">tab 的列表，详见 <code>list</code> 属性说明，最少 2 个、最多 5 个 tab</td>
+</tr>
+<tr>
+<td align="left">position</td>
+<td align="left">string</td>
+<td align="left">否</td>
+<td align="left">bottom</td>
+<td align="left">tabBar 的位置，仅支持 <code>bottom</code> / <code>top</code></td>
+</tr>
+<tr>
+<td align="left">custom</td>
+<td align="left">boolean</td>
+<td align="left">否</td>
+<td align="left">false</td>
+<td align="left">自定义 tabBar，见<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/ability/custom-tabbar.html" target="_blank" rel="noopener">详情</a></td>
+</tr>
+</tbody></table>
+<p><strong>networkTimeout</strong>：各类网络请求的超时时间，单位均为毫秒。</p>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">类型</th>
+<th align="left">必填</th>
+<th align="left">默认值</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">request</td>
+<td align="left">number</td>
+<td align="left">否</td>
+<td align="left">60000</td>
+<td align="left"><a href="https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html" target="_blank" rel="noopener">wx.request</a> 的超时时间，单位：毫秒。</td>
+</tr>
+<tr>
+<td align="left">connectSocket</td>
+<td align="left">number</td>
+<td align="left">否</td>
+<td align="left">60000</td>
+<td align="left"><a href="https://developers.weixin.qq.com/miniprogram/dev/api/network/websocket/wx.connectSocket.html" target="_blank" rel="noopener">wx.connectSocket</a> 的超时时间，单位：毫秒。</td>
+</tr>
+<tr>
+<td align="left">uploadFile</td>
+<td align="left">number</td>
+<td align="left">否</td>
+<td align="left">60000</td>
+<td align="left"><a href="https://developers.weixin.qq.com/miniprogram/dev/api/network/upload/wx.uploadFile.html" target="_blank" rel="noopener">wx.uploadFile</a> 的超时时间，单位：毫秒。</td>
+</tr>
+<tr>
+<td align="left">downloadFile</td>
+<td align="left">number</td>
+<td align="left">否</td>
+<td align="left">60000</td>
+<td align="left"><a href="https://developers.weixin.qq.com/miniprogram/dev/api/network/download/wx.downloadFile.html" target="_blank" rel="noopener">wx.downloadFile</a> 的超时时间，单位：毫秒。</td>
+</tr>
+</tbody></table>
+<h3 id="页面配置："><a href="#页面配置：" class="headerlink" title="页面配置："></a>页面配置：</h3><p>每一个小程序页面也可以使用 <code>.json</code> 文件来对本页面的窗口表现进行配置。页面中配置项在当前页面会覆盖 <code>app.json</code> 的 <code>window</code> 中相同的配置项。</p>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">描述</th>
+<th align="left">最低版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">disableScroll</td>
+<td align="left">boolean</td>
+<td align="left">false</td>
+<td align="left">设置为 <code>true</code> 则页面整体不能上下滚动。 只在页面配置中有效，无法在 <code>app.json</code> 中设置</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">enablePullDownRefresh</td>
+<td align="left">boolean</td>
+<td align="left">false</td>
+<td align="left">是否开启当前页面下拉刷新。 详见 <a href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onpulldownrefresh" target="_blank" rel="noopener">Page.onPullDownRefresh</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">navigationBarBackgroundColor</td>
+<td align="left">HexColor</td>
+<td align="left">#000000</td>
+<td align="left">导航栏背景颜色，如 <code>#000000</code></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">navigationBarTextStyle</td>
+<td align="left">string</td>
+<td align="left">white</td>
+<td align="left">导航栏标题颜色，仅支持 <code>black</code> / <code>white</code></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">navigationBarTitleText</td>
+<td align="left">string</td>
+<td align="left"></td>
+<td align="left">导航栏标题文字内容</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">navigationStyle</td>
+<td align="left">string</td>
+<td align="left">default</td>
+<td align="left">导航栏样式，仅支持以下值： <code>default</code> 默认样式 <code>custom</code> 自定义导航栏，只保留右上角胶囊按钮</td>
+<td align="left">微信客户端 7.0.0</td>
+</tr>
+<tr>
+<td align="left">backgroundColor</td>
+<td align="left">HexColor</td>
+<td align="left">#ffffff</td>
+<td align="left">窗口的背景色</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">backgroundTextStyle</td>
+<td align="left">string</td>
+<td align="left">dark</td>
+<td align="left">下拉 loading 的样式，仅支持 <code>dark</code> / <code>light</code></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0%E4%B8%80/" data-id="ckhk0r2b40012qwuddkxm11yr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%8B%E4%BB%B6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          微信小程序的学习之事件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/19/sequelize%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BA%8C/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">sequelize框架的使用二</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/04/react-%E4%B8%ADsetState%E7%9A%84%E4%BD%BF%E7%94%A8/">react 中setState的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/04/vue3%E7%9A%84%E4%BC%98%E5%8C%96/">vue3的优化</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/31/redux%E5%AD%A6%E4%B9%A0/">redux学习</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/28/typescript%E7%9A%84%E5%AD%A6%E4%B9%A0/">typescript的学习</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/26/ajax%E5%92%8Caxios-fetch%E7%9A%84%E5%AD%A6%E4%B9%A0/">ajax和axios,fetch的学习</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>mysql的数据类型 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Mysql的主要数据类型数字类型：主要的数字数据类型：TINYINT,    SMALLINT,   INT  , BIGINT,   FLOAT , DOUBLE , DECIMA(M,N); TINYINT:     占一个字节，带符号时范围为：-128127，无符号时为0255. SMALLINT: 占两个字节，带符号时范围为：-2的15次方2的15次方-1（-3276832767），无符号">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql的数据类型">
+<meta property="og:url" content="http://yoursite.com/2020/07/17/mysql%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Mysql的主要数据类型数字类型：主要的数字数据类型：TINYINT,    SMALLINT,   INT  , BIGINT,   FLOAT , DOUBLE , DECIMA(M,N); TINYINT:     占一个字节，带符号时范围为：-128127，无符号时为0255. SMALLINT: 占两个字节，带符号时范围为：-2的15次方2的15次方-1（-3276832767），无符号">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-17T05:34:43.000Z">
+<meta property="article:modified_time" content="2020-07-17T09:21:51.590Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-mysql的数据类型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/17/mysql%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="article-date">
+  <time datetime="2020-07-17T05:34:43.000Z" itemprop="datePublished">2020-07-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mysql的数据类型
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Mysql的主要数据类型"><a href="#Mysql的主要数据类型" class="headerlink" title="Mysql的主要数据类型"></a>Mysql的主要数据类型</h1><h3 id="数字类型："><a href="#数字类型：" class="headerlink" title="数字类型："></a>数字类型：</h3><p>主要的数字数据类型：TINYINT,    SMALLINT,   INT  , BIGINT,   FLOAT , DOUBLE , DECIMA(M,N);</p>
+<p>TINYINT:     占一个字节，带符号时范围为：-128<del>127，无符号时为0</del>255.</p>
+<p>SMALLINT: 占两个字节，带符号时范围为：-2的15次方<del>2的15次方-1（-32768</del>32767），无符号时为0<del>2的16次方-1（0</del>65535）</p>
+<p>INT :         占四个字节，带符号范围为-2的63次方<del>2的63次方-1（-21.47亿</del>21.47亿），无符号为（0~42.94亿）</p>
+<p>BIGINT:      占八个字节带符号范围为：（-922.3万万亿<del>-922.3万万亿），无符号为（0</del>1844.6万万亿）</p>
+<p>FLOAT（M，N）:        占用四个字节，M表示显示长度，N表示小数位长度。当输入小数位长度大于N时，会进行四舍五入保留N位小数。</p>
+<p>DOUBLE（M，N）:         占用八个字节，精度更大的小数和float使用方法类似。</p>
+<p>DECIMA(M,N):    和float类似只是比float精度更高。</p>
+<ul>
+<li><strong>定义无符号的数字，在类型后面空格 接 unsigned</strong></li>
+</ul>
+<h3 id="文本类型："><a href="#文本类型：" class="headerlink" title="文本类型："></a>文本类型：</h3><p>主要的字符串类型数据：char , varchar,   text </p>
+<p>CHAR(n): 固定长度字符串 ，最大255。</p>
+<p>VARCHAR（n）: 可变长度字符串，最大长度65535，varhar的最大长度是65535，但是有1-2个字节是用来记录数据大小的，所以有效的字节是65533。。</p>
+<p>TEXT:   大文本，不支持全文搜索，不支持默认值。</p>
+<p>编码不同，varchar(L)里的最大值L是不同的。<br>utf8中，一个字符占3个字节，所以L = 65533/3 = 21844，道理来说uft编码下L最大为21844<br>gbk编码中一个字符占2个字节，所以L = 65533 / 2 = 32766，道理来说gbk编码下L最大为32766</p>
+<p><strong>在Mysql中，汉字和字母都是一个字节,varchar(2)只能存两个字母或汉字理论最大值按上诉，21844或32766</strong></p>
+<p><strong>总结</strong>：</p>
+<ol>
+<li><strong>如果数据长度都一样，就用char，比如身份证号、手机号</strong></li>
+<li><strong>如果数据长度不一样，就用varchar，比如名字、地址，但要保证不越界</strong></li>
+<li><strong>定长的磁盘空间比较浪费，但查询收索效率高</strong></li>
+<li><strong>变长的磁盘空间比较节省，但查询收索效率低</strong>,</li>
+</ol>
+<h3 id="时间日期类型"><a href="#时间日期类型" class="headerlink" title="时间日期类型"></a>时间日期类型</h3><p>主要的类型：DATE,  DATETIME,  TIMESTAMP</p>
+<p>DATE:    时间日期格式 ‘yyyy-mm-dd HH:ii:ss’ 表示范围从1000到9999，占用八字节</p>
+<p>DATETIME:  日期 ‘yyyy-mm-dd’，占用三字节</p>
+<p>TIMESTAMP:  时间戳，从1970年开始的 yyyy-mm-dd HH:ii:ss格式和datetime完全一致，占用四字节</p>
+<h3 id="enum和set"><a href="#enum和set" class="headerlink" title="enum和set"></a><strong>enum和set</strong></h3><p>enum：枚举，单选类型<br>语法：<br>enum(‘选项1’, ‘选项2’, ‘选项3’…)</p>
+<p>set：集合，多选类型<br>语法：<br>set(‘选项1’, ‘选项2’, ‘选项3’…)<br>例：建一个兴趣爱好调查表votes，比如（游泳、跳舞、弹吉他、滑雪、冲浪）中选择（可以多选），（男、女）【单选】<br><code>create table votes(</code></p>
+<p><code>name varchar(20),</code></p>
+<p><code>hobby set(&#39;游泳&#39;,&#39;跳舞&#39;,&#39;弹吉他&#39;,&#39;滑雪&#39;,&#39;冲浪&#39;),</code>    </p>
+<p><code>gender enum(&#39;男&#39;,&#39;女&#39;)</code></p>
+<p><code>);</code></p>
+<p> <code>insert into votes values(&#39;calm&#39;,&#39;跳舞,滑雪,游泳&#39;,&#39;女&#39;);`
+ `insert into votes values(&#39;lilei&#39;,&#39;冲浪,弹吉他&#39;,1);`
+ `insert into votes values(&#39;jane&#39;,&#39;冲浪,跳舞,弹吉他&#39;,&#39;2&#39;);`
+ `insert into votes values(&#39;helon&#39;,&#39;滑雪&#39;,&#39;男&#39;);</code></p>
+<p>enum默认是从1开始</p>
+<p>如果我们想要查询所有喜欢跳舞的人，就需要使用集合查询使用find_ in_ set函数<br>语法：<br>find_in_set(sub,str_list) ：如果 sub 在 str_list 中，则返回下标；如果不在，返回0； str_list 用逗号分隔的字符串。例：查询所有喜欢跳舞的人</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from votes where find_in_set(&#39;跳舞&#39;,hobby);</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/17/mysql%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" data-id="ckhk0r2ae000eqwud5l3x941p" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/18/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BA%8B%E5%8A%A1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          mysql数据库的事务
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/17/mysql%E5%9F%BA%E6%9C%AC%E7%9A%84%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">mysql的使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/04/react-%E4%B8%ADsetState%E7%9A%84%E4%BD%BF%E7%94%A8/">react 中setState的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/04/vue3%E7%9A%84%E4%BC%98%E5%8C%96/">vue3的优化</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/31/redux%E5%AD%A6%E4%B9%A0/">redux学习</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/28/typescript%E7%9A%84%E5%AD%A6%E4%B9%A0/">typescript的学习</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/26/ajax%E5%92%8Caxios-fetch%E7%9A%84%E5%AD%A6%E4%B9%A0/">ajax和axios,fetch的学习</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

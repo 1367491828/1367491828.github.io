@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>sass语法的学习 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.变量sass语法变量的申明：$variable_Name:  value;  (变量名可以使用中划线也可以使用下划线连接都是符合规范的,用中划线声明的变量可以使用下划线的方式引用,变量可以在css规则块定义之外存在,所有的规则快都可以引用。当变量定义在css规则块内，那么该变量只能在此规则块内使用。) 变量的使用： 12345678910$highlight-color: #F90;.sele">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sass语法的学习">
+<meta property="og:url" content="http://yoursite.com/2020/08/06/sass%E8%AF%AD%E6%B3%95%E7%9A%84%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.变量sass语法变量的申明：$variable_Name:  value;  (变量名可以使用中划线也可以使用下划线连接都是符合规范的,用中划线声明的变量可以使用下划线的方式引用,变量可以在css规则块定义之外存在,所有的规则快都可以引用。当变量定义在css规则块内，那么该变量只能在此规则块内使用。) 变量的使用： 12345678910$highlight-color: #F90;.sele">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-06T12:28:52.000Z">
+<meta property="article:modified_time" content="2020-08-06T13:32:27.262Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-sass语法的学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/06/sass%E8%AF%AD%E6%B3%95%E7%9A%84%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2020-08-06T12:28:52.000Z" itemprop="datePublished">2020-08-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      sass语法的学习
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-变量"><a href="#1-变量" class="headerlink" title="1.变量"></a>1.变量</h3><p>sass语法变量的申明：$variable_Name:  value;</p>
+<p> (变量名可以使用中划线也可以使用下划线连接都是符合规范的,用中划线声明的变量可以使用下划线的方式引用,变量可以在<code>css</code>规则块定义之外存在,所有的规则快都可以引用。当变量定义在<code>css</code>规则块内，那么该变量只能在此规则块内使用。)</p>
+<p>变量的使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$highlight-color: #F90;</span><br><span class="line">.selected &#123;</span><br><span class="line">  border: 1px solid $highlight-color;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;编译后</span><br><span class="line"></span><br><span class="line">.selected &#123;</span><br><span class="line">  border: 1px solid #F90;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在声明变量时，变量值也可以引用其他变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$highlight-color: #F90;</span><br><span class="line">$highlight-border: 1px solid $highlight-color;</span><br><span class="line">.selected &#123;</span><br><span class="line">  border: $highlight-border;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;编译后</span><br><span class="line"></span><br><span class="line">.selected &#123;</span><br><span class="line">  border: 1px solid #F90;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-嵌套css规则"><a href="#2-嵌套css规则" class="headerlink" title="2.嵌套css规则"></a>2.嵌套css规则</h3><p>在Sass中，你可以像俄罗斯套娃那样在规则块中嵌套规则块。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#content &#123;</span><br><span class="line">  article &#123;</span><br><span class="line">    h1 &#123; color: #333 &#125;</span><br><span class="line">    p &#123; margin-bottom: 1.4em &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  aside &#123; background-color: #EEE &#125;</span><br><span class="line">&#125;</span><br><span class="line"> &#x2F;* 编译后 *&#x2F;</span><br><span class="line">#content article h1 &#123; color: #333 &#125;</span><br><span class="line">#content article p &#123; margin-bottom: 1.4em &#125;</span><br><span class="line">#content aside &#123; background-color: #EEE &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>父选择器的标识符&amp;</strong></p>
+<p>一般情况下，<code>sass</code>在解开一个嵌套规则时就会把父选择器（<code>#content</code>）通过一个空格连接到子选择器的前边（<code>article</code>和<code>aside</code>）形成（<code>#content article</code>和<code>#content aside</code>）。这种在CSS里边被称为后代选择器，因为它选择ID为<code>content</code>的元素内所有命中选择器<code>article</code>和<code>aside</code>的元素。但在有些情况下你却不会希望<code>sass</code>使用这种后代选择器的方式生成这种连接。</p>
+<p>当包含父选择器标识符的嵌套规则被打开时，它不会像后代选择器那样进行拼接，而是<code>&amp;</code>被父选择器直接替换</p>
+<h3 id="3-导入SASS文件"><a href="#3-导入SASS文件" class="headerlink" title="3. 导入SASS文件"></a>3. 导入SASS文件</h3><p>在一些sass文件中需要导入其他sass文件，<code>sass</code>也有一个<code>@import</code>规则，但不同的是，<code>sass</code>的<code>@import</code>规则在生成<code>css</code>文件时就把相关文件导入进来。这意味着所有相关的样式被归纳到了同一个<code>css</code>文件中，而无需发起额外的下载请求。使用<code>sass</code>的<code>@import</code>规则并不需要指明被导入文件的全名。你可以省略<code>.sass</code>或<code>.scss</code>文件后缀，当通过<code>@import</code>把<code>sass</code>样式分散到多个文件时，你通常只想生成少数几个<code>css</code>文件。那些专门为<code>@import</code>命令而编写的<code>sass</code>文件，并不需要生成对应的独立<code>css</code>文件，这样的<code>sass</code>文件称为局部文件。此约定即，<code>sass</code>局部文件的文件名以下划线开头。这样，<code>sass</code>就不会在编译时单独编译这个文件输出<code>css</code>，而只把这个文件用作导入。当你<code>@import</code>一个局部文件时，还可以不写文件的全名，即省略文件名开头的下划线。举例来说，你想导入<code>themes/_night-sky.scss</code>这个局部文件里的变量，你只需在样式表中写<code>@import</code> <code>&quot;themes/night-sky&quot;;</code>。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/06/sass%E8%AF%AD%E6%B3%95%E7%9A%84%E5%AD%A6%E4%B9%A0/" data-id="ckhk0r2ao000nqwud1x0481wd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/08/13/vue%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          vue的服务器端渲染
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/29/css%E6%96%87%E6%9C%AC%E7%9A%84%E8%AE%BE%E7%BD%AE/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">css文本的设置</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/04/react-%E4%B8%ADsetState%E7%9A%84%E4%BD%BF%E7%94%A8/">react 中setState的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/04/vue3%E7%9A%84%E4%BC%98%E5%8C%96/">vue3的优化</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/31/redux%E5%AD%A6%E4%B9%A0/">redux学习</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/28/typescript%E7%9A%84%E5%AD%A6%E4%B9%A0/">typescript的学习</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/26/ajax%E5%92%8Caxios-fetch%E7%9A%84%E5%AD%A6%E4%B9%A0/">ajax和axios,fetch的学习</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

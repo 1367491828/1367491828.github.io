@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>promise的学习一 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Promise的理解抽象理解Promise是js中进行异步编程的新的解决方案。(旧的是纯回调函数)。 具体表达语法上：promise是一个构造函数。 功能上：promise对象用来封装一个异步操作并可以获取其结果。 promise的状态改变Promise有三个状态，pending, fulfilled,rejected 1.pending改变为resolved(也叫fulfilled) 2.pen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="promise的学习一">
+<meta property="og:url" content="http://yoursite.com/2020/04/03/promise%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%80/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Promise的理解抽象理解Promise是js中进行异步编程的新的解决方案。(旧的是纯回调函数)。 具体表达语法上：promise是一个构造函数。 功能上：promise对象用来封装一个异步操作并可以获取其结果。 promise的状态改变Promise有三个状态，pending, fulfilled,rejected 1.pending改变为resolved(也叫fulfilled) 2.pen">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-03T00:30:28.000Z">
+<meta property="article:modified_time" content="2020-10-16T14:19:27.879Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-promise的学习一" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/03/promise%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%80/" class="article-date">
+  <time datetime="2020-04-03T00:30:28.000Z" itemprop="datePublished">2020-04-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      promise的学习一
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Promise的理解"><a href="#Promise的理解" class="headerlink" title="Promise的理解"></a>Promise的理解</h2><h4 id="抽象理解"><a href="#抽象理解" class="headerlink" title="抽象理解"></a>抽象理解</h4><p>Promise是js中进行异步编程的新的解决方案。(旧的是纯回调函数)。</p>
+<h4 id="具体表达"><a href="#具体表达" class="headerlink" title="具体表达"></a>具体表达</h4><p>语法上：promise是一个构造函数。</p>
+<p>功能上：promise对象用来封装一个异步操作并可以获取其结果。</p>
+<h2 id="promise的状态改变"><a href="#promise的状态改变" class="headerlink" title="promise的状态改变"></a>promise的状态改变</h2><p>Promise有三个状态，pending, fulfilled,rejected</p>
+<p>1.pending改变为resolved(也叫fulfilled)</p>
+<p>2.pending改变为rejected</p>
+<p>说明：只有这两种，且一个promise只能改变一次</p>
+<p>​            无论变成成功还是失败，都会有一个结果数据</p>
+<p>​            成功的结果数据一般称为value，失败的结果数据一般称为reason</p>
+<h2 id="为什么要使用promise"><a href="#为什么要使用promise" class="headerlink" title="为什么要使用promise"></a>为什么要使用promise</h2><p>1.指定回调函数的方式更加灵活：</p>
+<p>​       旧的： 必须在启动异步任务之前指定</p>
+<p>​          使用纯回调函数，使用回调函数时必须指定回调函数</p>
+<p>​        <code>createAudioFileAsync ( audioSettings, successCallback, failureCallback)</code></p>
+<p>​         promise：启动异步任务=》返回promise对象=》给promise对象绑定回调函数（甚至可以在异步任务结束后          指定）</p>
+<p>2.支持链式调用，可以解决回调地狱问题</p>
+<p>​                      什么是回调地狱?回调函数嵌套调用，外部回调函数异步执行的结果是嵌套的回调函数执行的条件</p>
+<p>​                       回调地狱的缺点?不便于阅读/不便于异常处理</p>
+<p>​                       解决方案? promise链 式调用</p>
+<p>​                       终极解决方案? async/await </p>
+<h2 id="如何使用promise"><a href="#如何使用promise" class="headerlink" title="如何使用promise"></a>如何使用promise</h2><p>1.如何改变promise的状态：</p>
+<p>1.resolve(value);    //将pendding状态转化成resolved状态，</p>
+<p>2.reject(reason);     //将pendding状态转化成rejected状态</p>
+<p>3.throw new Error(“ddfdfd”);  或者 throw 5 ； //抛出异常，将pendding状态转化成rejected状态，reason为抛出的内容</p>
+<p>2.一个promise对象指定多个成功/失败回调函数都会执行。</p>
+<p>3.改变promise状态和指定回调函数谁先谁后?</p>
+<p>(1)都有可能，正常情况下是先指定回调再改变状态，但也可以先改状态再指定回调</p>
+<p>(2)如何先改状态再指定回调?</p>
+<p>​      1.在执行器中直接调用resolve()/reject()</p>
+<p>​      2.延迟更长时间才调用then()</p>
+<p>(3)什么时候才能得到数据?</p>
+<p>​      1.如果先指定的回调，那当状态发生改变时，回调函数就会调用，得到数据。</p>
+<p>​       2.如果先改变的状态，那当指定回调时，回调函数就会调用，得到数据</p>
+<p>4.promise . then( )返回的新promise的结果状态由什么决定?</p>
+<p>(1)简单表达:由then()指定的回调函数执行的结果决定。</p>
+<p>(2)详细表达:</p>
+<p>①如果抛出异常，throw new Error(‘出错’)新promise 变为rejected, reason 为抛出的异常</p>
+<p>②如果返回的是非promise的任意值，return （任意值）新promise 变为resolved, value 为返回的值，</p>
+<p>③如果返回的是另” 个新promise,此promise的结 果就会成为新promise的结果</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/03/promise%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%80/" data-id="ckhk0r2ag000gqwuddrux56ym" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/05/07/express%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          &#39;eexpress框架的使用&#39;
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/03/13/php%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">&#39;php学习笔记一&#39;</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/04/react-%E4%B8%ADsetState%E7%9A%84%E4%BD%BF%E7%94%A8/">react 中setState的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/04/vue3%E7%9A%84%E4%BC%98%E5%8C%96/">vue3的优化</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/31/redux%E5%AD%A6%E4%B9%A0/">redux学习</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/28/typescript%E7%9A%84%E5%AD%A6%E4%B9%A0/">typescript的学习</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/26/ajax%E5%92%8Caxios-fetch%E7%9A%84%E5%AD%A6%E4%B9%A0/">ajax和axios,fetch的学习</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
