@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>mysql数据库的事务 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Mysql数据的事务事务定义：事务：一个最小的不可再分的工作单元；通常一个事务对应一个完整的业务。一个完整的业务需要批量的DML(insert、update、delete)语句共同联合完成。事务只和DML语句有关，或者说DML语句才有事务。这个和业务逻辑有关，业务逻辑不同，DML语句的个数不同。 事务的四个特性（ACID）：1.原子性(A)： 事务是最小单位，不可再分。 2.一致性(C)： 事务要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql数据库的事务">
+<meta property="og:url" content="http://yoursite.com/2020/07/18/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BA%8B%E5%8A%A1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Mysql数据的事务事务定义：事务：一个最小的不可再分的工作单元；通常一个事务对应一个完整的业务。一个完整的业务需要批量的DML(insert、update、delete)语句共同联合完成。事务只和DML语句有关，或者说DML语句才有事务。这个和业务逻辑有关，业务逻辑不同，DML语句的个数不同。 事务的四个特性（ACID）：1.原子性(A)： 事务是最小单位，不可再分。 2.一致性(C)： 事务要">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-18T01:44:25.000Z">
+<meta property="article:modified_time" content="2020-07-18T08:41:30.519Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-mysql数据库的事务" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/18/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BA%8B%E5%8A%A1/" class="article-date">
+  <time datetime="2020-07-18T01:44:25.000Z" itemprop="datePublished">2020-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mysql数据库的事务
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Mysql数据的事务"><a href="#Mysql数据的事务" class="headerlink" title="Mysql数据的事务"></a>Mysql数据的事务</h1><h3 id="事务定义："><a href="#事务定义：" class="headerlink" title="事务定义："></a>事务定义：</h3><p>事务：一个最小的不可再分的工作单元；通常一个事务对应一个完整的业务。一个完整的业务需要批量的DML(insert、update、delete)语句共同联合完成。事务只和DML语句有关，或者说DML语句才有事务。这个和业务逻辑有关，业务逻辑不同，DML语句的个数不同。</p>
+<h3 id="事务的四个特性（ACID）："><a href="#事务的四个特性（ACID）：" class="headerlink" title="事务的四个特性（ACID）："></a>事务的四个特性（ACID）：</h3><p>1.原子性(A)： 事务是最小单位，不可再分。</p>
+<p>2.一致性(C)： 事务要求所有的DML语句操作的时候，必须保证同时成功或者同时失败。</p>
+<p>3.隔离性(I)：  事务A和事务B之间具有隔离性。</p>
+<p>4.持久性(D)：是事务的保证，事务终结的标志(内存的数据持久到硬盘文件中)。</p>
+<h3 id="相关术语-："><a href="#相关术语-：" class="headerlink" title="相关术语 ："></a>相关术语 ：</h3><ul>
+<li>开启事务：Start Transaction</li>
+<li>事务结束：End Transaction</li>
+<li>提交事务：Commit Transaction</li>
+<li>回滚事务：Rollback Transaction</li>
+</ul>
+<h3 id="隔离性："><a href="#隔离性：" class="headerlink" title="隔离性："></a>隔离性：</h3><h4 id="隔离的四个级别："><a href="#隔离的四个级别：" class="headerlink" title="隔离的四个级别："></a>隔离的四个级别：</h4><ul>
+<li>读未提交：read uncommitted</li>
+<li>读已提交：read committed</li>
+<li>可重复读：repeatable read（Mysql默认级别）</li>
+<li>串行化：serializable</li>
+</ul>
+<h4 id="查看数据库隔离级别（Mysql5-7之后）："><a href="#查看数据库隔离级别（Mysql5-7之后）：" class="headerlink" title="查看数据库隔离级别（Mysql5.7之后）："></a>查看数据库隔离级别（Mysql5.7之后）：</h4><p><code>show variables like &#39;transaction_isolation&#39;;或者select @@transaction_isolation;</code></p>
+<h4 id="1-read-uncommitted"><a href="#1-read-uncommitted" class="headerlink" title="1.read uncommitted"></a>1.read uncommitted</h4><p>- 事务A和事务B，事务A未提交的数据，事物B可以读取到 - 这里读取到的数据叫做“脏数据” - 这种隔离级别最低，这种级别一般是在理论上存在，数据库隔离级别一般都高于该级别</p>
+<h4 id="2-read-committed"><a href="#2-read-committed" class="headerlink" title="2.read committed"></a>2.read committed</h4><p>- 事务A和事务B，事务A提交的数据，事务B才能读取到 - 这种隔离级别高于读未提交 - 换句话说，对方事务提交之后的数据，我当前事务才能读取到 - 这种级别可以避免“脏数据” - 这种隔离级别会导致“不可重复读取” 。</p>
+<h4 id="3-repeatable-read"><a href="#3-repeatable-read" class="headerlink" title="3.repeatable read"></a>3.repeatable read</h4><ul>
+<li>事务A和事务B，事务A提交之后的数据，事务B读取不到</li>
+<li>事务B是可重复读取数据</li>
+<li>这种隔离级别高于读已提交</li>
+<li>换句话说，对方提交之后的数据，我还是读取不到</li>
+<li>这种隔离级别可以避免“不可重复读取”，达到可重复读取</li>
+<li>比如1点和2点读到数据是同一个</li>
+<li>MySQL默认级别</li>
+<li>虽然可以达到可重复读取，但是会导致“幻像读”</li>
+</ul>
+<h4 id="4-serializable"><a href="#4-serializable" class="headerlink" title="4.serializable"></a>4.serializable</h4><p>- 事务A和事务B，事务A在操作数据库时，事务B只能排队等待 - 这种隔离级别很少使用，吞吐量太低，用户体验差 - 这种级别可以避免“幻像读”，每一次读取的都是数据库中真实存在数据，事务A与事务B串行，而不并发。</p>
+<h3 id="设置隔离级别"><a href="#设置隔离级别" class="headerlink" title="设置隔离级别"></a>设置隔离级别</h3><p>READ UNCOMMITTED<br>    –   READ COMMITTED<br>    –   REPEATABLE READ<br>    –   SERIALIZABLE<br>    <code>•   例如： SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;</code></p>
+<h3 id="设置隔离作用范围"><a href="#设置隔离作用范围" class="headerlink" title="设置隔离作用范围"></a>设置隔离作用范围</h3><p>事务隔离级别的作用范围分为两种：<br>–   全局级：对所有的会话有效<br>–   会话级：只对当前的会话有效<br>•   例如，设置会话级隔离级别为READ COMMITTED ：<br><code>mysql&gt; SET TRANSACTION ISOLATION LEVEL READ COMMITTED；</code><br>或：<br><code>mysql&gt; SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED；</code><br>•   设置全局级隔离级别为READ COMMITTED ：<br><code>mysql&gt; SET GLOBAL TRANSACTION ISOLATION LEVEL READ COMMITTED；</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/18/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BA%8B%E5%8A%A1/" data-id="ckhk0r2af000fqwud30nm2dhr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/19/sequelize%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BA%8C/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          sequelize框架的使用二
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/17/mysql%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">mysql的数据类型</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/26/http2%E5%92%8Chttp1-0/">http2和http1.0</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/20/js%E9%9D%A2%E8%AF%95%E9%A2%98%E5%90%88%E9%9B%86/">js面试题合集</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/19/csrf%E9%98%B2%E5%BE%A1%E7%AD%96%E7%95%A5/">&#39;csrf防御策略&#39;</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/04/react-%E4%B8%ADsetState%E7%9A%84%E4%BD%BF%E7%94%A8/">react 中setState的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/04/vue3%E7%9A%84%E4%BC%98%E5%8C%96/">vue3的优化</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

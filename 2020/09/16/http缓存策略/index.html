@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>http缓存策略 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Http协议（浏览器）的缓存策略缓存分为两种： 1.强制缓存 2.协商缓存 浏览器缓存的关键： 浏览器每次发起请求，都会先在浏览器缓存中查找该请求的结果以及缓存标识 浏览器每次拿到返回的请求结果都会根据缓存标识决定是否将该结果和缓存标识存入浏览器缓存中 强制缓存个人话语：  强制缓存就是向浏览器缓存查找该请求结果，并且根据该结果的缓存规则来决定是否使用该缓存结果的过程。（他不是控制是否要缓存，而是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="http缓存策略">
+<meta property="og:url" content="http://yoursite.com/2020/09/16/http%E7%BC%93%E5%AD%98%E7%AD%96%E7%95%A5/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Http协议（浏览器）的缓存策略缓存分为两种： 1.强制缓存 2.协商缓存 浏览器缓存的关键： 浏览器每次发起请求，都会先在浏览器缓存中查找该请求的结果以及缓存标识 浏览器每次拿到返回的请求结果都会根据缓存标识决定是否将该结果和缓存标识存入浏览器缓存中 强制缓存个人话语：  强制缓存就是向浏览器缓存查找该请求结果，并且根据该结果的缓存规则来决定是否使用该缓存结果的过程。（他不是控制是否要缓存，而是">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-16T12:18:42.000Z">
+<meta property="article:modified_time" content="2020-11-05T13:42:07.339Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-http缓存策略" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/16/http%E7%BC%93%E5%AD%98%E7%AD%96%E7%95%A5/" class="article-date">
+  <time datetime="2020-09-16T12:18:42.000Z" itemprop="datePublished">2020-09-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      http缓存策略
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Http协议（浏览器）的缓存策略"><a href="#Http协议（浏览器）的缓存策略" class="headerlink" title="Http协议（浏览器）的缓存策略"></a>Http协议（浏览器）的缓存策略</h1><p>缓存分为两种：</p>
+<p>1.强制缓存</p>
+<p>2.协商缓存</p>
+<p>浏览器缓存的关键：</p>
+<p><strong>浏览器每次发起请求，都会先在浏览器缓存中查找该请求的结果以及缓存标识</strong></p>
+<p><strong>浏览器每次拿到返回的请求结果都会根据缓存标识决定是否将该结果和缓存标识存入浏览器缓存中</strong></p>
+<h2 id="强制缓存"><a href="#强制缓存" class="headerlink" title="强制缓存"></a>强制缓存</h2><p>个人话语：  强制缓存就是向浏览器缓存查找该请求结果，并且根据该结果的缓存规则来决定是否使用该缓存结果的过程。（他不是控制是否要缓存，而是判断能不能使用浏览器缓存的过程。）</p>
+<p>强制缓存的情况主要分为三种：</p>
+<p>1.不存在该缓存结果和缓存标识，强制缓存失效，向服务器重新发送请求。</p>
+<p>2.存在该缓存结果和缓存标识，但是该结果失效，强制缓存失效，强制缓存失效，则使用协商缓存。该情况，向服务器发送http请求后，会返回缓存标识，浏览器再携带资源的缓存标识，发起http请求(协商请求)</p>
+<p>3.存在该缓存结果和缓存标识，缓存还有效，则直接返回结果。</p>
+<p><strong>强缓存-expires</strong></p>
+<ul>
+<li><p>该字段是服务器响应消息头字段，告诉浏览器在过期时间之前可以直接从浏览器缓存中存取数据。</p>
+</li>
+<li><p>Expires 是 HTTP 1.0 的字段，表示缓存到期时间，是一个绝对的时间 (当前时间+缓存时间)。在响应消息头中，设置这个字段之后，就可以告诉浏览器，在未过期之前不需要再次请求。</p>
+</li>
+<li><p>由于是绝对时间，用户可能会将客户端本地的时间进行修改，而导致浏览器判断缓存失效，重新请求该资源。此外，即使不考虑修改，时差或者误差等因素也可能造成客户端与服务端的时间不一致，致使缓存失效。</p>
+</li>
+<li><p>优势特点</p>
+<ul>
+<li>1、HTTP 1.0 产物，可以在HTTP 1.0和1.1中使用，简单易用。</li>
+<li>2、以时刻标识失效时间。</li>
+</ul>
+</li>
+<li><p>劣势问题</p>
+<ul>
+<li><p>1、时间是由服务器发送的(UTC)，如果服务器时间和客户端时间存在不一致，可能会出现问题。</p>
+</li>
+<li><p>2、存在版本问题，到期之前的修改客户端是不可知的</p>
+</li>
+<li><p><strong>强缓存-cache-control</strong></p>
+<ul>
+<li><p>已知Expires的缺点之后，在HTTP/1.1中，增加了一个字段Cache-control，该字段表示资源缓存的最大有效时间，在该时间内，客户端不需要向服务器发送请求。</p>
+</li>
+<li><p>这两者的区别就是前者是绝对时间，而后者是相对时间。下面列举一些 <code>Cache-control</code> 字段常用的值：(完整的列表可以查看MDN)</p>
+<ul>
+<li><p><code>max-age</code>：即最大有效时间。</p>
+</li>
+<li><p><code>must-revalidate</code>：如果超过了 <code>max-age</code> 的时间，浏览器必须向服务器发送请求，验证资源是否还有效。</p>
+</li>
+<li><p><code>no-cache</code>：不使用强缓存，需要与服务器验证缓存是否新鲜。</p>
+</li>
+<li><p><code>no-store</code>: 真正意义上的“不要缓存”。所有内容都不走缓存，包括强制和对比。</p>
+</li>
+<li><p><code>public</code>：所有的内容都可以被缓存 (包括客户端和代理服务器， 如 CDN)</p>
+</li>
+<li><p><code>private</code>：所有的内容只有客户端才可以缓存，代理服务器不能缓存。默认值。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>- **Cache-control 的优先级高于 Expires**，为了兼容 HTTP/1.0 和 HTTP/1.1，实际项目中两个字段都可以设置。
+
+- 该字段可以在请求头或者响应头设置，可组合使用多种指令：
+
+  - 可缓存性
+
+    - public：浏览器和缓存服务器都可以缓存页面信息</code></pre><ul>
+<li><p>private：default，代理服务器不可缓存，只能被单个用户缓存</p>
+<pre><code>- no-cache：浏览器器和服务器都不应该缓存页面信息，但仍可缓存，只是在缓存前需要向服务器确认资源是否被更改。不使用本地缓存。需要使用缓存协商，先与服务器确认返回的响应是否被更改，如果之前的响应中存在 ETag，那么请求的时候会与服务端验证，如果资源未被更改，则可以避免重新下载。
+- only-if-cache：客户端只接受已缓存的响应</code></pre><ul>
+<li>到期</li>
+</ul>
+<ul>
+<li><p>max-age=：缓存存储的最大周期，超过这个周期被认为过期。时间单位为秒。</p>
+<ul>
+<li>s-maxage=：设置共享缓存，比如can。会覆盖max-age和expires。</li>
+</ul>
+</li>
+<li><p>max-stale[=]：客户端愿意接收一个已经过期的资源</p>
+<ul>
+<li>min-fresh=：客户端希望在指定的时间内获取最新的响应</li>
+<li>stale-while-revalidate=：客户端愿意接收陈旧的响应，并且在后台一部检查新的响应。时间代表客户端愿意接收陈旧响应<br>的时间长度。</li>
+<li>stale-if-error=：如新的检测失败，客户端则愿意接收陈旧的响应，时间代表等待时间。</li>
+</ul>
+<ul>
+<li>重新验证和重新加载</li>
+</ul>
+</li>
+<li><p>must-revalidate：如页面过期，则去服务器进行获取。</p>
+<ul>
+<li>proxy-revalidate：用于共享缓存。</li>
+</ul>
+</li>
+<li><p>immutable：响应正文不随时间改变。</p>
+<ul>
+<li>其他</li>
+</ul>
+</li>
+<li><p>no-store：绝对禁止缓存</p>
+<ul>
+<li>no-transform：不得对资源进行转换和转变。例如，不得对图像格式进行转换。</li>
+</ul>
+</li>
+<li><p>优势特点</p>
+</li>
+<li><p>1、HTTP 1.1 产物，以时间间隔标识失效时间，解决了Expires服务器和客户端相对时间的问题。</p>
+<ul>
+<li>2、比Expires多了很多选项设置。</li>
+</ul>
+</li>
+<li><p>劣势问题</p>
+</li>
+<li><p>1、存在版本问题，到期之前的修改客户端是不可知的。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h2><p>协商缓存就是强制缓存失效后，浏览器携带缓存标识（协商缓存标识）向服务器发起请求，由服务器根据缓存标识决定是否使用缓存的过程。（和服务器交流是否该结果还能使用，可能时间过期了，但是数据库的数据没有发生改变，所以还可以使用浏览器缓存，所以只返回一个304可以减少网络请求压力，如果服务器查询发现该数据发生了改变，就需要重新发送数据，发送接受就会返回200的状态码，这就是和服务器的一个协商过程）</p>
+<p>主要有以下两种情况：</p>
+<p>1.协商缓存生效，该请求之前的浏览器缓存结果还可以用，返回304.</p>
+<p>2.协商缓存失效，返回200和请求结果。</p>
+<p><strong>协商缓存-协商缓存-Last-Modified/If-Modified-since</strong></p>
+<ul>
+<li><p>1.服务器通过 <code>Last-Modified</code> 字段告知客户端，资源最后一次被修改的时间，例如 <code>Last-Modified: Mon, 10 Apr 2020 09:10:11 GMT</code></p>
+</li>
+<li><p>2.浏览器将这个值和内容一起记录在缓存数据中。</p>
+</li>
+<li><p>3.下一次请求相同资源时时，浏览器从自己的缓存中找出“不确定是否过期的”缓存。因此在请求头中将上次的 <code>Last-Modified</code> 的值写入到请求头的 <code>If-Modified-Since</code> 字段</p>
+</li>
+<li><p>4.服务器会将 <code>If-Modified-Since</code> 的值与 数据库文件最后一次修改的时间进行对比。如果相等，则表示未修改，响应 304；反之，则表示修改了，响应 200 状态码，并返回数据。</p>
+</li>
+<li><p>优势特点</p>
+<ul>
+<li>1、不存在版本问题，每次请求都会去服务器进行校验。服务器对比最后修改时间如果相同则返回304，不同返回200以及资源内容。</li>
+</ul>
+</li>
+<li><p>劣势问题</p>
+<ul>
+<li><p>2、只要资源修改，无论内容是否发生实质性的变化，都会将该资源返回客户端。例如周期性重写，这种情况下该资源包含的数据实际上一样的。</p>
+</li>
+<li><p>3、以时刻作为标识，无法识别一秒内进行多次修改的情况。 如果资源更新的速度是秒以下单位，那么该缓存是不能被使用的，因为它的时间单位最低是秒。</p>
+</li>
+<li><p>4、某些服务器不能精确的得到文件的最后修改时间。</p>
+</li>
+<li><p>5、如果文件是通过服务器动态生成的，那么该方法的更新时间永远是生成的时间，尽管文件可能没有变化，所以起不到缓存的作用。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>协商缓存-Etag/If-None-match</strong></p>
+<ul>
+<li>为了解决上述问题，出现了一组新的字段 <code>Etag</code> 和 <code>If-None-Match</code></li>
+<li><code>Etag</code> 存储的是文件的特殊标识(一般都是 hash 生成的)，服务器存储着文件的 <code>Etag</code> 字段。之后的流程和 <code>Last-Modified</code> 一致，只是 <code>Last-Modified</code> 字段和它所表示的更新时间改变成了 <code>Etag</code> 字段和它所表示的文件 hash，把 <code>If-Modified-Since</code> 变成了 <code>If-None-Match</code>。服务器同样进行比较，命中返回 304, 不命中返回新资源和 200。</li>
+<li>浏览器在发起请求时，服务器返回在Response header中返回请求资源的唯一标识。在下一次请求时，会将上一次返回的Etag值赋值给If-No-Matched并添加在Request Header中。服务器将浏览器传来的if-no-matched跟自己的本地的资源的ETag做对比，如果匹配，则返回304通知浏览器读取本地缓存，否则返回200和更新后的资源，由于<code>Etag</code>重新生成过，response header 中还会把这个<code>Etag</code>返回，即使这个<code>Etag</code>跟之前的没有变化。</li>
+<li><strong>Etag 的优先级高于 Last-Modified</strong>。</li>
+<li>优势特点<ul>
+<li>1、可以更加精确的判断资源是否被修改，可以识别一秒内多次修改的情况。</li>
+<li>2、不存在版本问题，每次请求都回去服务器进行校验。</li>
+</ul>
+</li>
+<li>劣势问题<ul>
+<li>1、计算ETag值需要性能损耗。</li>
+<li>2、分布式服务器存储的情况下，计算ETag的算法如果不一样，会导致浏览器从一台服务器上获得页面内容后到另外一台服务器上进行验证时现ETag不匹配的情况。</li>
+</ul>
+</li>
+</ul>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p>每次发起请求，浏览器都会向浏览器缓存的之前的相同请求的标识进行校验，如果该请求的有效时间还没有过，或还没有失效，则直接返回200，使用浏览器缓存（这一和浏览器缓存进行校验的过程就是强制缓存），如果有效时间过了，则会使用协商缓存，需要将该请求发往服务器，需要和浏览器进行校验，如果校验成功，浏览器缓存可以继续使用，返回304，浏览器直接使用缓存，如果服务器的数据发生了改变就需要重新发送数据，返回200，所以返回304的话一定是使用了协商缓存。对于强制缓存的标识有，Cache-control（默认是private,该属性比expires更高级，可以同时设置）,expires,对于协商缓存的标识有Last-Modified/If-Modified-since  ，Etag/If-None-match，（Etag的级别最高）具体使用看上面使用方法，这些标识都是由后端设置的。强制缓存和协商缓存是可以共存的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/09/16/http%E7%BC%93%E5%AD%98%E7%AD%96%E7%95%A5/" data-id="ckhk0r2a8000aqwude4n0fx0e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/09/17/tcp%E5%92%8Cudp%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%8C%BA%E5%88%AB/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          tcp和udp协议的区别
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/08/28/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%8E%AF%E5%A2%83%E6%A6%82%E8%BF%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">&#39;浏览器环境概述&#39;</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/26/http2%E5%92%8Chttp1-0/">http2和http1.0</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/20/js%E9%9D%A2%E8%AF%95%E9%A2%98%E5%90%88%E9%9B%86/">js面试题合集</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/19/csrf%E9%98%B2%E5%BE%A1%E7%AD%96%E7%95%A5/">&#39;csrf防御策略&#39;</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/04/react-%E4%B8%ADsetState%E7%9A%84%E4%BD%BF%E7%94%A8/">react 中setState的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/04/vue3%E7%9A%84%E4%BC%98%E5%8C%96/">vue3的优化</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

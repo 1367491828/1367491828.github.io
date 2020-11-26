@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>tcp和udp协议的区别 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="TCP和UDP协议的区别1.tcp是面向连接的（比如打电话需要先拨号建立连接），udp是无连接的，即发送数据之前不需要建立连接。 2.TCP提供可靠的服务，也就是说，通过tcp连接传送的数据，无差错，不丢失，不重复，且按顺序到达，UDP尽最大的努力交付，即不保证可靠交付。 3.TCP面向字节流，实际上是tcp把数据看成是一串无结构的字节流，udp是面向报文的，UDP没有拥塞控制，因此网络出现拥塞不">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tcp和udp协议的区别">
+<meta property="og:url" content="http://yoursite.com/2020/09/17/tcp%E5%92%8Cudp%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%8C%BA%E5%88%AB/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="TCP和UDP协议的区别1.tcp是面向连接的（比如打电话需要先拨号建立连接），udp是无连接的，即发送数据之前不需要建立连接。 2.TCP提供可靠的服务，也就是说，通过tcp连接传送的数据，无差错，不丢失，不重复，且按顺序到达，UDP尽最大的努力交付，即不保证可靠交付。 3.TCP面向字节流，实际上是tcp把数据看成是一串无结构的字节流，udp是面向报文的，UDP没有拥塞控制，因此网络出现拥塞不">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-17T01:38:38.000Z">
+<meta property="article:modified_time" content="2020-09-17T05:22:31.147Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-tcp和udp协议的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/17/tcp%E5%92%8Cudp%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
+  <time datetime="2020-09-17T01:38:38.000Z" itemprop="datePublished">2020-09-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      tcp和udp协议的区别
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="TCP和UDP协议的区别"><a href="#TCP和UDP协议的区别" class="headerlink" title="TCP和UDP协议的区别"></a>TCP和UDP协议的区别</h1><p>1.tcp是面向连接的（比如打电话需要先拨号建立连接），udp是无连接的，即发送数据之前不需要建立连接。</p>
+<p>2.TCP提供可靠的服务，也就是说，通过tcp连接传送的数据，无差错，不丢失，不重复，且按顺序到达，UDP尽最大的努力交付，即不保证可靠交付。</p>
+<p>3.TCP面向字节流，实际上是tcp把数据看成是一串无结构的字节流，udp是面向报文的，UDP没有拥塞控制，因此网络出现拥塞不会使源主机的发送速率降低（对实时应用很有用）。</p>
+<p>4.每一条tcp连接只能是点到点，udp支持一对一，一对多，和多对多的交互通信。</p>
+<p>5.tcp首部开销20字节，udp的首部开销小，只有8个字节。</p>
+<p>6。tcp的逻辑通信信道是全双工的可靠信道，udp则是不可靠信道。</p>
+<h2 id="TCP怎样确保数据正确性"><a href="#TCP怎样确保数据正确性" class="headerlink" title="TCP怎样确保数据正确性"></a>TCP怎样确保数据正确性</h2><p>1.校验和：发送的数据包的二进制相加然后取反，检测数据在传输的过程中的任何变化，如果收到段的检验和差错，tcp将丢弃这个报文段和不确认收到此报文段。</p>
+<p>2.确认应答+序列号：tcp给发送的每一个包进行编号，接收方，对数据包进行排序，把有序数据传送给应用层。</p>
+<p>3，超时重传：当一个tcp发出一个段后，它启动一个定时器，等待目的端确认收到这个报文段，如果不能及时收到一个确认，将会重新发送这个报文段。</p>
+<p>4.流量控制：tcp连接的每一方都有一个固定大小的缓冲空间，tcp的接收端只允许发送端发送接收端缓冲区能接纳的数据，当接收方来不及处理发送方发送的数据，能提示发送方降低发送的速率，防止包丢失。tcp使用的流量控制协议是可变大小的滑动窗口协议。</p>
+<p>5.拥塞控制：当网络拥塞时，减少数据的发送，发送方拥有窗口，发送数据前对比接收方发过来的计时窗口，取小。</p>
+<h2 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h2><p>传输层 </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/09/17/tcp%E5%92%8Cudp%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="ckhk0r2av000qqwud5zyghgj3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/09/17/cors%E8%B7%A8%E5%9F%9F%E9%80%9A%E4%BF%A1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          cors跨域通信
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/09/16/http%E7%BC%93%E5%AD%98%E7%AD%96%E7%95%A5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">http缓存策略</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/26/http2%E5%92%8Chttp1-0/">http2和http1.0</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/20/js%E9%9D%A2%E8%AF%95%E9%A2%98%E5%90%88%E9%9B%86/">js面试题合集</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/19/csrf%E9%98%B2%E5%BE%A1%E7%AD%96%E7%95%A5/">&#39;csrf防御策略&#39;</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/04/react-%E4%B8%ADsetState%E7%9A%84%E4%BD%BF%E7%94%A8/">react 中setState的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/04/vue3%E7%9A%84%E4%BC%98%E5%8C%96/">vue3的优化</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

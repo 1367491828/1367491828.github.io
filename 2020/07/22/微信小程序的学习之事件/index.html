@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>微信小程序的学习之事件 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="什么是事件 事件是视图层到逻辑层的通讯方式。 事件可以将用户的行为反馈到逻辑层进行处理。 事件可以绑定在组件上，当达到触发事件，就会执行逻辑层中对应的事件处理函数。 事件对象可以携带额外信息，如 id, dataset, touches。  事件分类事件分为冒泡事件和非冒泡事件：  冒泡事件：当一个组件上的事件被触发后，该事件会向父节点传递。 非冒泡事件：当一个组件上的事件被触发后，该事件不会向父">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序的学习之事件">
+<meta property="og:url" content="http://yoursite.com/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%8B%E4%BB%B6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="什么是事件 事件是视图层到逻辑层的通讯方式。 事件可以将用户的行为反馈到逻辑层进行处理。 事件可以绑定在组件上，当达到触发事件，就会执行逻辑层中对应的事件处理函数。 事件对象可以携带额外信息，如 id, dataset, touches。  事件分类事件分为冒泡事件和非冒泡事件：  冒泡事件：当一个组件上的事件被触发后，该事件会向父节点传递。 非冒泡事件：当一个组件上的事件被触发后，该事件不会向父">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-22T03:45:16.000Z">
+<meta property="article:modified_time" content="2020-07-22T09:18:45.109Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-微信小程序的学习之事件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%8B%E4%BB%B6/" class="article-date">
+  <time datetime="2020-07-22T03:45:16.000Z" itemprop="datePublished">2020-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      微信小程序的学习之事件
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="什么是事件"><a href="#什么是事件" class="headerlink" title="什么是事件"></a>什么是事件</h2><ul>
+<li>事件是视图层到逻辑层的通讯方式。</li>
+<li>事件可以将用户的行为反馈到逻辑层进行处理。</li>
+<li>事件可以绑定在组件上，当达到触发事件，就会执行逻辑层中对应的事件处理函数。</li>
+<li>事件对象可以携带额外信息，如 id, dataset, touches。</li>
+</ul>
+<h3 id="事件分类"><a href="#事件分类" class="headerlink" title="事件分类"></a>事件分类</h3><p>事件分为冒泡事件和非冒泡事件：</p>
+<ol>
+<li>冒泡事件：当一个组件上的事件被触发后，该事件会向父节点传递。</li>
+<li>非冒泡事件：当一个组件上的事件被触发后，该事件不会向父节点传递。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">触发条件</th>
+<th align="left">最低版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">touchstart</td>
+<td align="left">手指触摸动作开始</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">touchmove</td>
+<td align="left">手指触摸后移动</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">touchcancel</td>
+<td align="left">手指触摸动作被打断，如来电提醒，弹窗</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">touchend</td>
+<td align="left">手指触摸动作结束</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">tap</td>
+<td align="left">手指触摸后马上离开</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">longpress</td>
+<td align="left">手指触摸后，超过350ms再离开，如果指定了事件回调函数并触发了这个事件，tap事件将不被触发</td>
+<td align="left"><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html" target="_blank" rel="noopener">1.5.0</a></td>
+</tr>
+<tr>
+<td align="left">longtap</td>
+<td align="left">手指触摸后，超过350ms再离开（推荐使用longpress事件代替）</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">transitionend</td>
+<td align="left">会在 WXSS transition 或 wx.createAnimation 动画结束后触发</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">animationstart</td>
+<td align="left">会在一个 WXSS animation 动画开始时触发</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">animationiteration</td>
+<td align="left">会在一个 WXSS animation 一次迭代结束时触发</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">animationend</td>
+<td align="left">会在一个 WXSS animation 动画完成时触发</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">touchforcechange</td>
+<td align="left">在支持 3D Touch 的 iPhone 设备，重按时会触发</td>
+<td align="left"><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html" target="_blank" rel="noopener">1.9.90</a></td>
+</tr>
+</tbody></table>
+<h3 id="绑定并阻止事件冒泡"><a href="#绑定并阻止事件冒泡" class="headerlink" title="绑定并阻止事件冒泡"></a>绑定并阻止事件冒泡</h3><p>除 <code>bind</code> 外，也可以用 <code>catch</code> 来绑定事件。与 <code>bind</code> 不同， <code>catch</code> 会阻止事件向上冒泡。</p>
+<p>例如在下边这个例子中，点击 inner view 会先后调用<code>handleTap3</code>和<code>handleTap2</code>(因为tap事件会冒泡到 middle view，而 middle view 阻止了 tap 事件冒泡，不再向父节点传递)，点击 middle view 会触发<code>handleTap2</code>，点击 outer view 会触发<code>handleTap1</code>。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"outer"</span> <span class="attr">bindtap</span>=<span class="string">"handleTap1"</span>&gt;</span></span><br><span class="line">  outer view</span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"middle"</span> <span class="attr">catchtap</span>=<span class="string">"handleTap2"</span>&gt;</span></span><br><span class="line">    middle view</span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"inner"</span> <span class="attr">bindtap</span>=<span class="string">"handleTap3"</span>&gt;</span></span><br><span class="line">      inner view</span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="互斥事件绑定"><a href="#互斥事件绑定" class="headerlink" title="互斥事件绑定"></a>互斥事件绑定</h3><p>自基础库版本 <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html" target="_blank" rel="noopener">2.8.2</a> 起，除 <code>bind</code> 和 <code>catch</code> 外，还可以使用 <code>mut-bind</code> 来绑定事件。一个 <code>mut-bind</code> 触发后，如果事件冒泡到其他节点上，其他节点上的 <code>mut-bind</code> 绑定函数不会被触发，但 <code>bind</code> 绑定函数和 <code>catch</code> 绑定函数依旧会被触发。</p>
+<p>换而言之，所有 <code>mut-bind</code> 是“互斥”的，只会有其中一个绑定函数被触发。同时，它完全不影响 <code>bind</code> 和 <code>catch</code> 的绑定效果。</p>
+<p>例如在下边这个例子中，点击 inner view 会先后调用 <code>handleTap3</code> 和 <code>handleTap2</code> ，点击 middle view 会调用 <code>handleTap2</code> 和 <code>handleTap1</code> 。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"outer"</span> <span class="attr">mut-bind:tap</span>=<span class="string">"handleTap1"</span>&gt;</span></span><br><span class="line">  outer view</span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"middle"</span> <span class="attr">bindtap</span>=<span class="string">"handleTap2"</span>&gt;</span></span><br><span class="line">    middle view</span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"inner"</span> <span class="attr">mut-bind:tap</span>=<span class="string">"handleTap3"</span>&gt;</span></span><br><span class="line">      inner view</span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="事件的捕获阶段"><a href="#事件的捕获阶段" class="headerlink" title="事件的捕获阶段"></a>事件的捕获阶段</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%8B%E4%BB%B6/" data-id="ckhk0r2b60014qwudc5011yhh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/26/vue-router%E7%9A%84%E5%AD%A6%E4%B9%A0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          vue-router的学习
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0%E4%B8%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">微信小程序学习一</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/26/http2%E5%92%8Chttp1-0/">http2和http1.0</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/20/js%E9%9D%A2%E8%AF%95%E9%A2%98%E5%90%88%E9%9B%86/">js面试题合集</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/19/csrf%E9%98%B2%E5%BE%A1%E7%AD%96%E7%95%A5/">&#39;csrf防御策略&#39;</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/04/react-%E4%B8%ADsetState%E7%9A%84%E4%BD%BF%E7%94%A8/">react 中setState的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/04/vue3%E7%9A%84%E4%BC%98%E5%8C%96/">vue3的优化</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

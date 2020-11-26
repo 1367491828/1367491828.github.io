@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-mongodb数据的使用操作" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/16/mongodb%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BD%BF%E7%94%A8%E6%93%8D%E4%BD%9C/" class="article-date">
+  <time datetime="2020-08-16T08:45:04.000Z" itemprop="datePublished">2020-08-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/16/mongodb%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BD%BF%E7%94%A8%E6%93%8D%E4%BD%9C/">mongodb数据的使用操作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="MongoDB数据库的学习和使用"><a href="#MongoDB数据库的学习和使用" class="headerlink" title="MongoDB数据库的学习和使用"></a>MongoDB数据库的学习和使用</h2><p>1.下载安装数据库。</p>
+<p>2.连接数据库，使用cmd窗口（任何位置都行）,输入mongo命令即可连接数据库。</p>
+<img src="https://s1.ax1x.com/2020/08/16/dEousH.png" alt="dEousH.png" border="0" />
+
+<p>3.创建并使用数据库，<code>show dbs;</code>//查看数据库   <code>use databaseName;</code>  //切换数据库，但是现在还并没有创建该数据库，在插入了一条数据之后，再查看数据库时则创建了该数据库（只有插入了数据库集合才会创建，mysql数据库需要先创建数据库才能用use）。删除数据库，首先需要进入到该数据库，然后<code>db.dropDatabase();</code></p>
+<img src="https://s1.ax1x.com/2020/08/16/dETb40.png" alt="dETb40.png" border="0" />
+
+<p>3.插入数据，<code>db.collectionName.insert({ &quot;key&quot; : &quot;value&quot;  })</code>，显示当前数据里面的数据集合，<code>show collections;</code>,只有插入了数据的表才存在。查看数据<code>db.colleectionName.find();</code>删除数据库内的集合：<code>db.collectionName.drop()</code></p>
+<img src="https://s1.ax1x.com/2020/08/16/dEbxKS.png" alt="dEbxKS.png" border="0" />
+
+<p>4.修改数据</p>
+<p>db.user.update({“username”:”123456”},{ $set: { ‘password’ : ‘654332’ }}, {upsert: boolean,mulit: boolean})</p>
+<p>第一个花括号为修改的条件，第二个花括号是修改的数据，第三个可以省略，默认都是false，第一个upsert是控制，如果不存在update的记录，是否插入这个新的数据 ,true为插入，默认是false，不插入。第二个为multi是控制是否将多条符合条件的数据修改，默认是只修改第一条查询到符合条件的数据。true为修改查询到的所有数据。</p>
+<p>，如果是按顺序写的boolean，则不需要{},直接写true和false,如果要跳过一个不设置，则需要使用对象写法，且写出字段。{multi:true}</p>
+<img src="https://s1.ax1x.com/2020/08/17/dmfdnH.png" alt="dmfdnH.png" border="0" />
+
+<p>如图所示，当设置第一个upsert为true时，将会把没有符合条件的数据直接插入数据库</p>
+<img src="https://s1.ax1x.com/2020/08/17/dmhuPP.png" alt="dmhuPP.png" border="0" />
+
+<p>默认只修改第一条数据</p>
+<img src="https://s1.ax1x.com/2020/08/17/dmh8bj.png" alt="dmh8bj.png" border="0" />
+
+<p>修改了多条数据。</p>
+<p>save方法也会修改整条数据，通过传入的文档来替换已有文档。语法格式如下：</p>
+<ol>
+<li><p>db.collection.save(    </p>
+</li>
+<li><p>​    <document>, //文档数据</p>
+</li>
+<li><p>)  </p>
+</li>
+</ol>
+<p>5.删除数据 <strong>如果不传条件将会将所有数据删除：query:{}</strong></p>
+<ol>
+<li>db.collection.remove(     </li>
+<li>​    <query>,     </li>
+<li>​    {       </li>
+<li>​        justOne: <boolean>,</li>
+<li>​        writeConcern: <document> </li>
+<li>​    } </li>
+<li>)</li>
+</ol>
+<ul>
+<li><strong>query</strong> :（可选）删除的文档的条件。</li>
+<li><strong>justOne</strong> : （可选）如果设为 true 或 1，则只删除一个文档。</li>
+<li><strong>writeConcern</strong> :（可选）抛出异常的级别。</li>
+</ul>
+<p>6.分页查询</p>
+<p>db.collection.limit(pagesize).skip(pagesize*(pagenum - 1))</p>
+<p>7.排序</p>
+<p>在MongoDB中使用使用sort()方法对数据进行排序，sort()方法可以通过参数指定排序的字段，并使用 1 和 -1 来指定排序的方式，其中 1 为升序排列，而-1是用于降序排列。</p>
+<p><code>db.COLLECTION_NAME.find().sort({KEY:1})</code>  </p>
+<p>8.设置索引</p>
+<p>查看查询时间：</p>
+<p>db.collection.find({}).explain(“executionStats”)</p>
+<p>“executionTimeMillis” : 103,  //该字段就是查询所花的时间</p>
+<p>创建索引：db.collection.ensureIndex({‘colName’:1});  //给colName设置索引，1表示升序，-1表示降序</p>
+<p>可以为索引自取名：db.collection.ensureIndex({‘colName’:1},{‘name’:’colname_1’}); 索引名为colname_1</p>
+<p>查看索引：db.collection.getIndexes()</p>
+<p>删除索引：db.collection.dropIndex(‘colName’:1) 删除索引后，查询时间和为设置时差不多；</p>
+<p>复合索引：db.collection.dropIndex({‘username’:1,’age’: 1}) </p>
+<p>该索引被创建后，基于username和age的查询将会用到该索引，或者是基于username</p>
+<p>的查询也会用到该索引，但是只是基于age的查询将不会用到该复合索引。因此可以说，如果想用到复合索引，必须在查询条件中包含复合索引中的前N个索引列。然而如果查询条件中的键值顺序和复合索引中的创建顺序不一致的话， MongoDB 可以智能的帮助我们调整该顺序，以便使复合索引可以为查询所用。</p>
+<p>唯一索引：db.collection.dropIndex({‘username’:1}，{‘unique’:true})</p>
+<p>创建唯一索引的字段插入相同值会报错</p>
+<p>MongoDB数据创建管理权限</p>
+<p>1.先进入admin数据库（show users;查看数据库用户）</p>
+<p><img src="C:%5CUsers%5C%E5%BC%A0%E6%96%B0%E9%BE%99%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200818204759752.png" alt="image-20200818204759752"></p>
+<p>2.使用下面命令创建数据用户，成功会显示创建成功，并且有相关信息</p>
+<p><code>db.createUser({</code><br><code>... user:&#39;admin&#39;,</code><br><code>... pwd:&#39;123456&#39;,</code><br><code>... roles:[{role:&#39;root&#39;,db:&#39;admin&#39;}]</code><br><code>... });</code></p>
+<p>3.配置mongodb数据库中bin目录下的mongod.cfg文件（可以先备份）</p>
+<p>security:<br>     authorization: enabled</p>
+<p>4.windows+R,输入services.msc找到mongodb服务重新启动</p>
+<p>在进入数据库的时候输入</p>
+<p><code>mongo admin -u userName -p password;</code></p>
+<h3 id="在node中连接数据库"><a href="#在node中连接数据库" class="headerlink" title="在node中连接数据库"></a><strong>在node中连接数据库</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;引入mongodb模块</span><br><span class="line">const &#123; MongoClient &#125; &#x3D; require(&#39;mongodb&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;定义数据库地址mongodb:&#x2F;&#x2F;username:password@127.0.0.1:27017</span><br><span class="line">const url &#x3D; &#39;mongodb:&#x2F;&#x2F;admin:123456@127.0.0.1:27017&#39;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;指定数据库名称</span><br><span class="line">const dbName &#x3D; &#39;node&#39;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;实例化MongoClient，传入地址</span><br><span class="line">const client &#x3D; new MongoClient(url,&#123; useUnifiedTopology: true &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">client.connect((err)&#x3D;&gt;&#123;</span><br><span class="line">    if(err)&#123;</span><br><span class="line">        console.log(&quot;数据库连接失败！&quot;)</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&quot;数据库连接成功！&quot;);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;</span><br><span class="line">    let db &#x3D; client.db(dbName);</span><br><span class="line"></span><br><span class="line">    db.collection(&#39;user&#39;).find().toArray((err,data)&#x3D;&gt;&#123;</span><br><span class="line">        if(err)&#123;</span><br><span class="line">            console.log(err)</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        console.log(data)  &#x2F;&#x2F;打印相互数据</span><br><span class="line">        &#x2F;&#x2F;关闭数据库</span><br><span class="line">        client.close();  &#x2F;&#x2F;关闭数据库只能在这里关闭，因为是异步过程</span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>上述进行简单的查询操作。修改删除类似。</p>
+<h4 id="初步使用mongoose"><a href="#初步使用mongoose" class="headerlink" title="初步使用mongoose"></a>初步使用mongoose</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">const mongoose &#x3D; require(&#39;mongoose&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;建立连接</span><br><span class="line">mongoose.connect(&#39;mongodb:&#x2F;&#x2F;admin:123456@127.0.0.1:27017&#x2F;node?authSource&#x3D;admin&#39;,&#123; useNewUrlParser: true,useUnifiedTopology: true &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const UserSchema &#x3D; mongoose.Schema(&#123;</span><br><span class="line">    name: String,</span><br><span class="line">    age: Number,</span><br><span class="line">    password: String,</span><br><span class="line">    gender: String,</span><br><span class="line">    profession: String</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">const User &#x3D; mongoose.model(&#39;User&#39;,UserSchema,&#39;user&#39;);</span><br><span class="line">&#x2F;&#x2F;第三个参数指定数据库不添加复数，默认是找users表</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;查找数据</span><br><span class="line">&#x2F;&#x2F; User.find(&#123;&#125;,(err,docs)&#x3D;&gt;&#123;</span><br><span class="line">&#x2F;&#x2F;     if(err)&#123;</span><br><span class="line">&#x2F;&#x2F;         console.log(&#39;连接数据库出错！&#39;)</span><br><span class="line">&#x2F;&#x2F;         return;</span><br><span class="line">&#x2F;&#x2F;     &#125;</span><br><span class="line">&#x2F;&#x2F;     console.log(docs)</span><br><span class="line">&#x2F;&#x2F; &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;增加数据</span><br><span class="line">&#x2F;&#x2F; let u &#x3D; new User(&#123;</span><br><span class="line">&#x2F;&#x2F;     name:&#39;王友肾&#39;,</span><br><span class="line">&#x2F;&#x2F;     age: 22,</span><br><span class="line">&#x2F;&#x2F;     password:&#39;123456&#39;,</span><br><span class="line">&#x2F;&#x2F;     gender:&#39;male&#39;,</span><br><span class="line">&#x2F;&#x2F;     profession:&#39;经济管理&#39;</span><br><span class="line">&#x2F;&#x2F; &#125;)</span><br><span class="line">&#x2F;&#x2F; u.save((err,res)&#x3D;&gt;&#123;</span><br><span class="line">&#x2F;&#x2F;     if(err)&#123;</span><br><span class="line">&#x2F;&#x2F;         console.log(err)</span><br><span class="line">&#x2F;&#x2F;         return;</span><br><span class="line">&#x2F;&#x2F;     &#125;</span><br><span class="line">&#x2F;&#x2F;     console.log(res)</span><br><span class="line">&#x2F;&#x2F; &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;更新数据</span><br><span class="line">&#x2F;&#x2F; User.update(&#123;name:&#39;张新龙&#39;&#125;,&#123;gender:&#39;male&#39;&#125;,&#123;multi:true&#125;,function(err,res)&#123;</span><br><span class="line">&#x2F;&#x2F;     if(err)&#123;</span><br><span class="line">&#x2F;&#x2F;         console.log(err);</span><br><span class="line">&#x2F;&#x2F;         return;</span><br><span class="line">&#x2F;&#x2F;     &#125;</span><br><span class="line">&#x2F;&#x2F;     console.log(res)</span><br><span class="line">&#x2F;&#x2F; &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;删除数据</span><br><span class="line">User.deleteOne(&#123;name:&#39;刘亦菲&#39;&#125;,function(err,res)&#123;</span><br><span class="line">    if(err)&#123;</span><br><span class="line">        console.log(err);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置索引"><a href="#设置索引" class="headerlink" title="设置索引"></a>设置索引</h3><p>设置唯一索引：unique: true</p>
+<p>设置索引：index: true</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/16/mongodb%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BD%BF%E7%94%A8%E6%93%8D%E4%BD%9C/" data-id="ckhk0r2ab000cqwud7tln4w7b" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-js错误理解集合" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/14/js%E9%94%99%E8%AF%AF%E7%90%86%E8%A7%A3%E9%9B%86%E5%90%88/" class="article-date">
+  <time datetime="2020-08-14T05:07:53.000Z" itemprop="datePublished">2020-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/14/js%E9%94%99%E8%AF%AF%E7%90%86%E8%A7%A3%E9%9B%86%E5%90%88/">js错误理解集合</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="js中的变量的显式申明和隐式申明"><a href="#js中的变量的显式申明和隐式申明" class="headerlink" title="js中的变量的显式申明和隐式申明"></a>js中的变量的显式申明和隐式申明</h4><p>​        es5中使用var申明的变量是显式申明，直接 a = 100;的是隐式申明，两者是有区别的，使用var申明的变量分为全局变量和局部变量，而隐式申明的变量都是全局变量，在js函数中使用a = 100;的意义是在全局变量中申明了一个变量a;可以在全局使用，并且使用var 申明的变量使用delete 变量名  是删除不了变量的，而隐式申明的是可以删除的。</p>
+<img src="https://s1.ax1x.com/2020/08/14/dCtnZF.png" alt="dCtnZF.png" border="0" />
+
+<img src="https://s1.ax1x.com/2020/08/14/dCYR81.png" alt="dCYR81.png" border="0" />
+
+
+
+
+
+<h4 id="es5中的变量提升问题"><a href="#es5中的变量提升问题" class="headerlink" title="es5中的变量提升问题"></a>es5中的变量提升问题</h4><p>所谓的变量提升只是把变量的申明提升，（不包括赋值），变量提升在使用 var 和 function 时会产生变量提升，let 和const（es6）语法中就不会存在这种问题会报错。而变量提升是在全局变量和局部变量中都存在的。</p>
+<img src="https://s1.ax1x.com/2020/08/14/dCNN60.png" alt="dCNN60.png" border="0" />
+
+<p>图中第一个undefined是应为用var 申明了变量，js就会自动把<strong>var a;</strong>提升到函数内部的最前面，而此时只是申明了变量，而未定义变量，所以变量为undefined;同时更改内部的变量也会提升到函数内部的最上面，因为es5中只有全局作用域和函数作用域，所以在该函数内的变量都会提升到最前面（使用var就是es5)。</p>
+<h4 id="函数的变量提升"><a href="#函数的变量提升" class="headerlink" title="函数的变量提升"></a>函数的变量提升</h4><p>函数有最常用的两种方法：function命令和赋值式</p>
+<p>function fun(){}    //     var fun = function(){}</p>
+<p>function命令存在变量提升，所以在同时定义一个同样函数时，在赋值式之前的都是function方法定义函数，在赋值式之后就是赋值的函数。</p>
+<img src="https://s1.ax1x.com/2020/08/15/dFLdvF.png" alt="dFLdvF.png" border="0" />
+
+<p>使用函数申明function命令的会变量提升，赋值式先使用后申明定义会报错。</p>
+<h4 id="数据类型的确定"><a href="#数据类型的确定" class="headerlink" title="数据类型的确定"></a>数据类型的确定</h4><p>typeof  data ||  data  instanceof   Object   || Object.prototype.toString.call(data)</p>
+<p><strong>typeof</strong> 能返回字符串：object,number,string,boolean,undefined,function,symbol;(null转化为object，数组转化为object)，</p>
+<p><strong>instanceof</strong> 返回true和false: Object是各种对象，可以是内置对象，也可以是自定义对象，比如通过构造函数来创建的实例instanceof 构造函数，返回的是true，instanceof 会通过原型链一层一层往上找constructor，如果有就返回true,直到找到最顶层的Object.prototype,没找到就返回false，所以数组对于Array,Object都是返回true,所以这种方式判断的情况是很不准确的。</p>
+<p><strong>Object.prototype.toString.call(data)</strong>:该方式通过Object上的原生toString方法，如果是实例原型链上的有toString方法（除最顶层），这就有可能得不到想要的结果。该方法返回字符串“[object Object]”,”[object Array]”等等，它能把数据类型范围缩小得最小。但是也有缺陷。如下</p>
+<p>let num = new Number(3);<br>typeof num;<br>“object”<br>Object.prototype.toString.call(num);<br>“[object Number]”</p>
+<p>num其实是个对象</p>
+<h4 id="函数的作用域"><a href="#函数的作用域" class="headerlink" title="函数的作用域"></a>函数的作用域</h4><p>函数和其他变量具有一样的地位，他的作用域和变量一样，就是其在申明时所在的作用域，与其运行时所在的作用域无关。</p>
+<img src="https://s1.ax1x.com/2020/08/15/dkVnXj.png" alt="dkVnXj.png" border="0" />
+
+<p>如图所示，函数内部调用函数，而没有输出使用函数内部的a的值，所以函数执行所在的作用域是定义时的作用域，而不是调用时所在作用域。同样的，函数体内部申明的函数，作用域绑定在函数体内部。</p>
+<img src="https://s1.ax1x.com/2020/08/15/dkZC2F.png" alt="dkZC2F.png" border="0" />
+
+
+
+
+
+<h4 id="函数参数的值传递和地址传递（值传递不会改变参数的原数据，地址传递看情况）"><a href="#函数参数的值传递和地址传递（值传递不会改变参数的原数据，地址传递看情况）" class="headerlink" title="函数参数的值传递和地址传递（值传递不会改变参数的原数据，地址传递看情况）"></a>函数参数的值传递和地址传递（值传递不会改变参数的原数据，地址传递看情况）</h4><p>在函数中参数的传递存在值传递和地址传递，这主要是因为数据的存储方式不同，应为基本数据类型是存放在栈中，而引用数据类型是存放在堆中，引用数据的变量名存在栈中，而栈中的值存的是引用数据类型的在内存中的地址，所以会产生一系列问题。</p>
+<img src="https://s1.ax1x.com/2020/08/20/d89U3j.png" alt="d89U3j.png" border="0" />
+
+<p> 在外部传入的基本数据类型是值传递，在函数内部，a的值是原始值的拷贝，无论怎么修改，都不会影响到原始值。类似传参时let a = a,（如果形参是p则，let p = a）把外部a的值传递给了内部变量a，所以改变的时内部a的值，外部变量的值不会受到内部修改的影响.</p>
+<img src="https://s1.ax1x.com/2020/08/20/d8PgXR.png" alt="d8PgXR.png" border="0" />
+
+<p>上述情况是传递的数组（引用数据类型)，所以函数内部是let a = arr的地址，所以通过a可以修改该地址的引用数据的内部属性，进而可以修改原数据，这种情况需要特别注意。</p>
+<img src="https://s1.ax1x.com/2020/08/20/d8kNXd.png" alt="d8kNXd.png" border="0" />
+
+<p>上述情况为直接给a赋值，所以会改变a的值，a的值改变了就和arr没有关系了，所以修改并不会对原数据产生影响。</p>
+<h3 id="函数中Arguments对象理解"><a href="#函数中Arguments对象理解" class="headerlink" title="函数中Arguments对象理解"></a>函数中Arguments对象理解</h3><p>1.arguments对象是只存在于函数内部的特殊对象，它非常像一个数组，但不是数组。</p>
+<p>2.argument主要是用力来接受函数的实参的，但是其不影响数据的传递，好像是备份一样。对于定义函数的形参，如果传递的实参超过形参个数，则多余的实参不会被接受，而在arguments对象中可以进行查看。3.arguments对象里面有一个length属性，length的值就是实参的个数。</p>
+<p>4.如果需要让arguments对象转化为数组时，则可以调用Array.from(arguments)或Array.prototype.slice.call(arguments)将其转化为数组进行操作</p>
+<p>5.通过arguments可以改变参数的值，会影响参数接收的值。</p>
+<img src="https://s1.ax1x.com/2020/08/20/d88wHf.png" alt="d88wHf.png" border="0" />
+
+<img src="https://s1.ax1x.com/2020/08/20/d88DUS.png" alt="d88DUS.png" border="0" />
+
+
+
+
+
+<h4 id="逻辑运算符（返回的都是元素的值，而不是true和false）"><a href="#逻辑运算符（返回的都是元素的值，而不是true和false）" class="headerlink" title="逻辑运算符（返回的都是元素的值，而不是true和false）"></a>逻辑运算符（返回的都是元素的值，而不是true和false）</h4><p>与运算符短路运算：只要遇到true时，就短路并且返回该元素的值，如果找到最后一直未找到true则返回该运算的最后一个值（false的值）。</p>
+<p>并运算短路运算：只要遇到false就会返回该元素的值，只有全部为true时才会返回最后一个的true的值</p>
+<p>​            let str = “dffdjkk”,num = 0,num1 = NaN;tru = 2;<br>​            console.log(“str || num”,str || num); //str<br>​            console.log(“num || num1”,num || num1); //num1<br>​            console.log(“num || str”, num|| str); //str<br>​            console.log(“num || num1”, num|| num1); //NaN<br>​            //或运算时,当遇到第一个true时就返回第一个true的值,当有false时会一直找到最后,知道找到true则返回第      一个true,<br>​            //如果没有找到true则返回最后一个的false的值<br>​            console.log(“str &amp;&amp; num”,str &amp;&amp; num);  //0<br>​            console.log(“num &amp;&amp; str”,num &amp;&amp; str);   //0<br>​            console.log(“str &amp;&amp; tru”,str &amp;&amp; tru);    //2<br>​            console.log(“num &amp;&amp; num1”,num &amp;&amp; num1);  //0<br>​            //并运算当两者都为true时返回最后一个true的值,当有false时,就会返回第一个false的值</p>
+<h4 id="null和undefined"><a href="#null和undefined" class="headerlink" title="null和undefined"></a>null和undefined</h4><p><code>null == undefined    //true</code></p>
+<p><code>null === undefined     //false</code></p>
+<p><code>Number(null)   //0     Number(undefined)    //NaN</code></p>
+<p><code>Boolean(null)  //false      Boolean(undefined)   //false</code></p>
+<h4 id="类型的自动转化"><a href="#类型的自动转化" class="headerlink" title="类型的自动转化"></a>类型的自动转化</h4><p>自动转化类型：</p>
+<p>第一种情况，不同类型的数据互相运算。</p>
+<p>第二种情况，对非布尔值类型的数据求布尔值。</p>
+<p>第三种情况，对非数值类型的值使用一元运算符（即<code>+</code>和<code>-</code>）。</p>
+<p>在if逻辑判断中以下都是转化为false</p>
+<ul>
+<li><code>undefined</code></li>
+<li><code>null</code></li>
+<li><code>+0</code>或<code>-0</code></li>
+<li><code>NaN</code></li>
+<li><code>&#39;&#39;</code>（空字符串）</li>
+</ul>
+<p>在 + 运算符中，如果有字符串，则将所有都转化为字符串进行拼接，如果没有字符串而是其他类型，且+，- ，* / 运算符则优先转化为数字</p>
+<h4 id="强制转换"><a href="#强制转换" class="headerlink" title="强制转换"></a>强制转换</h4><p>Number(‘’) || Number(“    “)   ==&gt;   0;</p>
+<p>Number( undefined ) ==&gt; NaN</p>
+<p>Number( null ) ==&gt;  0</p>
+<p>Number()</p>
+<p><code>Number</code>背后的转换规则比较复杂。</p>
+<p>第一步，调用对象自身的<code>valueOf</code>方法。如果返回原始类型的值，则直接对该值使用<code>Number</code>函数，不再进行后续步骤。</p>
+<p>第二步，如果<code>valueOf</code>方法返回的还是对象，则改为调用对象自身的<code>toString</code>方法。如果<code>toString</code>方法返回原始类型的值，则对该值使用<code>Number</code>函数，不再进行后续步骤。</p>
+<p>第三步，如果<code>toString</code>方法返回的是对象，就报错。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Number(&#123;a: 1&#125;) &#x2F;&#x2F; NaN</span><br><span class="line">Number([1, 2, 3]) &#x2F;&#x2F; NaN</span><br><span class="line">Number([5]) &#x2F;&#x2F; 5</span><br></pre></td></tr></table></figure>
+
+<p>String()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String(&#123;a: 1&#125;) &#x2F;&#x2F; &quot;[object Object]&quot;</span><br><span class="line">String([1, 2, 3]) &#x2F;&#x2F; &quot;1,2,3&quot;</span><br></pre></td></tr></table></figure>
+
+<p>参数为对象数组时。</p>
+<ol>
+<li>先调用对象自身的<code>toString</code>方法。如果返回原始类型的值，则对该值使用<code>String</code>函数，不再进行以下步骤。</li>
+<li>如果<code>toString</code>方法返回的是对象，再调用原对象的<code>valueOf</code>方法。如果<code>valueOf</code>方法返回原始类型的值，则对该值使用<code>String</code>函数，不再进行以下步骤。</li>
+<li>如果<code>valueOf</code>方法返回的是对象，就报错。</li>
+</ol>
+<h4 id="关于new命令创建对象"><a href="#关于new命令创建对象" class="headerlink" title="关于new命令创建对象"></a>关于new命令创建对象</h4><p>使用<code>new</code>命令时，根据需要，构造函数也可以接受参数。<code>new</code>命令本身就可以执行构造函数，所以后面的构造函数可以带括号，也可以不带括号。下面两行代码是等价的，但是为了表示这里是函数调用，推荐使用括号。</p>
+<p>如果忘记使用new命令，则构造函数会当作普通函数来进行调用，内部的this指向全局，所以所有属性都注定要在全局作用域下</p>
+<img src="https://s1.ax1x.com/2020/08/21/dtEgYR.png" alt="dtEgYR.png" border="0" />
+
+<p>为了保证构造函数必须与<code>new</code>命令一起使用，一个解决办法是，构造函数内部使用严格模式，即第一行加上<code>use strict</code>。这样的话，一旦忘了使用<code>new</code>命令，直接调用构造函数就会报错。严格模式下严禁将this指向window对象，否则汇报错，所以使用严格模式可以阻止执行。</p>
+<p>另一个解决办法，构造函数内部判断是否使用<code>new</code>命令，如果发现没有使用，则直接返回一个实例对象。这与new命令的原理有关系。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function Fubar(foo, bar) &#123;</span><br><span class="line">  if (!(this instanceof Fubar)) &#123;</span><br><span class="line">    return new Fubar(foo, bar);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  this._foo &#x3D; foo;</span><br><span class="line">  this._bar &#x3D; bar;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="new命令的原理"><a href="#new命令的原理" class="headerlink" title="new命令的原理"></a>new命令的原理</h4><ol>
+<li>创建一个空对象，作为将要返回的对象实例。</li>
+<li>将这个空对象的原型，指向构造函数的<code>prototype</code>属性。</li>
+<li>将这个空对象赋值给函数内部的<code>this</code>关键字。</li>
+<li>开始执行构造函数内部的代码。</li>
+</ol>
+<p><strong>如果<code>return</code>语句返回的是一个跟<code>this</code>无关的新对象，<code>new</code>命令会返回这个新对象，而不是<code>this</code>对象。这一点需要特别引起注意。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var Vehicle &#x3D; function ()&#123;</span><br><span class="line">  this.price &#x3D; 1000;</span><br><span class="line">  return &#123; price: 2000 &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">(new Vehicle()).price</span><br><span class="line">&#x2F;&#x2F; 2000</span><br></pre></td></tr></table></figure>
+
+<p><strong>另一方面，如果对普通函数（内部没有<code>this</code>关键字的函数）使用<code>new</code>命令，则会返回一个空对象。返回一个对象时，将会返回返回的那个对象，而不是this指向的对象</strong></p>
+<img src="https://s1.ax1x.com/2020/08/21/dtMBdK.png" alt="dtMBdK.png" border="0" />
+
+
+
+
+
+<h4 id="toString（）方法"><a href="#toString（）方法" class="headerlink" title="toString（）方法"></a>toString（）方法</h4><p>数组、字符串、函数、Date 对象都分别部署了自定义的<code>toString</code>方法，覆盖了<code>Object.prototype.toString</code>方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var o2 &#x3D; &#123;a:1&#125;;</span><br><span class="line">o2.toString() &#x2F;&#x2F; &quot;[object Object]&quot;</span><br><span class="line"></span><br><span class="line">[1, 2, 3].toString() &#x2F;&#x2F; &quot;1,2,3&quot;</span><br><span class="line"></span><br><span class="line">&#39;123&#39;.toString() &#x2F;&#x2F; &quot;123&quot;</span><br><span class="line"></span><br><span class="line">(function () &#123;</span><br><span class="line">  return 123;</span><br><span class="line">&#125;).toString()</span><br><span class="line">&#x2F;&#x2F; &quot;function () &#123;</span><br><span class="line">&#x2F;&#x2F;   return 123;</span><br><span class="line">&#x2F;&#x2F; &#125;&quot;</span><br><span class="line"></span><br><span class="line">(new Date()).toString()</span><br><span class="line">&#x2F;&#x2F; &quot;Tue May 10 2016 09:11:31 GMT+0800 (CST)&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype.toString.call(value)</span><br></pre></td></tr></table></figure>
+
+<p>Object.prototype.toString.call(value)方法可以准确确定</p>
+<p><strong>通过DOM操作改变元素样式</strong></p>
+<p>​        let p  = document.querySelector(‘p’)<br>​        p.style.color = ‘blue’<br>​        p.style.cssText = ‘margin-left: 100px;color:blue’</p>
+<p>通过style设置的属性会设置为行内样式，而且会覆盖style的样式，属性如果是连接符连接的，在这里需要使用小驼峰命名方法，该对象的属性值都是字符串，设置时必须包括单位，但是不含规则结尾的分号。比如，<code>divStyle.width</code>不能写为<code>100</code>，而要写为<code>100px</code>。</p>
+<p>设置cssText会覆盖之前设置的style，所以设置了cssText属性的话，就会覆盖掉之前的设置属性，在cssText之后设置的属性会生效，也是添加在行内样式的style中。</p>
+<p>另外，<code>Element.style</code>返回的只是行内样式，并不是该元素的全部样式。通过样式表设置的样式，或者从父元素继承的样式，无法通过这个属性得到。元素的全部样式要通过<code>window.getComputedStyle()</code>得到。</p>
+<p>window.getComputedStyle(p,null).getPropertyValue(‘color’)；获取p标签的color元素，如果是在样式表中定义的样式，只能通过这个方法获取，用style只能获取行内样式。</p>
+<p><strong>阻止冒泡事件</strong></p>
+<p>方法：event.stopPropagation() , event.cancelBubble =  false.</p>
+<p>在现在的浏览器中一般都是通过事件冒泡触发事件的，也有事件捕获触发的，但是比较推崇冒泡触发，事件触发主要是有三个阶段，从外往里捕获阶段，就是捕获阶段，第二个是目标阶段，就是获取到触发事件的元素，这是目标阶段，第三个是冒泡阶段，就是从目标元素往外触发，这个是冒泡阶段。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; &lt;input type&#x3D;&quot;checkbox&quot; id&#x3D;&quot;my-checkbox&quot; &#x2F;&gt;</span><br><span class="line">var cb &#x3D; document.getElementById(&#39;my-checkbox&#39;);</span><br><span class="line"></span><br><span class="line">cb.addEventListener(</span><br><span class="line">  &#39;click&#39;,</span><br><span class="line">  function (e)&#123; e.preventDefault(); &#125;,</span><br><span class="line">  false</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>addEventListener函数可以给元素添加事件的，属于DOM2级事件，函数的第一个参数为添加的事件，没有<strong>on</strong>,ie浏览器兼容的话就需要添加on，第二个参数为触发函数，第三个为是否为捕获阶段触发，值为boolean,如果为true时，则是在事件捕获的阶段触发函数，默认为false,就是在冒泡阶段触发。如果是较低版本ie就要使用attchEvent(‘click’,function(){}),只有两个参数。</p>
+<p>addEventListener函数可以为同一个元素添加同一个事件的不同触发函数，而不会产生覆盖，添加几个函数触发几次，这种在使用onclick方法中会产生覆盖。如果想想取消监听函数可以使用，removeEventListener(event,function,boolean),这里面的参数和添加时候一样，所以如果要取消的话，一般是在function里面放置一个函数名，第三个参数要一样。</p>
+<p>阻止事件的冒泡方法：event.stopPropagation(),</p>
+<p>此方法不会阻止触发事件，但是会阻止事件的冒泡，不会触发祖先元素的相同事件，起到了阻止冒泡事件，该代码放置在function里面，只对该函数起作用。</p>
+<p>阻止相同触发事件的冒泡：Event.stopImmediatePropagation() </p>
+<p><code>Event.stopImmediatePropagation</code>方法阻止同一个事件的其他监听函数被调用，不管监听函数定义在当前节点还是其他节点。也就是说，该方法阻止事件的传播，比<code>Event.stopPropagation()</code>更彻底。</p>
+<p>如果同一个节点对于同一个事件指定了多个监听函数，这些函数会根据添加的顺序依次调用。只要其中有一个监听函数调用了<code>Event.stopImmediatePropagation</code>方法，其他的监听函数就不会再执行了。</p>
+<p>事件对象对于不同的事件属性是不一样的。</p>
+<p><strong>History对象</strong></p>
+<p>history的属性：length, state</p>
+<p>history.length: 返回改窗口访问过的网址数量，包括当前网址。</p>
+<p>history.state :  History 堆栈最上层的状态值.</p>
+<p>history方法：go() , forward() , back()</p>
+<p>go(num), num可以为正负数，超过范围就不起作用，不指定参数为0，刷新页面</p>
+<p>forward()  向前跳转网址，第一个网址无效果，和最后一个无效果。</p>
+<p>back() 向后跳一个网址，第一个无效。</p>
+<p><strong>移动到以前访问过的页面时，页面通常是从浏览器缓存之中加载，而不是重新要求服务器发送新的网页。</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/14/js%E9%94%99%E8%AF%AF%E7%90%86%E8%A7%A3%E9%9B%86%E5%90%88/" data-id="ckhk0r2aa000bqwudfu1wdcvh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-es6函数的扩展" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/14/es6%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A9%E5%B1%95/" class="article-date">
+  <time datetime="2020-08-14T02:40:31.000Z" itemprop="datePublished">2020-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/14/es6%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A9%E5%B1%95/">es6函数的扩展</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="ES6的函数扩展"><a href="#ES6的函数扩展" class="headerlink" title="ES6的函数扩展"></a>ES6的函数扩展</h2><p>1.允许函数的参数设置默认值，只有当传入的参数为严格的undefined，才会使用默认值，所以如果设有默认值的参数设在前面，如果想使用默认值就只能显式调用undefined，不能省略，否则会报错。所以一般设有默认值的参数都是放在最后面。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params">x, y = <span class="string">'World'</span></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x, y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.参数变量是默认申明的，所以不能在函数内部再次使用let或const再次申明该变量否则会报错。但是如果使用var再次申明该变量将会覆盖该变量，使用的变量将会是使用var申明赋值的值。</p>
+<img src="https://s1.ax1x.com/2020/08/14/d9xd6e.png" alt="d9xd6e.png" border="0" />
+
+<p>3.使用参数默认值时，函数不能有同名参数。参数默认值不是传值的，而是每次都重新计算默认值表达式的值。也就是说，参数默认值是惰性求值的。</p>
+<p>4.函数的参数与解构赋值默认值结合使用</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/14/es6%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A9%E5%B1%95/" data-id="ckhk0r2a40006qwudfjc3dere" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vue的服务器端渲染" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/13/vue%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93/" class="article-date">
+  <time datetime="2020-08-13T04:59:56.000Z" itemprop="datePublished">2020-08-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/13/vue%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93/">vue的服务器端渲染</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="vue的服务器端渲染"><a href="#vue的服务器端渲染" class="headerlink" title="vue的服务器端渲染"></a>vue的服务器端渲染</h1><p>1.下载插件</p>
+<p><code>npm install vue-server-renderer --save</code></p>
+<p>2.使用renderer；</p>
+<p>const renderer  =  require(‘vue-server-renderer’).craeteRenderer();</p>
+<p>const app = new Vue({});</p>
+<p>renderer.renderToString(app,(err,html)=&gt;{</p>
+<p>​      if(err){</p>
+<p>​          console.log(err);return;</p>
+<p>​            }else{</p>
+<p>​          console.log(html)</p>
+<p>​              }</p>
+<p>})</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/13/vue%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93/" data-id="ckhk0r2b0000vqwud4wbzenjy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-sass语法的学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/06/sass%E8%AF%AD%E6%B3%95%E7%9A%84%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2020-08-06T12:28:52.000Z" itemprop="datePublished">2020-08-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/06/sass%E8%AF%AD%E6%B3%95%E7%9A%84%E5%AD%A6%E4%B9%A0/">sass语法的学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-变量"><a href="#1-变量" class="headerlink" title="1.变量"></a>1.变量</h3><p>sass语法变量的申明：$variable_Name:  value;</p>
+<p> (变量名可以使用中划线也可以使用下划线连接都是符合规范的,用中划线声明的变量可以使用下划线的方式引用,变量可以在<code>css</code>规则块定义之外存在,所有的规则快都可以引用。当变量定义在<code>css</code>规则块内，那么该变量只能在此规则块内使用。)</p>
+<p>变量的使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$highlight-color: #F90;</span><br><span class="line">.selected &#123;</span><br><span class="line">  border: 1px solid $highlight-color;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;编译后</span><br><span class="line"></span><br><span class="line">.selected &#123;</span><br><span class="line">  border: 1px solid #F90;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在声明变量时，变量值也可以引用其他变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$highlight-color: #F90;</span><br><span class="line">$highlight-border: 1px solid $highlight-color;</span><br><span class="line">.selected &#123;</span><br><span class="line">  border: $highlight-border;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;编译后</span><br><span class="line"></span><br><span class="line">.selected &#123;</span><br><span class="line">  border: 1px solid #F90;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-嵌套css规则"><a href="#2-嵌套css规则" class="headerlink" title="2.嵌套css规则"></a>2.嵌套css规则</h3><p>在Sass中，你可以像俄罗斯套娃那样在规则块中嵌套规则块。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#content &#123;</span><br><span class="line">  article &#123;</span><br><span class="line">    h1 &#123; color: #333 &#125;</span><br><span class="line">    p &#123; margin-bottom: 1.4em &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  aside &#123; background-color: #EEE &#125;</span><br><span class="line">&#125;</span><br><span class="line"> &#x2F;* 编译后 *&#x2F;</span><br><span class="line">#content article h1 &#123; color: #333 &#125;</span><br><span class="line">#content article p &#123; margin-bottom: 1.4em &#125;</span><br><span class="line">#content aside &#123; background-color: #EEE &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>父选择器的标识符&amp;</strong></p>
+<p>一般情况下，<code>sass</code>在解开一个嵌套规则时就会把父选择器（<code>#content</code>）通过一个空格连接到子选择器的前边（<code>article</code>和<code>aside</code>）形成（<code>#content article</code>和<code>#content aside</code>）。这种在CSS里边被称为后代选择器，因为它选择ID为<code>content</code>的元素内所有命中选择器<code>article</code>和<code>aside</code>的元素。但在有些情况下你却不会希望<code>sass</code>使用这种后代选择器的方式生成这种连接。</p>
+<p>当包含父选择器标识符的嵌套规则被打开时，它不会像后代选择器那样进行拼接，而是<code>&amp;</code>被父选择器直接替换</p>
+<h3 id="3-导入SASS文件"><a href="#3-导入SASS文件" class="headerlink" title="3. 导入SASS文件"></a>3. 导入SASS文件</h3><p>在一些sass文件中需要导入其他sass文件，<code>sass</code>也有一个<code>@import</code>规则，但不同的是，<code>sass</code>的<code>@import</code>规则在生成<code>css</code>文件时就把相关文件导入进来。这意味着所有相关的样式被归纳到了同一个<code>css</code>文件中，而无需发起额外的下载请求。使用<code>sass</code>的<code>@import</code>规则并不需要指明被导入文件的全名。你可以省略<code>.sass</code>或<code>.scss</code>文件后缀，当通过<code>@import</code>把<code>sass</code>样式分散到多个文件时，你通常只想生成少数几个<code>css</code>文件。那些专门为<code>@import</code>命令而编写的<code>sass</code>文件，并不需要生成对应的独立<code>css</code>文件，这样的<code>sass</code>文件称为局部文件。此约定即，<code>sass</code>局部文件的文件名以下划线开头。这样，<code>sass</code>就不会在编译时单独编译这个文件输出<code>css</code>，而只把这个文件用作导入。当你<code>@import</code>一个局部文件时，还可以不写文件的全名，即省略文件名开头的下划线。举例来说，你想导入<code>themes/_night-sky.scss</code>这个局部文件里的变量，你只需在样式表中写<code>@import</code> <code>&quot;themes/night-sky&quot;;</code>。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/06/sass%E8%AF%AD%E6%B3%95%E7%9A%84%E5%AD%A6%E4%B9%A0/" data-id="ckhk0r2ao000nqwud1x0481wd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-css文本的设置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/29/css%E6%96%87%E6%9C%AC%E7%9A%84%E8%AE%BE%E7%BD%AE/" class="article-date">
+  <time datetime="2020-07-29T05:10:40.000Z" itemprop="datePublished">2020-07-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/29/css%E6%96%87%E6%9C%AC%E7%9A%84%E8%AE%BE%E7%BD%AE/">css文本的设置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>字体样式的设置</p>
+<p><code>font-size:30px;    //设置字体大小</code></p>
+<p><code>font-weight:bold;||600;   //字体加粗</code></p>
+<p><code>font-family:font-family: Arial, Helvetica, sans-serif;    //设置字体</code>  </p>
+<p><code>font-style:italic;    //设置字体样式倾斜，正常为normal</code></p>
+<p><strong>用em来设置字体大小</strong></p>
+<p>为了避免Internet Explorer 中无法调整文本的问题，许多开发者使用 em 单位代替像素。</p>
+<p>em的尺寸单位由W3C建议。</p>
+<p>1em和当前字体大小相等。在浏览器中默认的文字大小是16px。</p>
+<p>因此，1em的默认大小是16px。可以通过下面这个公式将像素转换为em：<strong>px/16=em</strong></p>
+<p>文本样式的设置</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/29/css%E6%96%87%E6%9C%AC%E7%9A%84%E8%AE%BE%E7%BD%AE/" data-id="ckhk0r2a40005qwuddfotbtaz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vue-router的学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/26/vue-router%E7%9A%84%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2020-07-26T02:34:05.000Z" itemprop="datePublished">2020-07-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/26/vue-router%E7%9A%84%E5%AD%A6%E4%B9%A0/">vue-router的学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="vue-router的学习与使用："><a href="#vue-router的学习与使用：" class="headerlink" title="vue-router的学习与使用："></a>vue-router的学习与使用：</h3><p>1.下载vue-router(可以在创建项目的时候选择下载，此案例是创建后添加)</p>
+<p><code>npm install vue-router --save</code></p>
+<p>2.在src目录下创建router文件夹，并创建index.js文件，取名为index在别的文件引入中只需要写道router的目录，自动会寻找index.js文件，否则导入时需要指定文件名。</p>
+<p>3.在index.js文件中：</p>
+<p><code>import   Vue   from &#39;vue&#39;</code></p>
+<p><code>import VueRouter from &#39;vue-router&#39;</code></p>
+<p><code>Vue.use(VueRouter);  //使用vue-router插件</code></p>
+<p><code>const routers = [    //定义路由</code></p>
+<p><code>{</code></p>
+<p><code>path:&#39;/home&#39;,</code></p>
+<p><code>component:() =&gt; import (&#39;../...&#39;),  //使用懒加载的方法能减少第一次加载的压力，按需加载</code></p>
+<p><code>name: &#39;home&#39;,</code></p>
+<p><code>meta:{    //元数据可以在$router.meta，$route.meta 中可以取到</code></p>
+<p><code>tittle:&#39;&#39;</code></p>
+<p><code>}</code></p>
+<p><code>}</code></p>
+<p><code>]</code></p>
+<p><code>const router = new VueRouter({</code></p>
+<p><code>routers,   //上诉的路由配置</code></p>
+<p><code>mode:&#39;history&#39;,   //默认是hash模式，可以改成history模式，就没有#</code></p>
+<p><code>linkActiveClass: &#39;active_class&#39;,   //设置点所在的路由链接的样式名</code></p>
+<p><code>})</code></p>
+<p><code>router.beforeEach(from,to,next){    //设置全局路由守卫</code></p>
+<p><code>next();</code></p>
+<p><code>}</code></p>
+<p><code>export default router;  //5.导出router</code></p>
+<p>4.在main.js文件中导入并使用router</p>
+<p><code>import router from &#39;../router&#39;</code></p>
+<p><strong>注意：匹配的优先级，同一个路径可以匹配多个路由，此时，匹配的优先级就按照路由的定义顺序：谁先定义的，谁的优先级就最高。</strong></p>
+<h3 id="router的构建选项"><a href="#router的构建选项" class="headerlink" title="router的构建选项"></a>router的构建选项</h3><p>const router = new VueRouter({</p>
+<p>routers:routers,</p>
+<p>mode:’hash’（默认的hash）,’history’（设置为history需要后端配合配置）,’abstrac’(node环境没有浏览器环境)</p>
+<p>linkActiveClass: string(激活样式的类名，然后可以再重新定义类，默认为router-link-active)</p>
+<p> linkExactActiveClass：string 默认值: <code>&quot;router-link-exact-active&quot;</code>全局配置 `` 默认的精确激活的 class</p>
+<p>})</p>
+<h3 id="Router-Link"><a href="#Router-Link" class="headerlink" title="Router-Link"></a>Router-Link</h3><p>router-link 的作用类似于a标签，但是他不会跳转页面刷新，其本质也是转化为a标签，</p>
+<p>属性配置：</p>
+<p><strong>to属性</strong></p>
+<p>to=”/home/news”   //to属性配置前端路由，需要配置完整的前端路由</p>
+<p>也可以设置动态的前端路由，:to=”data”,使用v-bind语法绑定路由是可变的</p>
+<p><strong>tag属性：</strong></p>
+<p>tag=”button” 将该标签转化为button标签，默认是a标签</p>
+<p><strong>replace属性：</strong></p>
+<p>当标签中使用replace就会之前的路径不能返回。</p>
+<p><strong>active-class</strong>:       值： string</p>
+<p>设定默认值: <code>&quot;router-link-active&quot;</code></p>
+<p>设置链接激活时使用的 CSS 类名，可以自己定义激活的样式。</p>
+<h3 id="router-view"><a href="#router-view" class="headerlink" title="router-view"></a>router-view</h3><p><strong>name:</strong></p>
+<p>命名视图使用，当一个组件中含有多个router-view需要定义一个name来定义视图的渲染位置，配合router中配置的components属性，如果只有一个router-view的话，默认添加name属性值为default</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">routes: [</span><br><span class="line">   &#123;</span><br><span class="line">     path: <span class="string">'/'</span>,</span><br><span class="line">     components: &#123;</span><br><span class="line">       <span class="keyword">default</span>: Foo,</span><br><span class="line">       a: Bar,</span><br><span class="line">       b: Baz</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line"> ]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">router-view</span> <span class="attr">class</span>=<span class="string">"view one"</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">router-view</span> <span class="attr">class</span>=<span class="string">"view two"</span> <span class="attr">name</span>=<span class="string">"a"</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">router-view</span> <span class="attr">class</span>=<span class="string">"view three"</span> <span class="attr">name</span>=<span class="string">"b"</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="编程式导航"><a href="#编程式导航" class="headerlink" title="编程式导航"></a>编程式导航</h3><p><strong>$router.push</strong></p>
+<p>（跳转到某个页面）</p>
+<p><code>this.$router.push(&#39;/home&#39;);</code></p>
+<p><code>this.$router.push({path:&#39;/home&#39;,query:{username:this.username}});</code></p>
+<p><code>this.$router.push({name:&#39;Home&#39;,params:{username:this.username}});</code></p>
+<p>无论是使用申明式导航还是编程式导航，使用post方式传递参数时，都是利用命名路由的name属性来传递数据，如果使用了path属性则会忽略params属性，并且query（get方式，参数拼接在地址后面）在刷新后不会丢失数据，而params（post方式)在刷新后会丢失数据。</p>
+<p><strong>$router.replace</strong></p>
+<p>跟 <code>router.push</code> 很像，唯一的不同就是，它不会向 history 添加新记录，而是跟它的方法名一样 —— 替换掉当前的 history 记录。</p>
+<p><strong>$router.go</strong></p>
+<p>这个方法的参数是一个整数，意思是在 history 记录中向前或者后退多少步，类似 <code>window.history.go(n)</code>。</p>
+<p><strong>$router.back</strong></p>
+<p><strong>$router.forward</strong></p>
+<h3 id="route对象"><a href="#route对象" class="headerlink" title="$route对象"></a>$route对象</h3><p>包含属性：</p>
+<ul>
+<li><p><strong>$route.path</strong></p>
+<ul>
+<li><p>类型: <code>string</code></p>
+<p>字符串，对应当前路由的路径，总是解析为绝对路径，如 <code>&quot;/foo/bar&quot;</code>。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>$route.params</strong></p>
+<ul>
+<li><p>类型: <code>Object</code></p>
+<p>一个 key/value 对象，包含了动态片段和全匹配片段，如果没有路由参数，就是一个空对象。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>$route.query</strong></p>
+<ul>
+<li><p>类型: <code>Object</code></p>
+<p>一个 key/value 对象，表示 URL 查询参数。例如，对于路径 <code>/foo?user=1</code>，则有 <code>$route.query.user == 1</code>，如果没有查询参数，则是个空对象。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>$route.hash</strong></p>
+<ul>
+<li><p>类型: <code>string</code></p>
+<p>当前路由的 hash 值 (带 <code>#</code>) ，如果没有 hash 值，则为空字符串。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>$route.fullPath</strong></p>
+<ul>
+<li><p>类型: <code>string</code></p>
+<p>完成解析后的 URL，包含查询参数和 hash 的完整路径。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>$route.matched</strong></p>
+<ul>
+<li>类型: <code>Array</code></li>
+</ul>
+<p>一个数组，包含当前路由的所有嵌套路径片段的<strong>路由记录</strong> 。路由记录就是 <code>routes</code> 配置数组中的对象副本 (还有在 <code>children</code> 数组)。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/26/vue-router%E7%9A%84%E5%AD%A6%E4%B9%A0/" data-id="ckhk0r2az000tqwud6wmf8wni" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-微信小程序的学习之事件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%8B%E4%BB%B6/" class="article-date">
+  <time datetime="2020-07-22T03:45:16.000Z" itemprop="datePublished">2020-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%8B%E4%BB%B6/">微信小程序的学习之事件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="什么是事件"><a href="#什么是事件" class="headerlink" title="什么是事件"></a>什么是事件</h2><ul>
+<li>事件是视图层到逻辑层的通讯方式。</li>
+<li>事件可以将用户的行为反馈到逻辑层进行处理。</li>
+<li>事件可以绑定在组件上，当达到触发事件，就会执行逻辑层中对应的事件处理函数。</li>
+<li>事件对象可以携带额外信息，如 id, dataset, touches。</li>
+</ul>
+<h3 id="事件分类"><a href="#事件分类" class="headerlink" title="事件分类"></a>事件分类</h3><p>事件分为冒泡事件和非冒泡事件：</p>
+<ol>
+<li>冒泡事件：当一个组件上的事件被触发后，该事件会向父节点传递。</li>
+<li>非冒泡事件：当一个组件上的事件被触发后，该事件不会向父节点传递。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">触发条件</th>
+<th align="left">最低版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">touchstart</td>
+<td align="left">手指触摸动作开始</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">touchmove</td>
+<td align="left">手指触摸后移动</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">touchcancel</td>
+<td align="left">手指触摸动作被打断，如来电提醒，弹窗</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">touchend</td>
+<td align="left">手指触摸动作结束</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">tap</td>
+<td align="left">手指触摸后马上离开</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">longpress</td>
+<td align="left">手指触摸后，超过350ms再离开，如果指定了事件回调函数并触发了这个事件，tap事件将不被触发</td>
+<td align="left"><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html" target="_blank" rel="noopener">1.5.0</a></td>
+</tr>
+<tr>
+<td align="left">longtap</td>
+<td align="left">手指触摸后，超过350ms再离开（推荐使用longpress事件代替）</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">transitionend</td>
+<td align="left">会在 WXSS transition 或 wx.createAnimation 动画结束后触发</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">animationstart</td>
+<td align="left">会在一个 WXSS animation 动画开始时触发</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">animationiteration</td>
+<td align="left">会在一个 WXSS animation 一次迭代结束时触发</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">animationend</td>
+<td align="left">会在一个 WXSS animation 动画完成时触发</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">touchforcechange</td>
+<td align="left">在支持 3D Touch 的 iPhone 设备，重按时会触发</td>
+<td align="left"><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html" target="_blank" rel="noopener">1.9.90</a></td>
+</tr>
+</tbody></table>
+<h3 id="绑定并阻止事件冒泡"><a href="#绑定并阻止事件冒泡" class="headerlink" title="绑定并阻止事件冒泡"></a>绑定并阻止事件冒泡</h3><p>除 <code>bind</code> 外，也可以用 <code>catch</code> 来绑定事件。与 <code>bind</code> 不同， <code>catch</code> 会阻止事件向上冒泡。</p>
+<p>例如在下边这个例子中，点击 inner view 会先后调用<code>handleTap3</code>和<code>handleTap2</code>(因为tap事件会冒泡到 middle view，而 middle view 阻止了 tap 事件冒泡，不再向父节点传递)，点击 middle view 会触发<code>handleTap2</code>，点击 outer view 会触发<code>handleTap1</code>。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"outer"</span> <span class="attr">bindtap</span>=<span class="string">"handleTap1"</span>&gt;</span></span><br><span class="line">  outer view</span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"middle"</span> <span class="attr">catchtap</span>=<span class="string">"handleTap2"</span>&gt;</span></span><br><span class="line">    middle view</span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"inner"</span> <span class="attr">bindtap</span>=<span class="string">"handleTap3"</span>&gt;</span></span><br><span class="line">      inner view</span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="互斥事件绑定"><a href="#互斥事件绑定" class="headerlink" title="互斥事件绑定"></a>互斥事件绑定</h3><p>自基础库版本 <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html" target="_blank" rel="noopener">2.8.2</a> 起，除 <code>bind</code> 和 <code>catch</code> 外，还可以使用 <code>mut-bind</code> 来绑定事件。一个 <code>mut-bind</code> 触发后，如果事件冒泡到其他节点上，其他节点上的 <code>mut-bind</code> 绑定函数不会被触发，但 <code>bind</code> 绑定函数和 <code>catch</code> 绑定函数依旧会被触发。</p>
+<p>换而言之，所有 <code>mut-bind</code> 是“互斥”的，只会有其中一个绑定函数被触发。同时，它完全不影响 <code>bind</code> 和 <code>catch</code> 的绑定效果。</p>
+<p>例如在下边这个例子中，点击 inner view 会先后调用 <code>handleTap3</code> 和 <code>handleTap2</code> ，点击 middle view 会调用 <code>handleTap2</code> 和 <code>handleTap1</code> 。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"outer"</span> <span class="attr">mut-bind:tap</span>=<span class="string">"handleTap1"</span>&gt;</span></span><br><span class="line">  outer view</span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"middle"</span> <span class="attr">bindtap</span>=<span class="string">"handleTap2"</span>&gt;</span></span><br><span class="line">    middle view</span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"inner"</span> <span class="attr">mut-bind:tap</span>=<span class="string">"handleTap3"</span>&gt;</span></span><br><span class="line">      inner view</span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="事件的捕获阶段"><a href="#事件的捕获阶段" class="headerlink" title="事件的捕获阶段"></a>事件的捕获阶段</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%8B%E4%BB%B6/" data-id="ckhk0r2b60014qwudc5011yhh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-微信小程序学习一" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0%E4%B8%80/" class="article-date">
+  <time datetime="2020-07-21T22:31:52.000Z" itemprop="datePublished">2020-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0%E4%B8%80/">微信小程序学习一</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="微信小程序配置"><a href="#微信小程序配置" class="headerlink" title="微信小程序配置"></a>微信小程序配置</h1><h3 id="app-json中的全局配置"><a href="#app-json中的全局配置" class="headerlink" title="app.json中的全局配置"></a>app.json中的全局配置</h3><p><strong>entryPagePath</strong>：指定小程序的默认启动路径（首页），如果不填，将默认为 <code>pages</code> 列表的第一项。不支持带页面路径参数。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"entryPagePath": "pages/index/index"  //设置默认启动页，默认为pages配置的第一页</span><br></pre></td></tr></table></figure>
+
+<p><strong>pages：</strong>用于指定小程序由哪些页面组成，每一项都对应一个页面的 路径（含文件名） 信息。文件名不需要写文件后缀，框架会自动去寻找对应位置的 <code>.json</code>, <code>.js</code>, <code>.wxml</code>, <code>.wxss</code> 四个文件进行处理。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">"pages": [</span><br><span class="line">    "pages/index/index", </span><br><span class="line">    <span class="string">"pages/logs/logs"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p><strong>window：</strong>用于设置小程序的状态栏、导航条、标题、窗口背景色。</p>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">描述</th>
+<th align="left">最低版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">enablePullDownRefresh</td>
+<td align="left">boolean</td>
+<td align="left">false</td>
+<td align="left">是否开启全局的下拉刷新。详情：<a href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onpulldownrefresh" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onpulldownrefresh</a></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<p><strong>tabBar：</strong>如果小程序是一个多 tab 应用（客户端窗口的底部或顶部有 tab 栏可以切换页面），可以通过 tabBar 配置项指定 tab 栏的表现，以及 tab 切换时显示的对应页面。</p>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">类型</th>
+<th align="left">必填</th>
+<th align="left">默认值</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">color</td>
+<td align="left">HexColor</td>
+<td align="left">是</td>
+<td align="left"></td>
+<td align="left">tab 上的文字默认颜色，仅支持十六进制颜色</td>
+</tr>
+<tr>
+<td align="left">selectedColor</td>
+<td align="left">HexColor</td>
+<td align="left">是</td>
+<td align="left"></td>
+<td align="left">tab 上的文字选中时的颜色，仅支持十六进制颜色</td>
+</tr>
+<tr>
+<td align="left">backgroundColor</td>
+<td align="left">HexColor</td>
+<td align="left">是</td>
+<td align="left"></td>
+<td align="left">tab 的背景色，仅支持十六进制颜色</td>
+</tr>
+<tr>
+<td align="left">borderStyle</td>
+<td align="left">string</td>
+<td align="left">否</td>
+<td align="left">black</td>
+<td align="left">tabbar 上边框的颜色， 仅支持 <code>black</code> / <code>white</code></td>
+</tr>
+<tr>
+<td align="left">list</td>
+<td align="left">Array</td>
+<td align="left">是</td>
+<td align="left"></td>
+<td align="left">tab 的列表，详见 <code>list</code> 属性说明，最少 2 个、最多 5 个 tab</td>
+</tr>
+<tr>
+<td align="left">position</td>
+<td align="left">string</td>
+<td align="left">否</td>
+<td align="left">bottom</td>
+<td align="left">tabBar 的位置，仅支持 <code>bottom</code> / <code>top</code></td>
+</tr>
+<tr>
+<td align="left">custom</td>
+<td align="left">boolean</td>
+<td align="left">否</td>
+<td align="left">false</td>
+<td align="left">自定义 tabBar，见<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/ability/custom-tabbar.html" target="_blank" rel="noopener">详情</a></td>
+</tr>
+</tbody></table>
+<p><strong>networkTimeout</strong>：各类网络请求的超时时间，单位均为毫秒。</p>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">类型</th>
+<th align="left">必填</th>
+<th align="left">默认值</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">request</td>
+<td align="left">number</td>
+<td align="left">否</td>
+<td align="left">60000</td>
+<td align="left"><a href="https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html" target="_blank" rel="noopener">wx.request</a> 的超时时间，单位：毫秒。</td>
+</tr>
+<tr>
+<td align="left">connectSocket</td>
+<td align="left">number</td>
+<td align="left">否</td>
+<td align="left">60000</td>
+<td align="left"><a href="https://developers.weixin.qq.com/miniprogram/dev/api/network/websocket/wx.connectSocket.html" target="_blank" rel="noopener">wx.connectSocket</a> 的超时时间，单位：毫秒。</td>
+</tr>
+<tr>
+<td align="left">uploadFile</td>
+<td align="left">number</td>
+<td align="left">否</td>
+<td align="left">60000</td>
+<td align="left"><a href="https://developers.weixin.qq.com/miniprogram/dev/api/network/upload/wx.uploadFile.html" target="_blank" rel="noopener">wx.uploadFile</a> 的超时时间，单位：毫秒。</td>
+</tr>
+<tr>
+<td align="left">downloadFile</td>
+<td align="left">number</td>
+<td align="left">否</td>
+<td align="left">60000</td>
+<td align="left"><a href="https://developers.weixin.qq.com/miniprogram/dev/api/network/download/wx.downloadFile.html" target="_blank" rel="noopener">wx.downloadFile</a> 的超时时间，单位：毫秒。</td>
+</tr>
+</tbody></table>
+<h3 id="页面配置："><a href="#页面配置：" class="headerlink" title="页面配置："></a>页面配置：</h3><p>每一个小程序页面也可以使用 <code>.json</code> 文件来对本页面的窗口表现进行配置。页面中配置项在当前页面会覆盖 <code>app.json</code> 的 <code>window</code> 中相同的配置项。</p>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">描述</th>
+<th align="left">最低版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">disableScroll</td>
+<td align="left">boolean</td>
+<td align="left">false</td>
+<td align="left">设置为 <code>true</code> 则页面整体不能上下滚动。 只在页面配置中有效，无法在 <code>app.json</code> 中设置</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">enablePullDownRefresh</td>
+<td align="left">boolean</td>
+<td align="left">false</td>
+<td align="left">是否开启当前页面下拉刷新。 详见 <a href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onpulldownrefresh" target="_blank" rel="noopener">Page.onPullDownRefresh</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">navigationBarBackgroundColor</td>
+<td align="left">HexColor</td>
+<td align="left">#000000</td>
+<td align="left">导航栏背景颜色，如 <code>#000000</code></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">navigationBarTextStyle</td>
+<td align="left">string</td>
+<td align="left">white</td>
+<td align="left">导航栏标题颜色，仅支持 <code>black</code> / <code>white</code></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">navigationBarTitleText</td>
+<td align="left">string</td>
+<td align="left"></td>
+<td align="left">导航栏标题文字内容</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">navigationStyle</td>
+<td align="left">string</td>
+<td align="left">default</td>
+<td align="left">导航栏样式，仅支持以下值： <code>default</code> 默认样式 <code>custom</code> 自定义导航栏，只保留右上角胶囊按钮</td>
+<td align="left">微信客户端 7.0.0</td>
+</tr>
+<tr>
+<td align="left">backgroundColor</td>
+<td align="left">HexColor</td>
+<td align="left">#ffffff</td>
+<td align="left">窗口的背景色</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">backgroundTextStyle</td>
+<td align="left">string</td>
+<td align="left">dark</td>
+<td align="left">下拉 loading 的样式，仅支持 <code>dark</code> / <code>light</code></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0%E4%B8%80/" data-id="ckhk0r2b40012qwuddkxm11yr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-sequelize框架的使用二" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/19/sequelize%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BA%8C/" class="article-date">
+  <time datetime="2020-07-19T01:29:39.000Z" itemprop="datePublished">2020-07-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/19/sequelize%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BA%8C/">sequelize框架的使用二</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Sequelize进行多表关联"><a href="#Sequelize进行多表关联" class="headerlink" title="Sequelize进行多表关联"></a>Sequelize进行多表关联</h2><h4 id="一对一-One-To-One-关联"><a href="#一对一-One-To-One-关联" class="headerlink" title="一对一(One-To-One)关联"></a>一对一(One-To-One)关联</h4><p><strong>belongsTo:</strong></p>
+<p>Source.belongsTo(Target)</p>
+<p>BelongsTo关联表示一对一关系的<strong>外键</strong>存在于源模型。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Player.belongsTo(Team); &#x2F;&#x2F; 会为Player添加一个teamId(就是team的主键，名称和team的主键名称有关，默认使用驼峰命名，如team的主键为uuid时，添加的外键就是teamUuid,) 属性以保持与Team 主键的关系</span><br></pre></td></tr></table></figure>
+
+<p>默认的外键是’Model’+’primaryKey(外表主键)’，可以修改model的别名或直接修改外键名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User.belongsTo(UserRole, &#123;as: &#39;role&#39;&#125;); &#x2F;&#x2F; 会为 user添加 roleId 属性而不是 userRoleId，该方法只是改变默认的model的名称</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User.belongsTo(Company, &#123;foreignKey: &#39;fk_company&#39;&#125;); &#x2F;&#x2F; 为User 添加fk_company 外键,默认的外键就不会是这个model+primary(驼峰命名)</span><br></pre></td></tr></table></figure>
+
+<h3 id="HasOne-拥有一个"><a href="#HasOne-拥有一个" class="headerlink" title="HasOne - 拥有一个"></a><strong>HasOne - 拥有一个</strong></h3><p>HasOne关联表示一对一关系的外键存在于<code>目标模型</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Project.hasOne(User)</span><br><span class="line"></span><br><span class="line">&#x2F;*</span><br><span class="line">  在这个示例中，hasOne会添加一个projectId 属性到User模型中</span><br><span class="line">  另外，Project.prototype 中会增加根据传入的第一个定义参数生成的访问器方法 getUser 和 setUser 置。</span><br><span class="line">  如果启用了underscore 设置，添加的属性会是 project_id 而不是 projectId.</span><br><span class="line"></span><br><span class="line">  外键会存在于users 表中</span><br><span class="line"></span><br><span class="line">  你同样可以自定义外键，如：你想使用一个已存在数据库:</span><br></pre></td></tr></table></figure>
+
+<h4 id="一对多-One-To-Many-关联"><a href="#一对多-One-To-Many-关联" class="headerlink" title="一对多(One-To-Many)关联"></a>一对多(One-To-Many)关联</h4><p>One-To-Many关联是指一个<code>源模型</code>连接多个<code>目标模型</code>。反之目标模型都会有一个明确的源。</p>
+<h4 id="多对多-Belongs-To-Many-关联"><a href="#多对多-Belongs-To-Many-关联" class="headerlink" title="多对多(Belongs-To-Many)关联"></a>多对多(Belongs-To-Many)关联</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/19/sequelize%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BA%8C/" data-id="ckhk0r2an000mqwud1dne1e6o" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/26/http2%E5%92%8Chttp1-0/">http2和http1.0</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/20/js%E9%9D%A2%E8%AF%95%E9%A2%98%E5%90%88%E9%9B%86/">js面试题合集</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/19/csrf%E9%98%B2%E5%BE%A1%E7%AD%96%E7%95%A5/">&#39;csrf防御策略&#39;</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/04/react-%E4%B8%ADsetState%E7%9A%84%E4%BD%BF%E7%94%A8/">react 中setState的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/04/vue3%E7%9A%84%E4%BC%98%E5%8C%96/">vue3的优化</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

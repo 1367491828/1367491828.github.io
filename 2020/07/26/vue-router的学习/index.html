@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>vue-router的学习 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="vue-router的学习与使用：1.下载vue-router(可以在创建项目的时候选择下载，此案例是创建后添加) npm install vue-router --save 2.在src目录下创建router文件夹，并创建index.js文件，取名为index在别的文件引入中只需要写道router的目录，自动会寻找index.js文件，否则导入时需要指定文件名。 3.在index.js文件中：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue-router的学习">
+<meta property="og:url" content="http://yoursite.com/2020/07/26/vue-router%E7%9A%84%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="vue-router的学习与使用：1.下载vue-router(可以在创建项目的时候选择下载，此案例是创建后添加) npm install vue-router --save 2.在src目录下创建router文件夹，并创建index.js文件，取名为index在别的文件引入中只需要写道router的目录，自动会寻找index.js文件，否则导入时需要指定文件名。 3.在index.js文件中：">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-26T02:34:05.000Z">
+<meta property="article:modified_time" content="2020-07-28T05:56:49.732Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-vue-router的学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/26/vue-router%E7%9A%84%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2020-07-26T02:34:05.000Z" itemprop="datePublished">2020-07-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vue-router的学习
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="vue-router的学习与使用："><a href="#vue-router的学习与使用：" class="headerlink" title="vue-router的学习与使用："></a>vue-router的学习与使用：</h3><p>1.下载vue-router(可以在创建项目的时候选择下载，此案例是创建后添加)</p>
+<p><code>npm install vue-router --save</code></p>
+<p>2.在src目录下创建router文件夹，并创建index.js文件，取名为index在别的文件引入中只需要写道router的目录，自动会寻找index.js文件，否则导入时需要指定文件名。</p>
+<p>3.在index.js文件中：</p>
+<p><code>import   Vue   from &#39;vue&#39;</code></p>
+<p><code>import VueRouter from &#39;vue-router&#39;</code></p>
+<p><code>Vue.use(VueRouter);  //使用vue-router插件</code></p>
+<p><code>const routers = [    //定义路由</code></p>
+<p><code>{</code></p>
+<p><code>path:&#39;/home&#39;,</code></p>
+<p><code>component:() =&gt; import (&#39;../...&#39;),  //使用懒加载的方法能减少第一次加载的压力，按需加载</code></p>
+<p><code>name: &#39;home&#39;,</code></p>
+<p><code>meta:{    //元数据可以在$router.meta，$route.meta 中可以取到</code></p>
+<p><code>tittle:&#39;&#39;</code></p>
+<p><code>}</code></p>
+<p><code>}</code></p>
+<p><code>]</code></p>
+<p><code>const router = new VueRouter({</code></p>
+<p><code>routers,   //上诉的路由配置</code></p>
+<p><code>mode:&#39;history&#39;,   //默认是hash模式，可以改成history模式，就没有#</code></p>
+<p><code>linkActiveClass: &#39;active_class&#39;,   //设置点所在的路由链接的样式名</code></p>
+<p><code>})</code></p>
+<p><code>router.beforeEach(from,to,next){    //设置全局路由守卫</code></p>
+<p><code>next();</code></p>
+<p><code>}</code></p>
+<p><code>export default router;  //5.导出router</code></p>
+<p>4.在main.js文件中导入并使用router</p>
+<p><code>import router from &#39;../router&#39;</code></p>
+<p><strong>注意：匹配的优先级，同一个路径可以匹配多个路由，此时，匹配的优先级就按照路由的定义顺序：谁先定义的，谁的优先级就最高。</strong></p>
+<h3 id="router的构建选项"><a href="#router的构建选项" class="headerlink" title="router的构建选项"></a>router的构建选项</h3><p>const router = new VueRouter({</p>
+<p>routers:routers,</p>
+<p>mode:’hash’（默认的hash）,’history’（设置为history需要后端配合配置）,’abstrac’(node环境没有浏览器环境)</p>
+<p>linkActiveClass: string(激活样式的类名，然后可以再重新定义类，默认为router-link-active)</p>
+<p> linkExactActiveClass：string 默认值: <code>&quot;router-link-exact-active&quot;</code>全局配置 `` 默认的精确激活的 class</p>
+<p>})</p>
+<h3 id="Router-Link"><a href="#Router-Link" class="headerlink" title="Router-Link"></a>Router-Link</h3><p>router-link 的作用类似于a标签，但是他不会跳转页面刷新，其本质也是转化为a标签，</p>
+<p>属性配置：</p>
+<p><strong>to属性</strong></p>
+<p>to=”/home/news”   //to属性配置前端路由，需要配置完整的前端路由</p>
+<p>也可以设置动态的前端路由，:to=”data”,使用v-bind语法绑定路由是可变的</p>
+<p><strong>tag属性：</strong></p>
+<p>tag=”button” 将该标签转化为button标签，默认是a标签</p>
+<p><strong>replace属性：</strong></p>
+<p>当标签中使用replace就会之前的路径不能返回。</p>
+<p><strong>active-class</strong>:       值： string</p>
+<p>设定默认值: <code>&quot;router-link-active&quot;</code></p>
+<p>设置链接激活时使用的 CSS 类名，可以自己定义激活的样式。</p>
+<h3 id="router-view"><a href="#router-view" class="headerlink" title="router-view"></a>router-view</h3><p><strong>name:</strong></p>
+<p>命名视图使用，当一个组件中含有多个router-view需要定义一个name来定义视图的渲染位置，配合router中配置的components属性，如果只有一个router-view的话，默认添加name属性值为default</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">routes: [</span><br><span class="line">   &#123;</span><br><span class="line">     path: <span class="string">'/'</span>,</span><br><span class="line">     components: &#123;</span><br><span class="line">       <span class="keyword">default</span>: Foo,</span><br><span class="line">       a: Bar,</span><br><span class="line">       b: Baz</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line"> ]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">router-view</span> <span class="attr">class</span>=<span class="string">"view one"</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">router-view</span> <span class="attr">class</span>=<span class="string">"view two"</span> <span class="attr">name</span>=<span class="string">"a"</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">router-view</span> <span class="attr">class</span>=<span class="string">"view three"</span> <span class="attr">name</span>=<span class="string">"b"</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="编程式导航"><a href="#编程式导航" class="headerlink" title="编程式导航"></a>编程式导航</h3><p><strong>$router.push</strong></p>
+<p>（跳转到某个页面）</p>
+<p><code>this.$router.push(&#39;/home&#39;);</code></p>
+<p><code>this.$router.push({path:&#39;/home&#39;,query:{username:this.username}});</code></p>
+<p><code>this.$router.push({name:&#39;Home&#39;,params:{username:this.username}});</code></p>
+<p>无论是使用申明式导航还是编程式导航，使用post方式传递参数时，都是利用命名路由的name属性来传递数据，如果使用了path属性则会忽略params属性，并且query（get方式，参数拼接在地址后面）在刷新后不会丢失数据，而params（post方式)在刷新后会丢失数据。</p>
+<p><strong>$router.replace</strong></p>
+<p>跟 <code>router.push</code> 很像，唯一的不同就是，它不会向 history 添加新记录，而是跟它的方法名一样 —— 替换掉当前的 history 记录。</p>
+<p><strong>$router.go</strong></p>
+<p>这个方法的参数是一个整数，意思是在 history 记录中向前或者后退多少步，类似 <code>window.history.go(n)</code>。</p>
+<p><strong>$router.back</strong></p>
+<p><strong>$router.forward</strong></p>
+<h3 id="route对象"><a href="#route对象" class="headerlink" title="$route对象"></a>$route对象</h3><p>包含属性：</p>
+<ul>
+<li><p><strong>$route.path</strong></p>
+<ul>
+<li><p>类型: <code>string</code></p>
+<p>字符串，对应当前路由的路径，总是解析为绝对路径，如 <code>&quot;/foo/bar&quot;</code>。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>$route.params</strong></p>
+<ul>
+<li><p>类型: <code>Object</code></p>
+<p>一个 key/value 对象，包含了动态片段和全匹配片段，如果没有路由参数，就是一个空对象。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>$route.query</strong></p>
+<ul>
+<li><p>类型: <code>Object</code></p>
+<p>一个 key/value 对象，表示 URL 查询参数。例如，对于路径 <code>/foo?user=1</code>，则有 <code>$route.query.user == 1</code>，如果没有查询参数，则是个空对象。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>$route.hash</strong></p>
+<ul>
+<li><p>类型: <code>string</code></p>
+<p>当前路由的 hash 值 (带 <code>#</code>) ，如果没有 hash 值，则为空字符串。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>$route.fullPath</strong></p>
+<ul>
+<li><p>类型: <code>string</code></p>
+<p>完成解析后的 URL，包含查询参数和 hash 的完整路径。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>$route.matched</strong></p>
+<ul>
+<li>类型: <code>Array</code></li>
+</ul>
+<p>一个数组，包含当前路由的所有嵌套路径片段的<strong>路由记录</strong> 。路由记录就是 <code>routes</code> 配置数组中的对象副本 (还有在 <code>children</code> 数组)。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/26/vue-router%E7%9A%84%E5%AD%A6%E4%B9%A0/" data-id="ckhk0r2az000tqwud6wmf8wni" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/29/css%E6%96%87%E6%9C%AC%E7%9A%84%E8%AE%BE%E7%BD%AE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          css文本的设置
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%8B%E4%BB%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">微信小程序的学习之事件</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/26/http2%E5%92%8Chttp1-0/">http2和http1.0</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/20/js%E9%9D%A2%E8%AF%95%E9%A2%98%E5%90%88%E9%9B%86/">js面试题合集</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/19/csrf%E9%98%B2%E5%BE%A1%E7%AD%96%E7%95%A5/">&#39;csrf防御策略&#39;</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/04/react-%E4%B8%ADsetState%E7%9A%84%E4%BD%BF%E7%94%A8/">react 中setState的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/04/vue3%E7%9A%84%E4%BC%98%E5%8C%96/">vue3的优化</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-webpack学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/10/06/webpack%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2020-10-06T13:26:47.000Z" itemprop="datePublished">2020-10-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/06/webpack%E5%AD%A6%E4%B9%A0/">webpack学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="webpack的基础学习"><a href="#webpack的基础学习" class="headerlink" title="webpack的基础学习"></a>webpack的基础学习</h1><p>1.entry: 入口文件。</p>
+<p>2.output: 输出文件的路径。</p>
+<p>3.loader: 需要将其他文件打包成js的依赖。</p>
+<p>4.plugins: 所依赖的插件。</p>
+<p>5.mode: 打包的环境。只有development,production两个</p>
+<p>代码：</p>
+<p>module.exports ={</p>
+<p>}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/10/06/webpack%E5%AD%A6%E4%B9%A0/" data-id="ckhk0r2b2000yqwud3x0sd12o" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vue中错误合集" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/28/vue%E4%B8%AD%E9%94%99%E8%AF%AF%E5%90%88%E9%9B%86/" class="article-date">
+  <time datetime="2020-09-28T03:56:55.000Z" itemprop="datePublished">2020-09-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/28/vue%E4%B8%AD%E9%94%99%E8%AF%AF%E5%90%88%E9%9B%86/">vue中错误合集</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="插值表达式的使用："><a href="#插值表达式的使用：" class="headerlink" title="插值表达式的使用："></a>插值表达式的使用：</h3><p>当插值表达式内的值或表达式返回的是  <strong>undefined</strong>,或  <strong>null</strong>插值表达式的内容为空，如果，花括号无值，则可能数据就是这两种情况(排除  ‘ ’  空字符串)；</p>
+<h3 id="v-if的使用："><a href="#v-if的使用：" class="headerlink" title="v-if的使用："></a>v-if的使用：</h3><p>v-if为false的情况为： undefined， null,   false,  0 ,  NaN, .</p>
+<p><strong>v-if 和v-for最好不要用在同一个元素上</strong>：解决办法如下：</p>
+<p>1.为了过滤一个列表中的项目 (比如 <code>v-for=&quot;user in users&quot; v-if=&quot;user.isActive&quot;</code>)。在这种情形下，请将 <code>users</code> 替换为一个计算属性 (比如 <code>activeUsers</code>)，让其返回过滤后的列表。（使用计算属性先将数据进行过滤，返回过滤后的可以渲染的结果进行渲染，这样就没有v-if）;</p>
+<p>2.为了避免渲染本应该被隐藏的列表 (比如 <code>v-for=&quot;user in users&quot; v-if=&quot;shouldShowUsers&quot;</code>)。这种情形下，请将 <code>v-if</code> 移动至容器元素上 (比如 <code>ul</code>、<code>ol</code>)。</p>
+<h3 id="v-for的使用"><a href="#v-for的使用" class="headerlink" title="v-for的使用"></a>v-for的使用</h3><p>v-for 可以使用数组，数字，字符串，对象。</p>
+<p>使用方法：v-for=”(item,idx,y) in num”      —— </p>
+<p>其中数字和数组，字符串只有两个参数，第一参数是值，第二个参数是对应的下标。</p>
+<p>对象有三个值：第一参数是值，第二个参数是键，第三个是类似于下标的值。</p>
+<h3 id="v-on指令事件绑定的使用："><a href="#v-on指令事件绑定的使用：" class="headerlink" title="v-on指令事件绑定的使用："></a>v-on指令事件绑定的使用：</h3><p>在v-on:click=’functionName()’简写为@click=’functionName()’</p>
+<p>1.当方法不添加括号时，会默认传递一个参数，这个参数就是原生event对象。当有括号时，不添加参数时，就没有参数。</p>
+<p>2.<strong>在函数传递this时，这个this的值为window对象</strong>。</p>
+<p>3.需要传递event对象时，参数需要传递$event，不是原生的event，否则传递的是一个undefined，会报错。</p>
+<p>4.当同时给一个事件绑定多个方法时，通过使用多个@click时只能触发第一个方法，第二个是无效的。</p>
+<p>5.通过字符串给事件绑定多个方法，方法之间通过逗号隔开，@click=”fun1(),fun2()”，必须添加括号，否则无效。</p>
+<p>6.通过数组绑定多个方法，@click=”[fun1($event),fun2()]”，这种方法也必须使用(),否则无效，建议使用这种方法给事件绑定方法。</p>
+<p>7.通过对象方式，给不同事件绑定方法，v-on=”{click:fun1,mouseup:fun2}”这种方法只能使用v-on，不能使用@简写形式。这种不能给方法添加（）,否则会报错。也不能传递参数，只有一个默认的event对象作为默认参数。</p>
+<p>8.通过v-on=”{click:[fun1,fun2]，mouseup:[fun1,fun2]}”这种方式可以给相同的事件，绑定多个方法,这种方法也是不能传参的，默认只有$event参数，加括号会报错。</p>
+<p>总结以上只有在给事件绑定多个事件多个方法以数组形式或对象方式才不能添加括号，且不能传参，只有一个默认的event对象。不加括号还主要使用在父子组件之间的子给父传递参数中常见。</p>
+<p>子组件给父组件传递数据也通过自定义事件来传递数据，但是这种方式是通过触发事件来控制数据的传递，不具有数据响应式。</p>
+<h2 id="Vue的仓库属性"><a href="#Vue的仓库属性" class="headerlink" title="Vue的仓库属性"></a>Vue的仓库属性</h2><p>vue实例中的data属性：</p>
+<p>1.在组件中data必须是一个函数，返回一个对象，原因：因为组件可能被多次使用，如果被用来创建多个实例，如果 data 仍然是一个纯粹的对象，则所有的实例将共享引用同一个数据对象！通过提供 data 函数，每次创建一个新实例后，我们能够调用 data 函数，从而返回初始数据的一个全新副本数据对象。简而言之，就是 data 中数据可能会被复用，要保证不同组件调用的时候数据是相同的。</p>
+<p>2.在data数据仓库中属性不能以_下划线或者$符开头，否则会报错。</p>
+<p>3.在未拿到请求数据时，如果数据中有对象嵌套，未拿到数据，页面渲染了，里面的是不存在的对象的属性取值时，会报错。例如数据仓库中有info:{},页面取值：,后台拿到数据后赋值给info,首先在页面没有拿到数据时会报错，并且页面不会渲染出来，在拿到数据后会正常渲染，控制台会留下报错。</p>
+<p>解决办法1：在这个组件根组件上添加v-if=”loading”,loading先取值为false,v-if的原理是，如果为false就不进行渲染，而v-show是添加style=”display:none”,所以只要不先渲染，就不会报错，v-show不能在这里使用，只能v-if.</p>
+<p>解决办法2：如果嵌套的数据对象不深，可以先进行预定义。比如info:{person:{}},页面使用,这种情况虽然不会报错，但是可能会显示空白，取到数据后再出现。</p>
+<p>上面两种情况都是在网速条件不好的时候对用户体验是极差的。在上面的情况可以使用loading状态。</p>
+<p>4.如果想给属性中再添加属性，这样直接添加属性的话，并不会产生响应式，因为对象添加属性，响应式原理并不能监控到，要使用this.$set(obj,’key’,value);这个方法不能给实例添加属性，也不能给数据仓库data添加属性。所以在组件定义时就需要把需要的数据先定义在数据仓库中。也可以通过变异方式实现this.obj = {…this.obj,key:value},这种方法可以给对象重新赋值，这种做法通过给对象重新赋值，vue会重新给对象进行数据拦截，产生响应式。</p>
+<p>5.如果对数据仓库中的数组进行变动要实现响应式，只能通过其变异方法，push,pop,shift,unshift,reverse,splice,sort变异方法，他们都是能够实现响应式的，比如修改数组下标为1的值，使用this.arr[0] = 10,这种方法是不能实现响应式效果的，vue工具中是看不到的，如果把vue实例赋值给变量vm</p>
+<p>使用vm.$data可以看到数据被修改了，vue的工具不能捕获到，可以使用this.$set(arr,’1’,10)  或者 this.splice(1,1,10),两种方式都能实现响应式，直接修改数组的值或者数组长度都不能产生响应式效果，只能使用变异方法变通实现。</p>
+<h2 id="Vue的监听器"><a href="#Vue的监听器" class="headerlink" title="Vue的监听器"></a>Vue的监听器</h2><p>监听器的作用：监听实例仓库中的数据，或者是computed计算属性，甚至是props拦截下来的数据。</p>
+<p>因为computed是具有仓库实例属性的，props也是具有实例仓库属性，所以可以进行监听。</p>
+<p>监听器的使用：</p>
+<p>两种取值情况：1，函数，2，对象</p>
+<p>1.取值为函数时 函数名：监听的属性名，参数newValue,oldValue, 执行代码。</p>
+<p>如监听属性info: (info为基本数据类型)</p>
+<p>watch: {</p>
+<p>   info(nv,ov){</p>
+<p>​    console.log(‘info改变了’,nv,ov)  //执行数据变化时的代码</p>
+<p>   }</p>
+<p>  },</p>
+<p>// 如果info为对象时，只有info重新赋值才能监听到，因为info是引用数据类型，地址不变不能触发监听，修改内部属性时也不能监听到。</p>
+<p>2.取值为对象时:</p>
+<p>info:{</p>
+<p>​       handler:(nv,ov)=&gt;{</p>
+<p>​                console.log(nv,ov)     // 这里的nv和ov是info对象，而且都是是变化后的值，</p>
+<p>​        }，</p>
+<p>​        deep: true,   //开启深度监视，可以监视对象里面的属性值变化，但是无差别监视，任何属性修改都会触发监视器</p>
+<p>​        immediate: true,   // 是否在初始化的时候就会执行handler函数</p>
+<p>}</p>
+<p>第二种情况：</p>
+<p>“user.msg”:{</p>
+<p>​        handler(nv,ov){</p>
+<p>​          console.log(“user.msg”,nv,ov)</p>
+<p>​        }</p>
+<p>​      },</p>
+<p>​      “user.msg”:function(nv,ov){</p>
+<p>​        console.log(‘字符串形式’,nv,ov)</p>
+<p>​      },</p>
+<p>这两种方式都可以精确监控对象里里面的数据。</p>
+<p>对于监听computed和props数据类似。</p>
+<p><strong>watch监听属性是在created钩子函数之后开始监听的，所以一些后台请求数据监听，在拿到时初始化数据会触发一次。解决办法有给一个标志属性，判断是不是数据初始化，如果是初始化，就不进行触发函数，第二种就是使用$watch动态添加监听，在拿到后台数据后，添加监听，效果和watch一样。</strong></p>
+<p>$watch的使用：</p>
+<p>this.$watch(function(){</p>
+<p>​          return [this.firstName,this.lastName]</p>
+<p>​        },function(nv,ov){</p>
+<p>​          console.log(nv+ov)</p>
+<p>​        }，{deep:true,immediate: true})</p>
+<p>$watch 可以监控多个属性，只要其中一个变动就会触发监听函数，而且</p>
+<h2 id="vue-router的使用"><a href="#vue-router的使用" class="headerlink" title="vue-router的使用"></a>vue-router的使用</h2><p>动态路由的使用：</p>
+<p>在rouetr/index.js中路由配置为{ path:’/:id’ ,  component: Component}</p>
+<p>这种带有：的路由就是动态路由，可以通过此方式来动态获取参数，且不会丢失参数，</p>
+<p>获取参数方法：this.$route.params.id</p>
+<p>路由的匹配方式，先匹配到谁就显示谁：</p>
+<p>{</p>
+<p>​    path:’/test’,</p>
+<p>​    component:Test</p>
+<p>  },</p>
+<p>  {</p>
+<p>​    path:’/:id’,</p>
+<p>​    component:HelloWorld</p>
+<p>  },</p>
+<p>这种方式如果匹配到/test,就是test组件，如果没匹配到就是下一个/：id，所以如果动态路由配置在前面，当只有一个路由/xxx的时候就都会被动态路由拦截。不会到test路由，比动态路由更多级将不会适用动态路由。</p>
+<h4 id="响应路由参数的变化"><a href="#响应路由参数的变化" class="headerlink" title="响应路由参数的变化"></a>响应路由参数的变化</h4><p>提醒一下，当使用路由参数时，例如从 <code>/user/foo</code> 导航到 <code>/user/bar</code>，<strong>原来的组件实例会被复用</strong>。因为两个路由都渲染同个组件，比起销毁再创建，复用则显得更加高效。<strong>不过，这也意味着组件的生命周期钩子不会再被调用</strong>。</p>
+<p>1.复用组件时，想对路由参数的变化作出响应的话，你可以简单地 watch (监测变化) <code>$route</code> 对象：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> User = &#123;</span><br><span class="line">  template: <span class="string">'...'</span>,</span><br><span class="line">  watch: &#123;</span><br><span class="line">    $route(to, <span class="keyword">from</span>) &#123;</span><br><span class="line">      <span class="comment">// 对路由变化作出响应...</span></span><br><span class="line">        axios(&#123;<span class="attr">id</span>:<span class="keyword">this</span>.$route.params.id&#125;).then(.....)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>或者使用 2.2 中引入的 <code>beforeRouteUpdate</code> <a href="https://router.vuejs.org/zh/guide/advanced/navigation-guards.html" target="_blank" rel="noopener">导航守卫</a>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> User = &#123;</span><br><span class="line">  template: <span class="string">'...'</span>,</span><br><span class="line">  beforeRouteUpdate (to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">    <span class="comment">// react to route changes...</span></span><br><span class="line">    <span class="comment">// don't forget to call next()</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="vuex的使用"><a href="#vuex的使用" class="headerlink" title="vuex的使用"></a>vuex的使用</h2><p>在store文件夹下建index.js文件</p>
+<p>创建export default new Vuex.store({})</p>
+<p>配置相关属性：</p>
+<h3 id="state-保存需要响应式，多页面共享的数据"><a href="#state-保存需要响应式，多页面共享的数据" class="headerlink" title="state:保存需要响应式，多页面共享的数据"></a>state:保存需要响应式，多页面共享的数据</h3><p>state:{</p>
+<p>​    count:1111111,</p>
+<p>​    student:[</p>
+<p>​      {id:10,name:’zxl’,age:21},</p>
+<p>​      {id:11,name:’kl’,age:22},</p>
+<p>​      {id:12,name:’op’,age:23},</p>
+<p>​      {id:13,name:’www’,age:24},</p>
+<p>​      {id:14,name:’fff’,age:25},</p>
+<p>​    ]</p>
+<p>  },</p>
+<p>在页面中原生使用state的数据：this.$store.state.count</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/09/28/vue%E4%B8%AD%E9%94%99%E8%AF%AF%E5%90%88%E9%9B%86/" data-id="ckhk0r2b30010qwud7fxbhy5a" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-react的路由" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/23/react%E7%9A%84%E8%B7%AF%E7%94%B1/" class="article-date">
+  <time datetime="2020-09-23T12:14:20.000Z" itemprop="datePublished">2020-09-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/23/react%E7%9A%84%E8%B7%AF%E7%94%B1/">react的路由</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>安装路由插件：</p>
+<p> <code>npm install react-router-dom --save</code></p>
+<p>使用router:</p>
+<p>首先在src/index.js中配置：</p>
+<p> 主要有这两种BrowserRouter（地址栏中没有#，打包后需要后端进行配置），HashRouter (地址栏有#，打包后不需要后端进行配置)；因为Route,和Link组件需要在这两个中才能使用，所以在最外围添加可以不用再添加，这里添加就不需要再添加了。否则会出现地址改变组件不切换的问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import &#123; BrowserRouter &#125; from &#39;react-router-dom&#39;</span><br><span class="line"></span><br><span class="line">&lt;React.StrictMode&gt;</span><br><span class="line"></span><br><span class="line"> 	&lt;BrowserRouter&gt;</span><br><span class="line"></span><br><span class="line"> 	 	&lt;App &#x2F;&gt;</span><br><span class="line"></span><br><span class="line"> 	&lt;&#x2F;BrowserRouter&gt;</span><br><span class="line"></span><br><span class="line"> &lt;&#x2F;React.StrictMode&gt;,</span><br><span class="line"> 当使用了动态路由的话，可以在**函数组件中**使用useParams()钩子函数来获取如上的\&lt;Route path&#x3D;&quot;&#x2F;my&#x2F;:id&quot;&gt;中的id,如   let &#123;id&#125; &#x3D; useParams()；这样就能获取到id;</span><br></pre></td></tr></table></figure>
+
+<p>使用配置路由：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; &lt;div&gt;</span><br><span class="line">        &#x2F;&#x2F;     &lt;ul&gt;</span><br><span class="line">        &#x2F;&#x2F;         &lt;li&gt;&lt;NavLink to&#x3D;&quot;&#x2F;home&quot;&gt;home&lt;&#x2F;NavLink&gt;&lt;&#x2F;li&gt;</span><br><span class="line">        &#x2F;&#x2F;         &lt;li&gt;&lt;NavLink to&#x3D;&quot;&#x2F;my&#x2F;123&quot;&gt;my&lt;&#x2F;NavLink&gt;&lt;&#x2F;li&gt;</span><br><span class="line">        &#x2F;&#x2F;         &lt;li&gt;&lt;NavLink to&#x3D;&quot;&#x2F;react1setting&quot;&gt;setting&lt;&#x2F;NavLink&gt;&lt;&#x2F;li&gt;</span><br><span class="line">        &#x2F;&#x2F;     &lt;&#x2F;ul&gt;</span><br><span class="line">        &#x2F;&#x2F;     &lt;Switch&gt;</span><br><span class="line">        &#x2F;&#x2F;         &lt;Route path&#x3D;&quot;&#x2F;home&quot; render&#x3D;&#123;()&#x3D;&gt;&#123;</span><br><span class="line">        &#x2F;&#x2F;             return &lt;Home datas&#x3D;&#123;&#123;name:&quot;zxl&quot;,age:21&#125;&#125;&gt;&lt;&#x2F;Home&gt;</span><br><span class="line">        &#x2F;&#x2F;         &#125;&#125;&#x2F;&gt;</span><br><span class="line">        &#x2F;&#x2F;         &lt;Route path&#x3D;&quot;&#x2F;my&#x2F;:id&quot;&gt;</span><br><span class="line">        &#x2F;&#x2F;             &lt;My &#x2F;&gt;</span><br><span class="line">        &#x2F;&#x2F;         &lt;&#x2F;Route&gt;</span><br><span class="line">        &#x2F;&#x2F;         &lt;Route path&#x3D;&quot;&#x2F;react1setting&quot;&gt;</span><br><span class="line">        &#x2F;&#x2F;             &lt;Setting &#x2F;&gt;</span><br><span class="line">        &#x2F;&#x2F;         &lt;&#x2F;Route&gt;</span><br><span class="line">        &#x2F;&#x2F;     &lt;&#x2F;Switch&gt;</span><br><span class="line">        &#x2F;&#x2F; &lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="path-和-url-的区别"><a href="#path-和-url-的区别" class="headerlink" title="path 和 url 的区别"></a>path 和 url 的区别</h3><p>使用react-router-dom的useRouteMatch()钩子函数（函数组件中才能使用）</p>
+<p>在 match 属性中，有 path 和 url 属性，大部分时间他们是一样的，那么区别是什么呢？</p>
+<p>假如路由匹配路径是 <code>/Params/2/:myParams</code>，实际跳转路径是 <code>/Params/2/1</code>（此时匹配成功）。</p>
+<p>那么；</p>
+<ol>
+<li>url：<code>/Params/2/1</code></li>
+<li>path：<code>/Params/2/:myParams</code></li>
+<li>所以URL一般用于Link标签中</li>
+<li>path一般用于Route标签中</li>
+</ol>
+<pre><code>let { path, url } = useRouteMatch();
+&lt;ul&gt;
+       &lt;li&gt;
+         &lt;Link to={`${url}/rendering`}&gt;Rendering with React&lt;/Link&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+         &lt;Link to={`${url}/components`}&gt;Components&lt;/Link&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+         &lt;Link to={`${url}/props-v-state`}&gt;Props v. State&lt;/Link&gt;
+       &lt;/li&gt;
+     &lt;/ul&gt;
+&lt;Switch&gt;
+   &lt;Route exact path={path}&gt;
+     &lt;h3&gt;Please select a topic.&lt;/h3&gt;
+   &lt;/Route&gt;
+   &lt;Route path={`${path}/:topicId`}&gt;
+     &lt;Topic /&gt;
+   &lt;/Route&gt;
+ &lt;/Switch&gt;</code></pre><h3 id="useHistory-useLocation-钩子函数"><a href="#useHistory-useLocation-钩子函数" class="headerlink" title="useHistory(),useLocation()钩子函数"></a>useHistory(),useLocation()钩子函数</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/09/23/react%E7%9A%84%E8%B7%AF%E7%94%B1/" data-id="ckhk0r2ai000iqwud9k7k0ag8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-react的组件通信" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/23/react%E7%9A%84%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/" class="article-date">
+  <time datetime="2020-09-23T09:01:13.000Z" itemprop="datePublished">2020-09-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/23/react%E7%9A%84%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/">react的组件通信</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="react的组件通信"><a href="#react的组件通信" class="headerlink" title="react的组件通信"></a>react的组件通信</h1><p>1.使用props进行通信，在父子组件中使用比较常见，如果在祖孙组件之间传值，需要通过父组件继续将值往下传。</p>
+<p>2.消息-订阅模式</p>
+<p><code>npm install pubsub-js --save</code></p>
+<p>import  PubSub from ‘pubsub-js’</p>
+<p>//消息订阅，一般放在生命周期的componentDidMount阶段</p>
+<p>PubSub.subscribe(‘car’, function(msg,data){</p>
+<p>​         ……..//msg为消息名不能省略，data为传来的数据</p>
+<p>});</p>
+<p>//发布消息</p>
+<p>PubSub.publish(‘car’, {name<strong>:</strong> ‘my new car’});</p>
+<p>//第一个为消息订阅的标识，第二个为发布的数据</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/09/23/react%E7%9A%84%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/" data-id="ckhk0r2ak000kqwudgzaz1vvr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-模块化" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/19/%E6%A8%A1%E5%9D%97%E5%8C%96/" class="article-date">
+  <time datetime="2020-09-19T11:52:13.000Z" itemprop="datePublished">2020-09-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/19/%E6%A8%A1%E5%9D%97%E5%8C%96/">模块化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="四种模块化规范"><a href="#四种模块化规范" class="headerlink" title="四种模块化规范"></a>四种模块化规范</h1><h4 id="1-CommonJs规范"><a href="#1-CommonJs规范" class="headerlink" title="1.CommonJs规范"></a>1.CommonJs规范</h4><h4 id="2-AMD规范"><a href="#2-AMD规范" class="headerlink" title="2.AMD规范"></a>2.AMD规范</h4><h4 id="3-CMD规范（基本已弃用）"><a href="#3-CMD规范（基本已弃用）" class="headerlink" title="3.CMD规范（基本已弃用）"></a>3.CMD规范（基本已弃用）</h4><h4 id="4-ES6规范"><a href="#4-ES6规范" class="headerlink" title="4.ES6规范"></a>4.ES6规范</h4><h2 id="CommonJs规范"><a href="#CommonJs规范" class="headerlink" title="CommonJs规范"></a>CommonJs规范</h2><p>CommonJs规范包括客户端和服务端规范</p>
+<p>使用方法：</p>
+<p>1.导出方法：</p>
+<p><code>module.exports=value</code><br><code>exports.xxx=value</code></p>
+<p>2.导入方法</p>
+<p><code>const  xxx = require(&quot;xxxx&quot;)</code></p>
+<h4 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h4><p>服务端因为使用的是node运行，所以对于导入导出，可以使用，所以可以正常使用。注意require(“xxx”),如果导入的是第三方模块或者是内置模块，则直接写模块名，如果是自定义模块，则需要使用路径导入，并且如果是同级目录下的模块文件，也要使用“./xxx”,否则不加则会认为是内置或第三方模块，导致出错。并且注意在同一个文件中导出模块，使用了module.exports 将会使得  exports.xxx  的方式失效，并且定义多个module.exports 会将之前的覆盖，只有最后一个生效。定义多个exports.xxx = xxx;导出的将会是一个对象，可以使用结构赋值的方法导入，也可以使用module.exports 用对象的形式将多个数据导出。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;定义模块</span><br><span class="line">let msg &#x3D; &quot;hhhhhh&quot;</span><br><span class="line">function change()&#123;</span><br><span class="line">    msg &#x3D; &quot;jjjjj&quot;</span><br><span class="line">    console.log(&#39;change&#39;,msg)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; module.exports &#x3D; change</span><br><span class="line">&#x2F;&#x2F; module.exports &#x3D; msg</span><br><span class="line">&#x2F;&#x2F; exports.msg &#x3D; msg</span><br><span class="line">exports.msg &#x3D; msg</span><br><span class="line">exports.change &#x3D; change</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;入口文件</span><br><span class="line">const &#123;msg,change&#125; &#x3D; require(&quot;.&#x2F;modules&#x2F;modules1&quot;)</span><br><span class="line">&#x2F;&#x2F;</span><br><span class="line">&#x2F;&#x2F; mo1();</span><br><span class="line">console.log(msg)</span><br><span class="line">change()</span><br></pre></td></tr></table></figure>
+
+<h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><p>因为前端只能通过页面的<script>方式导入js文件，所以浏览器不认识exports和require,所以需要转译，浏览器才能识别。需要通过特殊插件打包才能认识。</p>
+<p>//全局安装打包工具</p>
+<p><code>npm install browserify -g</code> </p>
+<ul>
+<li><p>打包处理js:</p>
+<ul>
+<li>browserify    js/src/app.js(入口文件)    -o     js/dist/bundle.js（打包生成的文件）</li>
+</ul>
+</li>
+<li><p>页面使用引入:</p>
+<script type="text/javascript" src="js/dist/bundle.js"></script></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/09/19/%E6%A8%A1%E5%9D%97%E5%8C%96/" data-id="ckhk0r2b50013qwudhnua5fui" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-cors跨域通信" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/17/cors%E8%B7%A8%E5%9F%9F%E9%80%9A%E4%BF%A1/" class="article-date">
+  <time datetime="2020-09-17T05:36:23.000Z" itemprop="datePublished">2020-09-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/17/cors%E8%B7%A8%E5%9F%9F%E9%80%9A%E4%BF%A1/">cors跨域通信</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="CORS跨域"><a href="#CORS跨域" class="headerlink" title="CORS跨域"></a>CORS跨域</h1><p>cors需要浏览器和服务器同时支持。（目前所有的浏览器都支持）整个cors通信的过程，都是浏览器自动完成，不需要用户的参与，对于开发者来说，cors通信与普通的ajax通信没有区别，代码完全一样。浏览器一旦发现Ajax请求跨域，就会自动添加一些附加的头信息，有时还会多出一次附加的请求，但用户不会由感知。因此cors通信的关键是服务器。只要服务器实现了cors接口，就可以跨域通信。</p>
+<h2 id="两种请求"><a href="#两种请求" class="headerlink" title="两种请求"></a>两种请求</h2><p>cors请求分为两类：简单请求，和非简单请求。</p>
+<h3 id="简单请求："><a href="#简单请求：" class="headerlink" title="简单请求："></a>简单请求：</h3><p>1.请求方法是以下三种方法之一：</p>
+<p>HEAD   .    GET       .     POST</p>
+<p>2.HTTP的头信息不超过以下字段：</p>
+<ul>
+<li>Accept</li>
+<li>Accept-Language</li>
+<li>Content-Language</li>
+<li>Last-Event-ID</li>
+<li>Content-Type：只限于三个值<code>application/x-www-form-urlencoded</code>、<code>multipart/form-data</code>、<code>text/plain</code></li>
+</ul>
+<p>凡是不同时满足上面两个条件，就属于非简单请求。一句话，简单请求就是简单的 HTTP 方法与简单的 HTTP 头信息的结合。这样划分的原因是，表单在历史上一直可以跨域发出请求。简单请求就是表单请求，浏览器沿袭了传统的处理方式，不把行为复杂化，否则开发者可能转而使用表单，规避 CORS 的限制。对于非简单请求，浏览器会采用新的处理方式。</p>
+<h2 id="简单请求"><a href="#简单请求" class="headerlink" title="简单请求"></a>简单请求</h2><h3 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h3><p>对于简单请求，浏览器直接发出 CORS 请求。具体来说，就是在头信息之中，增加一个<code>Origin</code>字段。</p>
+<p>下面是一个例子，浏览器发现这次跨域 AJAX 请求是简单请求，就自动在头信息之中，添加一个<code>Origin</code>字段。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;cors HTTP&#x2F;1.1</span><br><span class="line">Origin: http:&#x2F;&#x2F;api.bob.com</span><br><span class="line">Host: api.alice.com</span><br><span class="line">Accept-Language: en-US</span><br><span class="line">Connection: keep-alive</span><br><span class="line">User-Agent: Mozilla&#x2F;5.0...</span><br></pre></td></tr></table></figure>
+
+<p>上面的头信息中，<code>Origin</code>字段用来说明，本次请求来自哪个域（协议 + 域名 + 端口）。服务器根据这个值，决定是否同意这次请求。</p>
+<h2 id="非简单请求"><a href="#非简单请求" class="headerlink" title="非简单请求"></a>非简单请求</h2><p>非简单请求的 CORS 请求，会在正式通信之前，增加一次 HTTP 查询请求，称为“预检”请求（preflight）。浏览器先询问服务器，当前网页所在的域名是否在服务器的许可名单之中，以及可以使用哪些 HTTP 方法和头信息字段。只有得到肯定答复，浏览器才会发出正式的<code>XMLHttpRequest</code>请求，否则就报错。这是为了防止这些新增的请求，对传统的没有 CORS 支持的服务器形成压力，给服务器一个提前拒绝的机会，这样可以防止服务器收到大量<code>DELETE</code>和<code>PUT</code>请求，这些传统的表单不可能跨域发出的请求。</p>
+<p>浏览器发现，这是一个非简单请求，就自动发出一个“预检”请求，要求服务器确认可以这样请求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">OPTIONS &#x2F;cors HTTP&#x2F;1.1</span><br><span class="line">Origin: http:&#x2F;&#x2F;api.bob.com</span><br><span class="line">Access-Control-Request-Method: PUT</span><br><span class="line">Access-Control-Request-Headers: X-Custom-Header</span><br><span class="line">Host: api.alice.com</span><br><span class="line">Accept-Language: en-US</span><br><span class="line">Connection: keep-alive</span><br><span class="line">User-Agent: Mozilla&#x2F;5.0...</span><br></pre></td></tr></table></figure>
+
+<p>“预检”请求用的请求方法是<code>OPTIONS</code>，表示这个请求是用来询问的。头信息里面，关键字段是<code>Origin</code>，表示请求来自哪个源。</p>
+<p>除了<code>Origin</code>字段，“预检”请求的头信息包括两个特殊字段。</p>
+<p><strong>（1）<code>Access-Control-Request-Method</code></strong></p>
+<p>该字段是必须的，用来列出浏览器的 CORS 请求会用到哪些 HTTP 方法，上例是<code>PUT</code>。</p>
+<p><strong>（2）<code>Access-Control-Request-Headers</code></strong></p>
+<p>该字段是一个逗号分隔的字符串，指定浏览器 CORS 请求会额外发送的头信息字段，上例是<code>X-Custom-Header</code>。</p>
+<p>允许跨域请求的返回：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">HTTP&#x2F;1.1 200 OK</span><br><span class="line">Date: Mon, 01 Dec 2008 01:15:39 GMT</span><br><span class="line">Server: Apache&#x2F;2.0.61 (Unix)</span><br><span class="line">Access-Control-Allow-Origin: http:&#x2F;&#x2F;api.bob.com</span><br><span class="line">Access-Control-Allow-Methods: GET, POST, PUT</span><br><span class="line">Access-Control-Allow-Headers: X-Custom-Header</span><br><span class="line">Content-Type: text&#x2F;html; charset&#x3D;utf-8</span><br><span class="line">Content-Encoding: gzip</span><br><span class="line">Content-Length: 0</span><br><span class="line">Keep-Alive: timeout&#x3D;2, max&#x3D;100</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Content-Type: text&#x2F;plain</span><br></pre></td></tr></table></figure>
+
+<p>否定跨域</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">OPTIONS http:&#x2F;&#x2F;api.bob.com HTTP&#x2F;1.1</span><br><span class="line">Status: 200</span><br><span class="line">Access-Control-Allow-Origin: https:&#x2F;&#x2F;notyourdomain.com</span><br><span class="line">Access-Control-Allow-Method: POST</span><br></pre></td></tr></table></figure>
+
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a><strong>总结：</strong></h3><p><strong>简单请求：</strong></p>
+<p>简单请求在发请求之前，浏览器发现是跨域是简单请求就给请求头添加一个origin字段。origin字段就是请求的域。（协议 + 域名 + 端口）。服务器根据这个字段就会返回正常的http响应。浏览器发现，这个回应的头信息没有包含<code>Access-Control-Allow-Origin</code>字段，就知道出错了，从而抛出一个错误，被<code>XMLHttpRequest</code>的<code>onerror</code>回调函数捕获。注意，这种错误无法通过状态码识别，因为 HTTP 回应的状态码有可能是200。</p>
+<p>如果<code>Origin</code>指定的域名在许可范围内，服务器返回的响应，会多出几个头信息字段。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/09/17/cors%E8%B7%A8%E5%9F%9F%E9%80%9A%E4%BF%A1/" data-id="ckhk0r2a30004qwud7utl6pyp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-tcp和udp协议的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/17/tcp%E5%92%8Cudp%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
+  <time datetime="2020-09-17T01:38:38.000Z" itemprop="datePublished">2020-09-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/17/tcp%E5%92%8Cudp%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%8C%BA%E5%88%AB/">tcp和udp协议的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="TCP和UDP协议的区别"><a href="#TCP和UDP协议的区别" class="headerlink" title="TCP和UDP协议的区别"></a>TCP和UDP协议的区别</h1><p>1.tcp是面向连接的（比如打电话需要先拨号建立连接），udp是无连接的，即发送数据之前不需要建立连接。</p>
+<p>2.TCP提供可靠的服务，也就是说，通过tcp连接传送的数据，无差错，不丢失，不重复，且按顺序到达，UDP尽最大的努力交付，即不保证可靠交付。</p>
+<p>3.TCP面向字节流，实际上是tcp把数据看成是一串无结构的字节流，udp是面向报文的，UDP没有拥塞控制，因此网络出现拥塞不会使源主机的发送速率降低（对实时应用很有用）。</p>
+<p>4.每一条tcp连接只能是点到点，udp支持一对一，一对多，和多对多的交互通信。</p>
+<p>5.tcp首部开销20字节，udp的首部开销小，只有8个字节。</p>
+<p>6。tcp的逻辑通信信道是全双工的可靠信道，udp则是不可靠信道。</p>
+<h2 id="TCP怎样确保数据正确性"><a href="#TCP怎样确保数据正确性" class="headerlink" title="TCP怎样确保数据正确性"></a>TCP怎样确保数据正确性</h2><p>1.校验和：发送的数据包的二进制相加然后取反，检测数据在传输的过程中的任何变化，如果收到段的检验和差错，tcp将丢弃这个报文段和不确认收到此报文段。</p>
+<p>2.确认应答+序列号：tcp给发送的每一个包进行编号，接收方，对数据包进行排序，把有序数据传送给应用层。</p>
+<p>3，超时重传：当一个tcp发出一个段后，它启动一个定时器，等待目的端确认收到这个报文段，如果不能及时收到一个确认，将会重新发送这个报文段。</p>
+<p>4.流量控制：tcp连接的每一方都有一个固定大小的缓冲空间，tcp的接收端只允许发送端发送接收端缓冲区能接纳的数据，当接收方来不及处理发送方发送的数据，能提示发送方降低发送的速率，防止包丢失。tcp使用的流量控制协议是可变大小的滑动窗口协议。</p>
+<p>5.拥塞控制：当网络拥塞时，减少数据的发送，发送方拥有窗口，发送数据前对比接收方发过来的计时窗口，取小。</p>
+<h2 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h2><p>传输层 </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/09/17/tcp%E5%92%8Cudp%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="ckhk0r2av000qqwud5zyghgj3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-http缓存策略" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/16/http%E7%BC%93%E5%AD%98%E7%AD%96%E7%95%A5/" class="article-date">
+  <time datetime="2020-09-16T12:18:42.000Z" itemprop="datePublished">2020-09-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/16/http%E7%BC%93%E5%AD%98%E7%AD%96%E7%95%A5/">http缓存策略</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Http协议（浏览器）的缓存策略"><a href="#Http协议（浏览器）的缓存策略" class="headerlink" title="Http协议（浏览器）的缓存策略"></a>Http协议（浏览器）的缓存策略</h1><p>缓存分为两种：</p>
+<p>1.强制缓存</p>
+<p>2.协商缓存</p>
+<p>浏览器缓存的关键：</p>
+<p><strong>浏览器每次发起请求，都会先在浏览器缓存中查找该请求的结果以及缓存标识</strong></p>
+<p><strong>浏览器每次拿到返回的请求结果都会根据缓存标识决定是否将该结果和缓存标识存入浏览器缓存中</strong></p>
+<h2 id="强制缓存"><a href="#强制缓存" class="headerlink" title="强制缓存"></a>强制缓存</h2><p>个人话语：  强制缓存就是向浏览器缓存查找该请求结果，并且根据该结果的缓存规则来决定是否使用该缓存结果的过程。（他不是控制是否要缓存，而是判断能不能使用浏览器缓存的过程。）</p>
+<p>强制缓存的情况主要分为三种：</p>
+<p>1.不存在该缓存结果和缓存标识，强制缓存失效，向服务器重新发送请求。</p>
+<p>2.存在该缓存结果和缓存标识，但是该结果失效，强制缓存失效，强制缓存失效，则使用协商缓存。该情况，向服务器发送http请求后，会返回缓存标识，浏览器再携带资源的缓存标识，发起http请求(协商请求)</p>
+<p>3.存在该缓存结果和缓存标识，缓存还有效，则直接返回结果。</p>
+<p><strong>强缓存-expires</strong></p>
+<ul>
+<li><p>该字段是服务器响应消息头字段，告诉浏览器在过期时间之前可以直接从浏览器缓存中存取数据。</p>
+</li>
+<li><p>Expires 是 HTTP 1.0 的字段，表示缓存到期时间，是一个绝对的时间 (当前时间+缓存时间)。在响应消息头中，设置这个字段之后，就可以告诉浏览器，在未过期之前不需要再次请求。</p>
+</li>
+<li><p>由于是绝对时间，用户可能会将客户端本地的时间进行修改，而导致浏览器判断缓存失效，重新请求该资源。此外，即使不考虑修改，时差或者误差等因素也可能造成客户端与服务端的时间不一致，致使缓存失效。</p>
+</li>
+<li><p>优势特点</p>
+<ul>
+<li>1、HTTP 1.0 产物，可以在HTTP 1.0和1.1中使用，简单易用。</li>
+<li>2、以时刻标识失效时间。</li>
+</ul>
+</li>
+<li><p>劣势问题</p>
+<ul>
+<li><p>1、时间是由服务器发送的(UTC)，如果服务器时间和客户端时间存在不一致，可能会出现问题。</p>
+</li>
+<li><p>2、存在版本问题，到期之前的修改客户端是不可知的</p>
+</li>
+<li><p><strong>强缓存-cache-control</strong></p>
+<ul>
+<li><p>已知Expires的缺点之后，在HTTP/1.1中，增加了一个字段Cache-control，该字段表示资源缓存的最大有效时间，在该时间内，客户端不需要向服务器发送请求。</p>
+</li>
+<li><p>这两者的区别就是前者是绝对时间，而后者是相对时间。下面列举一些 <code>Cache-control</code> 字段常用的值：(完整的列表可以查看MDN)</p>
+<ul>
+<li><p><code>max-age</code>：即最大有效时间。</p>
+</li>
+<li><p><code>must-revalidate</code>：如果超过了 <code>max-age</code> 的时间，浏览器必须向服务器发送请求，验证资源是否还有效。</p>
+</li>
+<li><p><code>no-cache</code>：不使用强缓存，需要与服务器验证缓存是否新鲜。</p>
+</li>
+<li><p><code>no-store</code>: 真正意义上的“不要缓存”。所有内容都不走缓存，包括强制和对比。</p>
+</li>
+<li><p><code>public</code>：所有的内容都可以被缓存 (包括客户端和代理服务器， 如 CDN)</p>
+</li>
+<li><p><code>private</code>：所有的内容只有客户端才可以缓存，代理服务器不能缓存。默认值。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>- **Cache-control 的优先级高于 Expires**，为了兼容 HTTP/1.0 和 HTTP/1.1，实际项目中两个字段都可以设置。
+
+- 该字段可以在请求头或者响应头设置，可组合使用多种指令：
+
+  - 可缓存性
+
+    - public：浏览器和缓存服务器都可以缓存页面信息</code></pre><ul>
+<li><p>private：default，代理服务器不可缓存，只能被单个用户缓存</p>
+<pre><code>- no-cache：浏览器器和服务器都不应该缓存页面信息，但仍可缓存，只是在缓存前需要向服务器确认资源是否被更改。不使用本地缓存。需要使用缓存协商，先与服务器确认返回的响应是否被更改，如果之前的响应中存在 ETag，那么请求的时候会与服务端验证，如果资源未被更改，则可以避免重新下载。
+- only-if-cache：客户端只接受已缓存的响应</code></pre><ul>
+<li>到期</li>
+</ul>
+<ul>
+<li><p>max-age=：缓存存储的最大周期，超过这个周期被认为过期。时间单位为秒。</p>
+<ul>
+<li>s-maxage=：设置共享缓存，比如can。会覆盖max-age和expires。</li>
+</ul>
+</li>
+<li><p>max-stale[=]：客户端愿意接收一个已经过期的资源</p>
+<ul>
+<li>min-fresh=：客户端希望在指定的时间内获取最新的响应</li>
+<li>stale-while-revalidate=：客户端愿意接收陈旧的响应，并且在后台一部检查新的响应。时间代表客户端愿意接收陈旧响应<br>的时间长度。</li>
+<li>stale-if-error=：如新的检测失败，客户端则愿意接收陈旧的响应，时间代表等待时间。</li>
+</ul>
+<ul>
+<li>重新验证和重新加载</li>
+</ul>
+</li>
+<li><p>must-revalidate：如页面过期，则去服务器进行获取。</p>
+<ul>
+<li>proxy-revalidate：用于共享缓存。</li>
+</ul>
+</li>
+<li><p>immutable：响应正文不随时间改变。</p>
+<ul>
+<li>其他</li>
+</ul>
+</li>
+<li><p>no-store：绝对禁止缓存</p>
+<ul>
+<li>no-transform：不得对资源进行转换和转变。例如，不得对图像格式进行转换。</li>
+</ul>
+</li>
+<li><p>优势特点</p>
+</li>
+<li><p>1、HTTP 1.1 产物，以时间间隔标识失效时间，解决了Expires服务器和客户端相对时间的问题。</p>
+<ul>
+<li>2、比Expires多了很多选项设置。</li>
+</ul>
+</li>
+<li><p>劣势问题</p>
+</li>
+<li><p>1、存在版本问题，到期之前的修改客户端是不可知的。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h2><p>协商缓存就是强制缓存失效后，浏览器携带缓存标识（协商缓存标识）向服务器发起请求，由服务器根据缓存标识决定是否使用缓存的过程。（和服务器交流是否该结果还能使用，可能时间过期了，但是数据库的数据没有发生改变，所以还可以使用浏览器缓存，所以只返回一个304可以减少网络请求压力，如果服务器查询发现该数据发生了改变，就需要重新发送数据，发送接受就会返回200的状态码，这就是和服务器的一个协商过程）</p>
+<p>主要有以下两种情况：</p>
+<p>1.协商缓存生效，该请求之前的浏览器缓存结果还可以用，返回304.</p>
+<p>2.协商缓存失效，返回200和请求结果。</p>
+<p><strong>协商缓存-协商缓存-Last-Modified/If-Modified-since</strong></p>
+<ul>
+<li><p>1.服务器通过 <code>Last-Modified</code> 字段告知客户端，资源最后一次被修改的时间，例如 <code>Last-Modified: Mon, 10 Apr 2020 09:10:11 GMT</code></p>
+</li>
+<li><p>2.浏览器将这个值和内容一起记录在缓存数据中。</p>
+</li>
+<li><p>3.下一次请求相同资源时时，浏览器从自己的缓存中找出“不确定是否过期的”缓存。因此在请求头中将上次的 <code>Last-Modified</code> 的值写入到请求头的 <code>If-Modified-Since</code> 字段</p>
+</li>
+<li><p>4.服务器会将 <code>If-Modified-Since</code> 的值与 数据库文件最后一次修改的时间进行对比。如果相等，则表示未修改，响应 304；反之，则表示修改了，响应 200 状态码，并返回数据。</p>
+</li>
+<li><p>优势特点</p>
+<ul>
+<li>1、不存在版本问题，每次请求都会去服务器进行校验。服务器对比最后修改时间如果相同则返回304，不同返回200以及资源内容。</li>
+</ul>
+</li>
+<li><p>劣势问题</p>
+<ul>
+<li><p>2、只要资源修改，无论内容是否发生实质性的变化，都会将该资源返回客户端。例如周期性重写，这种情况下该资源包含的数据实际上一样的。</p>
+</li>
+<li><p>3、以时刻作为标识，无法识别一秒内进行多次修改的情况。 如果资源更新的速度是秒以下单位，那么该缓存是不能被使用的，因为它的时间单位最低是秒。</p>
+</li>
+<li><p>4、某些服务器不能精确的得到文件的最后修改时间。</p>
+</li>
+<li><p>5、如果文件是通过服务器动态生成的，那么该方法的更新时间永远是生成的时间，尽管文件可能没有变化，所以起不到缓存的作用。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>协商缓存-Etag/If-None-match</strong></p>
+<ul>
+<li>为了解决上述问题，出现了一组新的字段 <code>Etag</code> 和 <code>If-None-Match</code></li>
+<li><code>Etag</code> 存储的是文件的特殊标识(一般都是 hash 生成的)，服务器存储着文件的 <code>Etag</code> 字段。之后的流程和 <code>Last-Modified</code> 一致，只是 <code>Last-Modified</code> 字段和它所表示的更新时间改变成了 <code>Etag</code> 字段和它所表示的文件 hash，把 <code>If-Modified-Since</code> 变成了 <code>If-None-Match</code>。服务器同样进行比较，命中返回 304, 不命中返回新资源和 200。</li>
+<li>浏览器在发起请求时，服务器返回在Response header中返回请求资源的唯一标识。在下一次请求时，会将上一次返回的Etag值赋值给If-No-Matched并添加在Request Header中。服务器将浏览器传来的if-no-matched跟自己的本地的资源的ETag做对比，如果匹配，则返回304通知浏览器读取本地缓存，否则返回200和更新后的资源，由于<code>Etag</code>重新生成过，response header 中还会把这个<code>Etag</code>返回，即使这个<code>Etag</code>跟之前的没有变化。</li>
+<li><strong>Etag 的优先级高于 Last-Modified</strong>。</li>
+<li>优势特点<ul>
+<li>1、可以更加精确的判断资源是否被修改，可以识别一秒内多次修改的情况。</li>
+<li>2、不存在版本问题，每次请求都回去服务器进行校验。</li>
+</ul>
+</li>
+<li>劣势问题<ul>
+<li>1、计算ETag值需要性能损耗。</li>
+<li>2、分布式服务器存储的情况下，计算ETag的算法如果不一样，会导致浏览器从一台服务器上获得页面内容后到另外一台服务器上进行验证时现ETag不匹配的情况。</li>
+</ul>
+</li>
+</ul>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p>每次发起请求，浏览器都会向浏览器缓存的之前的相同请求的标识进行校验，如果该请求的有效时间还没有过，或还没有失效，则直接返回200，使用浏览器缓存（这一和浏览器缓存进行校验的过程就是强制缓存），如果有效时间过了，则会使用协商缓存，需要将该请求发往服务器，需要和浏览器进行校验，如果校验成功，浏览器缓存可以继续使用，返回304，浏览器直接使用缓存，如果服务器的数据发生了改变就需要重新发送数据，返回200，所以返回304的话一定是使用了协商缓存。对于强制缓存的标识有，Cache-control（默认是private,该属性比expires更高级，可以同时设置）,expires,对于协商缓存的标识有Last-Modified/If-Modified-since  ，Etag/If-None-match，（Etag的级别最高）具体使用看上面使用方法，这些标识都是由后端设置的。强制缓存和协商缓存是可以共存的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/09/16/http%E7%BC%93%E5%AD%98%E7%AD%96%E7%95%A5/" data-id="ckhk0r2a8000aqwude4n0fx0e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-浏览器环境概述" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/28/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%8E%AF%E5%A2%83%E6%A6%82%E8%BF%B0/" class="article-date">
+  <time datetime="2020-08-28T02:59:51.000Z" itemprop="datePublished">2020-08-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/28/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%8E%AF%E5%A2%83%E6%A6%82%E8%BF%B0/">&#39;浏览器环境概述&#39;</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/28/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%8E%AF%E5%A2%83%E6%A6%82%E8%BF%B0/" data-id="ckhk0r2b40011qwud3ugn72q9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vue-admin-tempalte-master的生产和开发j环境配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/26/vue-admin-tempalte-master%E7%9A%84%E7%94%9F%E4%BA%A7%E5%92%8C%E5%BC%80%E5%8F%91j%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time datetime="2020-08-26T09:38:31.000Z" itemprop="datePublished">2020-08-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/26/vue-admin-tempalte-master%E7%9A%84%E7%94%9F%E4%BA%A7%E5%92%8C%E5%BC%80%E5%8F%91j%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">&#39;vue-admin-tempalte-master的生产和开发j环境配置&#39;</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="开发跨域"><a href="#开发跨域" class="headerlink" title="开发跨域"></a>开发跨域</h3><p>在前后端分离开发，必定会产生跨域问题，这就需要使用代理跨域。开发时前后端不在同一台服务器上，所以需要配置代理跨域，才能完成数据对接。</p>
+<p>在vue-admin-tempalte-master中包含.env.development和.env.production文件，这两个文件配置了开发和生产环境的baseURL.</p>
+<p>配置开发跨域（一般时开发完成后进行接口对接）。</p>
+<p>1.首先注释掉mock数据部分。</p>
+<p>在vue.config.js中注释</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; before: require(&#39;.&#x2F;mock&#x2F;mock-server.js&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>修改代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">  port: port,</span><br><span class="line">  open: true,</span><br><span class="line">  overlay: &#123;</span><br><span class="line">    warnings: false,</span><br><span class="line">    errors: true</span><br><span class="line">  &#125;,</span><br><span class="line">  proxy:&#123;</span><br><span class="line">    &#39;&#x2F;api&#39;: &#123; &#x2F;&#x2F;拦截以&#x2F;api开头的请求（api封装的请求）</span><br><span class="line">      target: &#39;http:&#x2F;&#x2F;127.0.0.1:3000&#39;, &#x2F;&#x2F; 这个链接是要代理到的api地址</span><br><span class="line">      changeOrigin: true,  &#x2F;&#x2F;设置可以跨域</span><br><span class="line">      pathRewrite: &#123;</span><br><span class="line">        &#39;^&#x2F;api&#39;: &#39;&#39;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  &#x2F;&#x2F; before: require(&#39;.&#x2F;mock&#x2F;mock-server.js&#39;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>在main.js中注释掉下面内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; if (process.env.NODE_ENV &#x3D;&#x3D;&#x3D; &#39;production&#39;) &#123;</span><br><span class="line">&#x2F;&#x2F;   const &#123; mockXHR &#125; &#x3D; require(&#39;..&#x2F;mock&#39;)</span><br><span class="line">&#x2F;&#x2F;   mockXHR()</span><br><span class="line">&#x2F;&#x2F; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改.env.development中的地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VUE_APP_BASE_API &#x3D; &#39;http:&#x2F;&#x2F;127.0.0.1:3000&#39;</span><br></pre></td></tr></table></figure>
+
+<p>修改utils/request.js改成下面的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">baseURL: process.env.NODE_ENV !&#x3D;&#x3D; &#39;production&#39;?&#39;&#x2F;api&#39;:process.env.VUE_APP_BASE_API,</span><br><span class="line">&#x2F;&#x2F;如果是生产环境，则使用.env.production里面的url,如果不是则设置为代理拦截的前部，这里设置的baseURl会自动和封装的api接口进行拼接得到请求地址，因为如果是代理请求一般都是开发跨域，process.env.NODE_ENV可以获取到项目是什么环境下。</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/26/vue-admin-tempalte-master%E7%9A%84%E7%94%9F%E4%BA%A7%E5%92%8C%E5%BC%80%E5%8F%91j%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" data-id="ckhk0r2ar000pqwude3ov94l0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/26/http2%E5%92%8Chttp1-0/">http2和http1.0</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/20/js%E9%9D%A2%E8%AF%95%E9%A2%98%E5%90%88%E9%9B%86/">js面试题合集</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/19/csrf%E9%98%B2%E5%BE%A1%E7%AD%96%E7%95%A5/">&#39;csrf防御策略&#39;</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/04/react-%E4%B8%ADsetState%E7%9A%84%E4%BD%BF%E7%94%A8/">react 中setState的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/04/vue3%E7%9A%84%E4%BC%98%E5%8C%96/">vue3的优化</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>模块化 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="四种模块化规范1.CommonJs规范2.AMD规范3.CMD规范（基本已弃用）4.ES6规范CommonJs规范CommonJs规范包括客户端和服务端规范 使用方法： 1.导出方法： module.exports&#x3D;valueexports.xxx&#x3D;value 2.导入方法 const  xxx &#x3D; require(&quot;xxxx&quot;) 服务端服务端因为使用的是node运行，所以对于">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模块化">
+<meta property="og:url" content="http://yoursite.com/2020/09/19/%E6%A8%A1%E5%9D%97%E5%8C%96/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="四种模块化规范1.CommonJs规范2.AMD规范3.CMD规范（基本已弃用）4.ES6规范CommonJs规范CommonJs规范包括客户端和服务端规范 使用方法： 1.导出方法： module.exports&#x3D;valueexports.xxx&#x3D;value 2.导入方法 const  xxx &#x3D; require(&quot;xxxx&quot;) 服务端服务端因为使用的是node运行，所以对于">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-19T11:52:13.000Z">
+<meta property="article:modified_time" content="2020-09-19T14:27:35.437Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-模块化" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/19/%E6%A8%A1%E5%9D%97%E5%8C%96/" class="article-date">
+  <time datetime="2020-09-19T11:52:13.000Z" itemprop="datePublished">2020-09-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      模块化
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="四种模块化规范"><a href="#四种模块化规范" class="headerlink" title="四种模块化规范"></a>四种模块化规范</h1><h4 id="1-CommonJs规范"><a href="#1-CommonJs规范" class="headerlink" title="1.CommonJs规范"></a>1.CommonJs规范</h4><h4 id="2-AMD规范"><a href="#2-AMD规范" class="headerlink" title="2.AMD规范"></a>2.AMD规范</h4><h4 id="3-CMD规范（基本已弃用）"><a href="#3-CMD规范（基本已弃用）" class="headerlink" title="3.CMD规范（基本已弃用）"></a>3.CMD规范（基本已弃用）</h4><h4 id="4-ES6规范"><a href="#4-ES6规范" class="headerlink" title="4.ES6规范"></a>4.ES6规范</h4><h2 id="CommonJs规范"><a href="#CommonJs规范" class="headerlink" title="CommonJs规范"></a>CommonJs规范</h2><p>CommonJs规范包括客户端和服务端规范</p>
+<p>使用方法：</p>
+<p>1.导出方法：</p>
+<p><code>module.exports=value</code><br><code>exports.xxx=value</code></p>
+<p>2.导入方法</p>
+<p><code>const  xxx = require(&quot;xxxx&quot;)</code></p>
+<h4 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h4><p>服务端因为使用的是node运行，所以对于导入导出，可以使用，所以可以正常使用。注意require(“xxx”),如果导入的是第三方模块或者是内置模块，则直接写模块名，如果是自定义模块，则需要使用路径导入，并且如果是同级目录下的模块文件，也要使用“./xxx”,否则不加则会认为是内置或第三方模块，导致出错。并且注意在同一个文件中导出模块，使用了module.exports 将会使得  exports.xxx  的方式失效，并且定义多个module.exports 会将之前的覆盖，只有最后一个生效。定义多个exports.xxx = xxx;导出的将会是一个对象，可以使用结构赋值的方法导入，也可以使用module.exports 用对象的形式将多个数据导出。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;定义模块</span><br><span class="line">let msg &#x3D; &quot;hhhhhh&quot;</span><br><span class="line">function change()&#123;</span><br><span class="line">    msg &#x3D; &quot;jjjjj&quot;</span><br><span class="line">    console.log(&#39;change&#39;,msg)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; module.exports &#x3D; change</span><br><span class="line">&#x2F;&#x2F; module.exports &#x3D; msg</span><br><span class="line">&#x2F;&#x2F; exports.msg &#x3D; msg</span><br><span class="line">exports.msg &#x3D; msg</span><br><span class="line">exports.change &#x3D; change</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;入口文件</span><br><span class="line">const &#123;msg,change&#125; &#x3D; require(&quot;.&#x2F;modules&#x2F;modules1&quot;)</span><br><span class="line">&#x2F;&#x2F;</span><br><span class="line">&#x2F;&#x2F; mo1();</span><br><span class="line">console.log(msg)</span><br><span class="line">change()</span><br></pre></td></tr></table></figure>
+
+<h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><p>因为前端只能通过页面的<script>方式导入js文件，所以浏览器不认识exports和require,所以需要转译，浏览器才能识别。需要通过特殊插件打包才能认识。</p>
+<p>//全局安装打包工具</p>
+<p><code>npm install browserify -g</code> </p>
+<ul>
+<li><p>打包处理js:</p>
+<ul>
+<li>browserify    js/src/app.js(入口文件)    -o     js/dist/bundle.js（打包生成的文件）</li>
+</ul>
+</li>
+<li><p>页面使用引入:</p>
+<script type="text/javascript" src="js/dist/bundle.js"></script></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/09/19/%E6%A8%A1%E5%9D%97%E5%8C%96/" data-id="ckhk0r2b50013qwudhnua5fui" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/09/23/react%E7%9A%84%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          react的组件通信
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/09/17/cors%E8%B7%A8%E5%9F%9F%E9%80%9A%E4%BF%A1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">cors跨域通信</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/26/http2%E5%92%8Chttp1-0/">http2和http1.0</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/20/js%E9%9D%A2%E8%AF%95%E9%A2%98%E5%90%88%E9%9B%86/">js面试题合集</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/19/csrf%E9%98%B2%E5%BE%A1%E7%AD%96%E7%95%A5/">&#39;csrf防御策略&#39;</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/04/react-%E4%B8%ADsetState%E7%9A%84%E4%BD%BF%E7%94%A8/">react 中setState的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/04/vue3%E7%9A%84%E4%BC%98%E5%8C%96/">vue3的优化</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
