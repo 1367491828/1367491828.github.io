@@ -7,15 +7,20 @@
   
   <title>http2和http1.0 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="多路复用。多路复用允许同时通过单一的 HTTP&#x2F;2 连接发起多重的请求-响应消息。 在 HTTP&#x2F;1.1 协议中，浏览器客户端在同一时间，针对同一域名下的请求有一定数量限制。超过限制数目的请求会被阻塞。下图展示了不同浏览器的同时发请求的数量限制。  多路复用允许同时通过单一的 HTTP&#x2F;2 连接发起多重的请求-响应消息。  头部压缩。HTTP&#x2F;1.1并不支持HTTP首部压缩，为枇SPDY和HTTP">
+<meta property="og:type" content="article">
 <meta property="og:title" content="http2和http1.0">
-<meta property="og:url" content="http://yoursite.com/2020/11/26/http2%E5%92%8Chttp1-0/index.html">
+<meta property="og:url" content="http://yoursite.com/2020/11/26/http2%E5%92%8Chttp1/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="多路复用。多路复用允许同时通过单一的 HTTP&#x2F;2 连接发起多重的请求-响应消息。 在 HTTP&#x2F;1.1 协议中，浏览器客户端在同一时间，针对同一域名下的请求有一定数量限制。超过限制数目的请求会被阻塞。下图展示了不同浏览器的同时发请求的数量限制。  多路复用允许同时通过单一的 HTTP&#x2F;2 连接发起多重的请求-响应消息。  头部压缩。HTTP&#x2F;1.1并不支持HTTP首部压缩，为枇SPDY和HTTP">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s3.ax1x.com/2020/11/26/DBPIa9.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/11/26/DBFu0e.png">
 <meta property="article:published_time" content="2020-11-26T11:30:58.000Z">
-<meta property="article:modified_time" content="2020-11-26T11:30:58.044Z">
+<meta property="article:modified_time" content="2020-11-26T11:58:41.133Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.ax1x.com/2020/11/26/DBPIa9.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,9 +69,9 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-http2和http1-0" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-http2和http1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/11/26/http2%E5%92%8Chttp1-0/" class="article-date">
+    <a href="/2020/11/26/http2%E5%92%8Chttp1/" class="article-date">
   <time datetime="2020-11-26T11:30:58.000Z" itemprop="datePublished">2020-11-26</time>
 </a>
     
@@ -86,11 +91,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="多路复用。"><a href="#多路复用。" class="headerlink" title="多路复用。"></a><strong>多路复用。</strong></h3><p><strong>多路复用允许同时通过单一的 HTTP/2 连接发起多重的请求-响应消息。</strong></p>
+<p>在 HTTP/1.1 协议中，浏览器客户端在同一时间，针对同一域名下的请求有一定数量限制。超过限制数目的请求会被阻塞。下图展示了不同浏览器的同时发请求的数量限制。</p>
+<p><a href="https://imgchr.com/i/DBPIa9" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/26/DBPIa9.png" alt="DBPIa9.png" border="0" /></a></p>
+<p><strong>多路复用允许同时通过单一的 HTTP/2 连接发起多重的请求-响应消息。</strong></p>
+<p><a href="https://imgchr.com/i/DBFu0e" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/26/DBFu0e.png" alt="DBFu0e.png" border="0" /></a></p>
+<h3 id="头部压缩。"><a href="#头部压缩。" class="headerlink" title="头部压缩。"></a><strong>头部压缩。</strong></h3><p>HTTP/1.1并不支持HTTP首部压缩，为枇SPDY和HTTP/2应运而生，SPDY 使用的是通用的DEFLATE算法,而HTTP/2则使用了专门]为首部压缩而设计的HPACK算法。</p>
+<h3 id="二进制分帧。"><a href="#二进制分帧。" class="headerlink" title="二进制分帧。"></a><strong>二进制分帧</strong>。</h3><p>就是在 应用层(HTTP/2)和传输层(TCP or UDP)之间增加一个二进制分帧层。</p>
+<h3 id="服务端推送。"><a href="#服务端推送。" class="headerlink" title="服务端推送。"></a><strong>服务端推送。</strong></h3><p>服务端推送是一种在客户端请求之前发送数据的机制。在 HTTP/2 中，服务器可以对客户端的一个请求发送多个响应。服务器推送还有一个很大的优势：可以缓存！也让在遵循同源的情况下，不同页面之间可以共享缓存资源成为可能。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/26/http2%E5%92%8Chttp1-0/" data-id="ckhyrb7hb0000zcud79dzh52s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/26/http2%E5%92%8Chttp1/" data-id="cki2l2apy00008gud3381b304" class="article-share-link">Share</a>
       
       
     </footer>
@@ -99,10 +112,19 @@
     
 <nav id="article-nav">
   
+    <a href="/2020/11/28/%E5%8D%B3%E6%97%B6%E9%80%9A%E8%AE%AF/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          即时通讯
+        
+      </div>
+    </a>
   
-    <a href="/2020/11/20/js%E9%9D%A2%E8%AF%95%E9%A2%98%E5%90%88%E9%9B%86/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2020/11/19/csrf%E9%98%B2%E5%BE%A1%E7%AD%96%E7%95%A5/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">js面试题合集</div>
+      <div class="article-nav-title">&#39;csrf防御策略&#39;</div>
     </a>
   
 </nav>
@@ -139,11 +161,11 @@
       <ul>
         
           <li>
-            <a href="/2020/11/26/http2%E5%92%8Chttp1-0/">http2和http1.0</a>
+            <a href="/2020/11/28/%E5%8D%B3%E6%97%B6%E9%80%9A%E8%AE%AF/">即时通讯</a>
           </li>
         
           <li>
-            <a href="/2020/11/20/js%E9%9D%A2%E8%AF%95%E9%A2%98%E5%90%88%E9%9B%86/">js面试题合集</a>
+            <a href="/2020/11/26/http2%E5%92%8Chttp1/">http2和http1.0</a>
           </li>
         
           <li>
@@ -155,7 +177,7 @@
           </li>
         
           <li>
-            <a href="/2020/11/04/vue3%E7%9A%84%E4%BC%98%E5%8C%96/">vue3的优化</a>
+            <a href="/2020/10/31/redux%E5%AD%A6%E4%B9%A0/">redux学习</a>
           </li>
         
       </ul>
